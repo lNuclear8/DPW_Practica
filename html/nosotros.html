@@ -108,17 +108,7 @@
             </div>
         </section>
     </div>
-    <div class="mapa">
-        <h2>Ubicación: Estadio Romano, Mérida, Badajoz</h2>
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20844.950958873474!2d-6.347469399999999!3d38.915051799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd66a2f235bc26fb%3A0x70c27f17bc02a9e0!2sEstadio%20Romano!5e0!3m2!1ses!2ses!4v1697768531592!5m2!1ses!2ses"
-                width="600"
-                height="450"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy">
-        </iframe>
-    </div>
+    <div id="map" style="width:50%;height:300px"></div>
     <div class="cookies">
         <h2><a href="#" id="show-cookies">Cookies</a></h2>
         <div id="cookie-info" style="display: none;">
@@ -143,3 +133,17 @@
 </div>
 </body>
 </html>
+
+<script>
+    function Map123() {
+        var mapOptions = {
+            center:new google.maps.LatLng(38.90716314833059, -6.3383329949405285),
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.terrain
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=Map123">
+</script>
