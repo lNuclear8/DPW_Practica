@@ -6,51 +6,139 @@
 </head>
 <body>
 <div class="top">
-    <a href="index.html">HOME</a>
-    <div class="dropdown">
-        <p>ACERCA DE</p>
-        <div class="submenu">
-            <a href="html/noticias.html">Noticias</a>
-            <a href="html/nosotros.html">Nosotros</a>
-            <a href="html/escuderias.html">Escuderias</a>
-            <a href="html/calendario.html">Calendario</a>
-            <a href="html/normativa.html">Normativa</a>
+    <nav>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Marbula One">
+            <p>HOME</p>
+        </a>
+
+        <div class="dropdown">
+            <p>ACERCA DE</p>
+            <div class="submenu">
+                <ul>
+                    <li><a href="html/noticias.html">Noticias</a></li>
+                    <li><a href="html/nosotros.html">Nosotros</a></li>
+                    <li><a href="html/escuderias.html">Escuderias</a></li>
+                    <li><a href="html/calendario.html">Calendario</a></li>
+                    <li><a href="html/normativa.html">Normativa</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="dropdown">
-        <p>ACTIVIDADES</p>
-        <div class="submenu">
-            <a href="html/clasificacion.html">Clasificación</a>
-            <a href="html/campeones.html">Campeones</a>
-            <a href="html/formacion.html">Formación</a>
+
+        <div class="dropdown">
+            <p>ACTIVIDADES</p>
+            <div class="submenu">
+                <ul>
+                    <li><a href="html/clasificacion.html">Clasificación</a></li>
+                    <li><a href="html/campeones.html">Campeones</a></li>
+                    <li><a href="html/formacion.html">Formación</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <a href="html/galeria.html">GALERIA</a>
-    <a href="html/estadisticas.html">ESTADISTICAS</a>
-    <a href="html/contacto.html">CONTACTO</a>
-    <a href="html/tienda.html">TIENDA</a>
-    <div class="search-container">
-        <form action="/buscar" method="GET">
-            <input type="text" name="query" placeholder="Buscar..." required>
-            <button type="submit">Buscar</button>
-        </form>
-    </div>
+
+        <ul>
+            <li><a href="html/galeria.html">GALERIA</a></li>
+            <li><a href="html/estadisticas.html">ESTADISTICAS</a></li>
+            <li><a href="html/contacto.html">CONTACTO</a></li>
+            <li><a href="html/tienda.html">TIENDA</a></li>
+        </ul>
+
+        <div class="search-container">
+            <form action="/buscar" method="GET">
+                <input type="text" name="query" placeholder="Buscar..." required>
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
 </div>
+
 <div class="center">
 
 </div>
 <div class="bottom">
     <div class="sponsors">
-
+        <h2>Nuestros Sponsors</h2>
+        <section>
+            <a href="https://www.adidas.es/" target="_blank">
+                <figure>
+                    <img src="images/adidas.png" alt="Logo Adidas" width="100" height="100">
+                    <figcaption>SPONSOR TÉCNICO</figcaption>
+                </figure>
+            </a>
+        </section>
+        <section>
+            <a href="https://www.iberia.com/" target="_blank">
+                <figure>
+                    <img src="images/iberia.jpg" alt="Logo Iberia" width="100" height="100">
+                    <figcaption>PATROCINADOR</figcaption>
+                </figure>
+            </a>
+        </section>
     </div>
-    <div class="contacto">
 
+    <div class="contacto">
+        <h2>Contacto</h2>
+        <p>Síguenos en nuestras redes sociales:</p>
+        <section>
+            <div>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <figure>
+                        <img src="images/instagram.png" alt="Logo de Instagram" width="40" height="40">
+                        <figcaption>Instagram</figcaption>
+                    </figure>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <figure>
+                        <img src="images/facebook.png" alt="Logo de Facebook" width="40" height="40">
+                        <figcaption>Facebook</figcaption>
+                    </figure>
+                </a>
+                <a href="https://twitter.com/" target="_blank">
+                    <figure>
+                        <img src="images/x.png" alt="Logo de Twitter" width="40" height="40">
+                        <figcaption>Twitter</figcaption>
+                    </figure>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <figure>
+                        <img src="images/youtube.png" alt="Logo de YouTube" width="40" height="40">
+                        <figcaption>YouTube</figcaption>
+                    </figure>
+                </a>
+            </div>
+        </section>
     </div>
     <div class="mapa">
-
+        <h2>Ubicación: Estadio Romano, Mérida, Badajoz</h2>
+        <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20844.950958873474!2d-6.347469399999999!3d38.915051799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd66a2f235bc26fb%3A0x70c27f17bc02a9e0!2sEstadio%20Romano!5e0!3m2!1ses!2ses!4v1697768531592!5m2!1ses!2ses"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+        </iframe>
     </div>
     <div class="cookies">
-
+        <h2><a href="#" id="show-cookies">Cookies</a></h2>
+        <div id="cookie-info" style="display: none;">
+            <p>En Marbula One, utilizamos las siguientes cookies para mejorar tu experiencia:</p>
+            <ul>
+                <li>
+                    <strong>Cookie de Sesión:</strong> Mantiene la sesión activa mientras navegas.
+                </li>
+                <li>
+                    <strong>Cookie de Preferencias:</strong> Recuerda tus configuraciones y preferencias.
+                </li>
+                <li>
+                    <strong>Cookie de Análisis:</strong> Nos ayuda a entender cómo interactúan los usuarios con el sitio.
+                </li>
+                <li>
+                    <strong>Cookie de Publicidad:</strong> Muestra anuncios relevantes según tus intereses.
+                </li>
+            </ul>
+            <p>Para más detalles, consulta nuestra <a href="html/politica_cookies.html">Política de Cookies</a>.</p>
+        </div>
     </div>
 </div>
 </body>
