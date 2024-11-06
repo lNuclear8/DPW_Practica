@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Marbula One</title>
 </head>
-<body>
+<body onload="actualizarContadores()">
 <div class="top">
   <nav>
     <a href="../index.html">
@@ -53,6 +53,10 @@
 </div>
 
 <div class="center">
+  <!-- Contadores de visitas usando localStorage y sessionStorage -->
+  <div id="contador" style="margin: 20px; padding: 10px; border: 1px solid #ccc;">
+    <!-- Aquí se mostrará el conteo de visitas -->
+  </div>
   <div class="rectangulo">
     <img src="../images/rectangulo.png" alt="Rectangulo Azul" width="100%" height="100">
     <h1>CAMPEONES</h1>
@@ -209,6 +213,29 @@
 </div>
 </body>
 </html>
+
+<script>
+  function actualizarContadores() {
+    // Contador de visitas totales usando localStorage
+    if (localStorage.totalVisits) {
+      localStorage.totalVisits = Number(localStorage.totalVisits) + 1;
+    } else {
+      localStorage.totalVisits = 1;
+    }
+
+    // Contador de visitas de la sesión actual usando sessionStorage
+    if (sessionStorage.sessionVisits) {
+      sessionStorage.sessionVisits = Number(sessionStorage.sessionVisits) + 1;
+    } else {
+      sessionStorage.sessionVisits = 1;
+    }
+
+    // Mostrar los resultados en la página
+    document.getElementById("contador").innerHTML =
+            "Total de visitas (almacenado): " + localStorage.totalVisits +
+            "<br>Visitas en esta sesión: " + sessionStorage.sessionVisits;
+  }
+</script>
 
 <script>
   function Map123() {
