@@ -53,6 +53,107 @@
 </div>
 
 <div class="center">
+  <div class="rectangulo">
+    <img src="../images/rectangulo.png" alt="Rectangulo Azul" width="100%" height="100">
+    <h1>CONTACTO</h1>
+  </div>
+  <div class="contacto">
+    <h2>Contacto con Marbula One</h2>
+    <form action="#" method="post">
+
+      <!-- Datos personales -->
+      <fieldset>
+        <legend>Datos Personales</legend>
+
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required><br><br>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required><br><br>
+
+        <label for="telefono">Teléfono de contacto:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ej. 123-456-7890" pattern="\d{3}[-]\d{3}[-]\d{4}" required><br><br>
+
+        <label for="direccion">Dirección (opcional):</label>
+        <input type="text" id="direccion" name="direccion" placeholder="Calle, ciudad, país"><br><br>
+      </fieldset>
+
+      <!-- Consulta o mensaje -->
+      <fieldset>
+        <legend>Consulta o Mensaje</legend>
+
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" placeholder="Escribe el asunto de tu mensaje" required><br><br>
+
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Escribe aquí tu mensaje o consulta" required></textarea><br><br>
+
+        <label for="tipo_consulta">Tipo de consulta:</label>
+        <select id="tipo_consulta" name="tipo_consulta" required>
+          <option value="informacion_general">Información General</option>
+          <option value="inscripcion">Inscripción a eventos</option>
+          <option value="patrocinios">Patrocinios</option>
+          <option value="medios">Medios de comunicación</option>
+          <option value="colaboraciones">Colaboraciones</option>
+          <option value="otros">Otros</option>
+        </select><br><br>
+
+        <label for="urgencia">Urgencia de la consulta:</label><br>
+        <input type="radio" id="alta_urgencia" name="urgencia" value="alta">
+        <label for="alta_urgencia">Alta</label><br>
+        <input type="radio" id="media_urgencia" name="urgencia" value="media">
+        <label for="media_urgencia">Media</label><br>
+        <input type="radio" id="baja_urgencia" name="urgencia" value="baja">
+        <label for="baja_urgencia">Baja</label><br><br>
+      </fieldset>
+
+      <!-- Preferencias de contacto -->
+      <fieldset>
+        <legend>Preferencias de contacto</legend>
+
+        <label for="metodo_contacto">Método preferido de contacto:</label><br>
+        <input type="checkbox" id="email_contacto" name="metodo_contacto" value="email">
+        <label for="email_contacto">Correo electrónico</label><br>
+        <input type="checkbox" id="telefono_contacto" name="metodo_contacto" value="telefono">
+        <label for="telefono_contacto">Teléfono</label><br>
+        <input type="checkbox" id="mensaje_contacto" name="metodo_contacto" value="mensaje">
+        <label for="mensaje_contacto">Mensaje</label><br><br>
+
+        <label for="mejor_hora">Hora preferida para ser contactado:</label>
+        <input type="time" id="mejor_hora" name="mejor_hora"><br><br>
+
+        <label for="mejor_dia">Día preferido para ser contactado:</label>
+        <input type="date" id="mejor_dia" name="mejor_dia"><br><br>
+      </fieldset>
+
+      <!-- Redes sociales (opcional) -->
+      <fieldset>
+        <legend>Redes Sociales (Opcional)</legend>
+
+        <label for="facebook">Facebook:</label>
+        <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/tu_perfil"><br><br>
+
+        <label for="twitter">Twitter:</label>
+        <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/tu_usuario"><br><br>
+
+        <label for="instagram">Instagram:</label>
+        <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/tu_usuario"><br><br>
+
+        <label for="linkedin">LinkedIn:</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/tu_perfil"><br><br>
+      </fieldset>
+
+      <!-- Aceptación de términos -->
+      <fieldset>
+        <label for="terminos">
+          <input type="checkbox" id="terminos" name="terminos" required> Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a>.
+        </label><br><br>
+      </fieldset>
+
+      <!-- Enviar formulario -->
+      <button type="submit">Enviar consulta</button>
+    </form>
+  </div>
 
 </div>
 <div class="bottom">

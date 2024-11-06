@@ -53,7 +53,113 @@
 </div>
 
 <div class="center">
+  <div class="rectangulo">
+    <img src="../images/rectangulo.png" alt="Rectangulo Azul" width="100%" height="100">
+    <h1>FORMACIÓN</h1>
+  </div>
+  <div class="buscador">
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Buscar formaciones..." required>
+      <input type="submit" value="Buscar">
+    </form>
+  </div>
+  <div class="texto">
+    <h2>Cómo construir una pista de canicas</h2>
+    <p>Aquí tienes algunos consejos generales para hacer una pista de canicas que funcione bien:</p>
 
+    <ul>
+      <li><strong>Para niños:</strong> Primero, por favor, pide permiso a tus padres antes de comenzar a construir tu pista.</li>
+      <li><strong>Busca un espacio:</strong> Tu dormitorio, ático, cuarto de hobbies, cobertizo, jardín, etc. Busca un lugar que sea lo suficientemente grande para construir la pista. No construyas pistas en lugares concurridos, como en medio de la sala de estar o la cocina. Para proyectos más pequeños, solo necesitarás una mesa para trabajar.</li>
+      <li><strong>Busca materiales:</strong> Tubos, canalones, mangueras de aspiradoras, juguetes de pistas de carreras, K'nex, rieles de cortinas, timbres de bicicleta, campanas de puerta, gongs, campanillas, pantallas de lámparas, embudos, instrumentos musicales, papel, cartón, bloques de construcción, y mucho más. Ten cuidado al usar vidrio o porcelana, ya que pueden romperse si las canicas los golpean a gran velocidad. Al trabajar con papel o cartón, solo necesitas unas tijeras y pegamento o cinta adhesiva para construir la pista. Al trabajar con otros materiales, como madera o metales, necesitarás buenas herramientas para construir una pista estable.</li>
+      <li><strong>Construye tu pista:</strong> Comienza desde abajo y luego ve construyendo hacia arriba, esto facilita el proceso. Asegúrate de que tu pista tenga suficiente inclinación para que la canica siga rodando sin atascarse.</li>
+      <li><strong>Prueba tu pista:</strong> Coloca una canica varias veces en la pista mientras la construyes para probarla.</li>
+    </ul>
+
+    <h2>Cuando una canica se atasca:</h2>
+    <ul>
+      <li>Ajusta los soportes de la pista.</li>
+      <li>Haz la pista más ancha si una canica se atasca entre los bordes de la pista y arregla las grietas entre las partes de la pista.</li>
+      <li>Busca pequeños huecos entre las partes de la pista o revisa las uniones, arréglalos con cinta adhesiva o empuja las partes para que queden bien juntas.</li>
+      <li>Haz la pista más resistente, refuerza las partes débiles de la pista, especialmente si estás usando papel o cartón.</li>
+      <li>Revisa la pista por si hay suciedad o polvo y límpiala.</li>
+    </ul>
+  </div>
+
+  <h2>Consideraciones de seguridad</h2>
+  <ul>
+    <li>Si estás trabajando con materiales pequeños como piezas de plástico o metal, asegúrate de que no sean peligrosos para los niños o mascotas. Mantén las piezas pequeñas fuera del alcance de los más pequeños.</li>
+    <li>Siempre usa tijeras y herramientas de forma segura. Si estás usando herramientas como martillos o taladros, hazlo bajo la supervisión de un adulto.</li>
+    <li>Evita que las canicas sean lanzadas hacia los ojos u otras partes del cuerpo. No permitas que los niños jueguen con las canicas de forma inapropiada.</li>
+  </ul>
+
+  <h2>Consejos para mejorar la velocidad de la canica</h2>
+  <ul>
+    <li>Para aumentar la velocidad de la canica, asegúrate de que la pista tenga una inclinación adecuada. Las pendientes más pronunciadas permiten que las canicas se deslicen más rápido.</li>
+    <li>Usa materiales suaves y pulidos para las superficies de la pista. Esto reducirá la fricción y permitirá que las canicas se deslicen sin esfuerzo.</li>
+    <li>Haz que las curvas sean lo más suaves posible. Las curvas bruscas pueden ralentizar la canica, así que procura usar transiciones suaves para evitar que la canica se detenga o frene.</li>
+  </ul>
+
+  <div class="form">
+    <h2>Inscripción a la formación de canicas</h2>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Datos personales</legend>
+
+        <!-- Nombre completo -->
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required><br><br>
+
+        <!-- Correo electrónico -->
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required><br><br>
+
+        <!-- Fecha de nacimiento -->
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+        <!-- Género -->
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+        </select><br><br>
+
+        <!-- Teléfono -->
+        <label for="telefono">Teléfono de contacto:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ej. 123-456-7890" pattern="\d{3}[-]\d{3}[-]\d{4}" required><br><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>Información sobre la formación</legend>
+
+        <!-- Elección de formación -->
+        <label for="formacion">¿Qué formación te interesa?</label>
+        <select id="formacion" name="formacion" required>
+          <option value="introduccion">Introducción a la construcción de pistas de canicas</option>
+          <option value="avanzada">Formación avanzada en técnicas de canicas</option>
+          <option value="competicion">Curso de competición en carreras de canicas</option>
+        </select><br><br>
+
+        <!-- Fecha preferida -->
+        <label for="fecha_preferida">Fecha preferida para comenzar:</label>
+        <input type="date" id="fecha_preferida" name="fecha_preferida" required><br><br>
+
+        <!-- Comentarios -->
+        <label for="comentarios">Comentarios adicionales:</label><br>
+        <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escribe aquí tus comentarios o preguntas"></textarea><br><br>
+
+        <!-- Aceptación de términos -->
+        <label for="terminos">
+          <input type="checkbox" id="terminos" name="terminos" required> Acepto los <a href="#">términos y condiciones</a>
+        </label><br><br>
+
+        <!-- Botón de envío -->
+        <button type="submit">Inscribirse</button>
+      </fieldset>
+    </form>
+  </div>
 </div>
 <div class="bottom">
   <div class="sponsors">

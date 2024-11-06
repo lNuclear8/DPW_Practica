@@ -53,6 +53,147 @@
 </div>
 
 <div class="center">
+  <div class="rectangulo">
+    <img src="../images/rectangulo.png" alt="Rectangulo Azul" width="100%" height="100">
+    <h1>TIENDA</h1>
+  </div>
+  <div class="buscador">
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Buscar artículo..." required>
+      <input type="submit" value="Buscar">
+    </form>
+  </div>
+  <div class="carrito">
+    <h2>Tu Carrito de Compras</h2>
+
+    <!-- Tabla de productos en el carrito -->
+    <table border="1" cellpadding="10" cellspacing="0">
+      <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Total</th>
+        <th>Acción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Producto 1 -->
+      <tr>
+        <td><img src="../images/camiseta.jpg" alt="Camiseta Marbula One" style="width: 50px;"> Camiseta Oficial Marbula One</td>
+        <td>1</td>
+        <td>19,99€</td>
+        <td>19,99€</td>
+        <td><button type="button">Eliminar</button></td>
+      </tr>
+
+      <!-- Producto 2 -->
+      <tr>
+        <td><img src="../images/gorra.jpg" alt="Gorra Marbula One" style="width: 50px;"> Gorra Marbula One</td>
+        <td>2</td>
+        <td>15,99€</td>
+        <td>31,98€</td>
+        <td><button type="button">Eliminar</button></td>
+      </tr>
+
+      <!-- Producto 3 -->
+      <tr>
+        <td><img src="../images/juguete_canicas.jpg" alt="Juguete de Canicas Marbula One" style="width: 50px;"> Juguete de Canicas Marbula One</td>
+        <td>1</td>
+        <td>29,99€</td>
+        <td>29,99€</td>
+        <td><button type="button">Eliminar</button></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!-- Total -->
+    <div class="total">
+      <p><strong>Total:</strong> 81,96€</p>
+    </div>
+
+    <!-- Botón para proceder a la compra -->
+    <div class="acciones">
+      <button type="button">Continuar comprando</button>
+      <button type="button">Proceder al pago</button>
+    </div>
+  </div>
+
+  <div class="articulos">
+    <h2>Tienda de Marbula One</h2>
+
+    <!-- Artículo 1: Camiseta Marbula One -->
+    <div class="articulo">
+      <img src="../images/camiseta.jpg" alt="Camiseta Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Camiseta Oficial Marbula One</h3>
+      <p>La camiseta oficial de Marbula One. Comodidad y estilo con el logo de Marbula One.</p>
+      <p><strong>Precio:</strong> 19,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+
+    <!-- Artículo 2: Gorra Marbula One -->
+    <div class="articulo">
+      <img src="../images/gorra.jpg" alt="Gorra Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Gorra Marbula One</h3>
+      <p>Gorra con el logo de Marbula One, perfecta para los fans más apasionados.</p>
+      <p><strong>Precio:</strong> 15,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+
+    <!-- Artículo 3: Juguete de Canicas Marbula One -->
+    <div class="articulo">
+      <img src="../images/juguete_canicas.jpg" alt="Juguete de Canicas Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Juguete de Canicas Marbula One</h3>
+      <p>Recrea las carreras de Marbula One con este divertido juguete de canicas.</p>
+      <p><strong>Precio:</strong> 29,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+
+    <!-- Artículo 4: Póster Marbula One -->
+    <div class="articulo">
+      <img src="../images/poster_marbula.jpg" alt="Póster Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Póster Marbula One</h3>
+      <p>Póster de alta calidad con los mejores momentos de Marbula One.</p>
+      <p><strong>Precio:</strong> 9,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+
+    <!-- Artículo 5: Mochila Marbula One -->
+    <div class="articulo">
+      <img src="../images/mochila.jpg" alt="Mochila Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Mochila Marbula One</h3>
+      <p>Mochila resistente con el logo de Marbula One, ideal para llevar tus pertenencias a las carreras.</p>
+      <p><strong>Precio:</strong> 34,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+
+    <!-- Artículo 6: Taza Marbula One -->
+    <div class="articulo">
+      <img src="../images/taza.jpg" alt="Taza Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Taza Oficial Marbula One</h3>
+      <p>Comienza tu día con una taza de café en la taza oficial de Marbula One.</p>
+      <p><strong>Precio:</strong> 7,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+
+    <!-- Artículo 7: Bandera Marbula One -->
+    <div class="articulo">
+      <img src="../images/bandera.jpg" alt="Bandera Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Bandera Oficial Marbula One</h3>
+      <p>Bandera oficial de Marbula One para mostrar tu apoyo a tu equipo favorito.</p>
+      <p><strong>Precio:</strong> 12,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+
+    <!-- Artículo 8: Set de Pegatinas Marbula One -->
+    <div class="articulo">
+      <img src="../images/pegatinas.jpg" alt="Set de Pegatinas Marbula One" style="width: 100%; max-width: 300px;">
+      <h3>Set de Pegatinas Marbula One</h3>
+      <p>Personaliza tu material con este set de pegatinas exclusivas de Marbula One.</p>
+      <p><strong>Precio:</strong> 4,99€</p>
+      <button type="button">Añadir al carrito</button>
+    </div>
+  </div>
 
 </div>
 <div class="bottom">
