@@ -1,0 +1,262 @@
+/* styles.css */
+
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2, h3 {
+    color: #c0392b;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Top Navigation */
+.top {
+    background-color: #c0392b;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+nav img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown p {
+    cursor: pointer;
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+nav .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e74c3c;
+    border-radius: 5px;
+}
+
+nav .submenu ul {
+    padding: 10px 15px;
+}
+
+nav .submenu li a {
+    color: #fff;
+    padding: 5px 10px;
+    display: block;
+    transition: background 0.3s;
+}
+
+nav .submenu li a:hover {
+    background-color: #a93226;
+}
+
+/* Show submenu on hover */
+nav .dropdown:hover .submenu {
+    display: block;
+}
+
+nav .search-container {
+    display: flex;
+}
+
+nav .search-container input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+nav .search-container button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+nav .search-container button:hover {
+    background-color: #c0392b;
+}
+
+/* Center Content */
+.center {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: relative;
+    margin: 20px 0;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel .prev,
+.carousel .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.carousel .prev {
+    left: 10px;
+}
+
+.carousel .next {
+    right: 10px;
+}
+
+.carousel .indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel .dot.active {
+    background-color: #c0392b;
+}
+
+/* Classification Table */
+.clasificacion table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.clasificacion th,
+.clasificacion td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.clasificacion th {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.clasificacion tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Noticias */
+.noticias_destacadas {
+    margin-top: 40px;
+}
+
+.noticias_destacadas .noticia {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.noticias_destacadas .noticia img {
+    width: 100%;
+}
+
+.noticias_destacadas .noticia h3 {
+    padding: 10px;
+    background-color: #c0392b;
+    color: #fff;
+    margin: 0;
+}
+
+/* Bottom Section */
+.bottom {
+    background-color: #c0392b;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.bottom h2 {
+    color: #fff;
+}
+
+.sponsors section {
+    margin: 10px;
+    text-align: center;
+}
+
+.contacto {
+    max-width: 300px;
+    text-align: center;
+}
+
+.contacto a {
+    color: #fff;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.cookies {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cookies a {
+    color: #ffdd59;
+    text-decoration: underline;
+}
