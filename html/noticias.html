@@ -223,15 +223,43 @@
 </script>
 
 <script>
-  function Map123() {
-    var mapOptions = {
-      center:new google.maps.LatLng(38.90716314833059, -6.3383329949405285),
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.terrain
+  function initMap() {
+    // Comprueba si la geolocalización está disponible
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+              function (position) {
+                // Obtén las coordenadas del usuario
+                var userLat = position.coords.latitude;
+                var userLng = position.coords.longitude;
+
+                // Opciones del mapa
+                var mapOptions = {
+                  center: new google.maps.LatLng(userLat, userLng),
+                  zoom: 16,
+                  mapTypeId: google.maps.MapTypeId.TERRAIN
+                };
+
+                // Crea el mapa
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                // Agrega un marcador en la posición del usuario
+                new google.maps.Marker({
+                  position: { lat: userLat, lng: userLng },
+                  map: map,
+                  title: "¡Estás aquí!"
+                });
+              },
+              function (error) {
+                // Manejo de errores
+                console.error("Error al obtener la ubicación: ", error.message);
+                alert("No se pudo obtener tu ubicación.");
+              }
+      );
+    } else {
+      alert("La geolocalización no es compatible con tu navegador.");
     }
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
   }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=Map123">
-</script>
+<!-- Carga la API de Google Maps con tu clave y llama a la función initMap -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
