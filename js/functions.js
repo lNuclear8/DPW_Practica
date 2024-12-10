@@ -24,11 +24,13 @@ function actualizarContadores() {
         console.warn("Elemento con ID 'contador' no encontrado.");
     }
 }
-
 // Función para cargar contenido dinámico (header y footer)
 function loadContent(callback) {
+    // Detectar si estamos dentro de la carpeta html
+    const basePath = window.location.pathname.includes('/html/') ? '../' : './';
+
     // Cargar el header
-    fetch('./html/header.html')
+    fetch(`${basePath}html/header.html`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al cargar el header.");
@@ -46,7 +48,7 @@ function loadContent(callback) {
         .catch(error => console.error(error));
 
     // Cargar el footer y ejecutar callback después de cargarlo
-    fetch('./html/footer.html')
+    fetch(`${basePath}html/footer.html`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al cargar el footer.");
@@ -68,6 +70,7 @@ function loadContent(callback) {
         })
         .catch(error => console.error(error));
 }
+
 
 // Función para inicializar el mapa
 window.initMap = function () {

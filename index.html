@@ -5,11 +5,63 @@
     <title>Marbula One</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/functions.js" defer></script>
-    <!-- Carga la API de Google Maps con el callback a initMap -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
 </head>
 <body>
-<div id="header"></div>
+<header>
+    <div class="top">
+        <nav>
+            <a href="index.html">
+                <img class="logo" src="images/logo.png" alt="Logo Marbula One">
+                <p class="hide-home">HOME</p>
+            </a>
+
+            <!-- Botón del menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+            <div class="opciones">
+                <div class="dropdown">
+                    <p>ACERCA DE</p>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="html/noticias.html">NOTICIAS</a></li>
+                            <li><a href="html/nosotros.html">NOSOTROS</a></li>
+                            <li><a href="html/escuderias.html">ESCUDERÍAS</a></li>
+                            <li><a href="html/calendario.html">CALENDARIO</a></li>
+                            <li><a href="html/normativa.html">NORMATIVA</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <p>ACTIVIDADES</p>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="html/clasificacion.html">CLASIFICACIÓN</a></li>
+                            <li><a href="html/campeones.html">CAMPEONES</a></li>
+                            <li><a href="html/formacion.html">FORMACIÓN</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="otromenu">
+                    <ul>
+                        <li><a href="html/galeria.html">GALERIA</a></li>
+                        <li><a href="html/estadisticas.html">ESTADISTICAS</a></li>
+                        <li><a href="html/contacto.html">CONTACTO</a></li>
+                        <li><a href="html/tienda.html">TIENDA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-container">
+                <form action="/buscar" method="GET">
+                    <input type="text" name="query" placeholder="Buscar..." required>
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</header>
+
 <div class="center">
     <!-- Contadores de visitas usando localStorage y sessionStorage -->
     <div id="contador" style="margin: 20px; padding: 10px; border: 1px solid #ccc;">
@@ -159,6 +211,148 @@
     </div>
 
 </div>
-<div id="footer"></div>
+<footer>
+    <div class="bottom">
+        <div class="sponsors">
+            <h2>Nuestros Sponsors</h2>
+            <section>
+                <a href="https://www.adidas.es/" target="_blank">
+                    <figure>
+                        <img src="images/adidas.png" alt="Logo Adidas" width="100" height="100">
+                        <figcaption>SPONSOR TÉCNICO</figcaption>
+                    </figure>
+                </a>
+            </section>
+            <section>
+                <a href="https://www.iberia.com/" target="_blank">
+                    <figure>
+                        <img src="images/iberia.jpg" alt="Logo Iberia" width="100" height="100">
+                        <figcaption>PATROCINADOR</figcaption>
+                    </figure>
+                </a>
+            </section>
+        </div>
+
+        <div class="contacto">
+            <h2>Contacto</h2>
+            <p>Síguenos en nuestras redes sociales:</p>
+            <section>
+                <div>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <figure>
+                            <img src="images/instagram.png" alt="Logo de Instagram" width="40" height="40">
+                            <figcaption>Instagram</figcaption>
+                        </figure>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <figure>
+                            <img src="images/facebook.png" alt="Logo de Facebook" width="40" height="40">
+                            <figcaption>Facebook</figcaption>
+                        </figure>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank">
+                        <figure>
+                            <img src="images/x.png" alt="Logo de Twitter" width="40" height="40">
+                            <figcaption>Twitter</figcaption>
+                        </figure>
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank">
+                        <figure>
+                            <img src="images/youtube.png" alt="Logo de YouTube" width="40" height="40">
+                            <figcaption>YouTube</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <div id="map" style="width:50%;height:300px"></div>
+        <div class="cookies">
+            <h2><a href="#" id="show-cookies">Cookies</a></h2>
+            <div id="cookie-info" style="display: none;">
+                <p>En Marbula One, utilizamos las siguientes cookies para mejorar tu experiencia:</p>
+                <ul>
+                    <li>
+                        <strong>Cookie de Sesión:</strong> Mantiene la sesión activa mientras navegas.
+                    </li>
+                    <li>
+                        <strong>Cookie de Preferencias:</strong> Recuerda tus configuraciones y preferencias.
+                    </li>
+                    <li>
+                        <strong>Cookie de Análisis:</strong> Nos ayuda a entender cómo interactúan los usuarios con el sitio.
+                    </li>
+                    <li>
+                        <strong>Cookie de Publicidad:</strong> Muestra anuncios relevantes según tus intereses.
+                    </li>
+                </ul>
+                <p>Para más detalles, consulta nuestra <a href="html/politica_cookies.html">Política de Cookies</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
+<script>
+    function actualizarContadores() {
+        // Contador de visitas totales usando localStorage
+        if (localStorage.totalVisits) {
+            localStorage.totalVisits = Number(localStorage.totalVisits) + 1;
+        } else {
+            localStorage.totalVisits = 1;
+        }
+
+        // Contador de visitas de la sesión actual usando sessionStorage
+        if (sessionStorage.sessionVisits) {
+            sessionStorage.sessionVisits = Number(sessionStorage.sessionVisits) + 1;
+        } else {
+            sessionStorage.sessionVisits = 1;
+        }
+
+        // Mostrar los resultados en la página
+        document.getElementById("contador").innerHTML =
+            "Total de visitas (almacenado): " + localStorage.totalVisits +
+            "<br>Visitas en esta sesión: " + sessionStorage.sessionVisits;
+    }
+</script>
+
+<script>
+    function initMap() {
+        // Comprueba si la geolocalización está disponible
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    // Obtén las coordenadas del usuario
+                    var userLat = position.coords.latitude;
+                    var userLng = position.coords.longitude;
+
+                    // Opciones del mapa
+                    var mapOptions = {
+                        center: new google.maps.LatLng(userLat, userLng),
+                        zoom: 16,
+                        mapTypeId: google.maps.MapTypeId.TERRAIN
+                    };
+
+                    // Crea el mapa
+                    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                    // Agrega un marcador en la posición del usuario
+                    new google.maps.Marker({
+                        position: { lat: userLat, lng: userLng },
+                        map: map,
+                        title: "¡Estás aquí!"
+                    });
+                },
+                function (error) {
+                    // Manejo de errores
+                    console.error("Error al obtener la ubicación: ", error.message);
+                    alert("No se pudo obtener tu ubicación.");
+                }
+            );
+        } else {
+            alert("La geolocalización no es compatible con tu navegador.");
+        }
+    }
+</script>
+
+<!-- Carga la API de Google Maps con tu clave y llama a la función initMap -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
