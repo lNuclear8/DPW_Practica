@@ -7,6 +7,7 @@ body {
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
+    margin-top: 70px; /* Ajusta según la altura del header */
 }
 
 a {
@@ -30,11 +31,31 @@ ul {
     padding: 10px 20px;
 }
 
+header {
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #c0392b;
+    color: white;
+    display: flex; /* Asegura que los elementos estén alineados */
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Espacia entre los elementos */
+    padding: 0; /* Sin espaciado adicional */
+    height: auto; /* Deja que el logo defina la altura */
+}
+
 nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    padding: 10px 15px; /* Ajusta el espaciado interno del header */
+    background-color: #c0392b; /* Fondo rojo */
+    height: auto; /* Altura dinámica basada en el contenido */
+    flex-wrap: nowrap;
+    width: 100%; /* El contenedor ocupa todo el ancho */
 }
 
 nav a {
@@ -46,8 +67,9 @@ nav a {
 }
 
 nav img {
-    max-width: 50px;
-    margin-right: 10px;
+    max-height: 50px; /* Ajusta la altura del logo */
+    height: auto;
+    width: auto; /* Mantiene la proporción */
 }
 
 nav .dropdown {
@@ -114,11 +136,34 @@ nav .search-container button:hover {
     background-color: #c0392b;
 }
 
+nav img.logo {
+    width: auto; /* Mantén la proporción */
+    height: 100px; /* Ajusta esto al tamaño deseado */
+    max-height: 100%; /* Se ajusta al contenedor */
+    object-fit: contain; /* Asegura que el logo se ajuste sin deformarse */
+}
+
+.search-container {
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    padding: 5px;
+}
+
+
 /* Center Content */
 .center {
-    padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 150px auto;
+    padding: 0;
 }
 
 .carousel {
@@ -261,3 +306,312 @@ nav .search-container button:hover {
     text-decoration: underline;
 }
 
+
+/* Versión para pantallas grandes */
+@media screen and (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Ocultar el menú hamburguesa en pantallas grandes */
+    }
+
+    .opciones {
+        display: flex; /* Cambia a flex para alinear horizontalmente */
+        flex-direction: row; /* Organiza los elementos en una fila */
+        gap: 20px; /* Espaciado entre los elementos */
+        justify-content: center; /* Alinea el menú horizontalmente */
+        align-items: center; /* Centra verticalmente */
+    }
+
+    .dropdown {
+        position: relative; /* Permite submenús desplegables */
+    }
+
+    .submenu {
+        position: absolute; /* Hace que el submenú se superponga */
+        top: 100%; /* Coloca el submenú justo debajo */
+        left: 0; /* Alinea a la izquierda */
+        background-color: #e74c3c; /* Color del fondo */
+        display: none; /* Oculta el submenú inicialmente */
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .dropdown:hover .submenu {
+        display: block; /* Muestra el submenú al pasar el cursor */
+    }
+
+    .otromenu ul {
+        display: flex; /* Mostrar elementos como fila */
+        flex-direction: row; /* Alinear horizontalmente */
+        list-style: none; /* Sin viñetas */
+        margin: 0; /* Eliminar márgenes */
+        padding: 0; /* Eliminar relleno */
+        gap: 20px; /* Espaciado entre enlaces */
+    }
+
+    .otromenu ul li {
+        padding: 5px 10px; /* Espaciado interno */
+    }
+
+    .otromenu ul li a {
+        text-decoration: none; /* Quitar subrayado */
+        color: white; /* Color de texto blanco */
+        font-weight: bold; /* Hacer el texto más destacado */
+        transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+    }
+
+    .otromenu ul li a:hover {
+        color: #ffdd59; /* Cambiar el color al pasar el mouse */
+    }
+
+}
+
+/* Versión para móviles */
+@media screen and (max-width: 768px) {
+    /* Menú en formato vertical */
+    .opciones {
+        display: none; /* Ocultar por defecto */
+        flex-direction: column; /* Menús en disposición vertical */
+        width: 100%; /* Ocupan todo el ancho */
+        background-color: #c0392b; /* Color de fondo del menú desplegado */
+        padding: 0; /* Elimina el espaciado interno para el borde superior */
+        position: absolute; /* Posición absoluta para aparecer debajo */
+        top: 100%; /* Posicionar justo debajo del header */
+        left: 0; /* Alinear con el lado izquierdo */
+        z-index: 999; /* Asegura que el menú quede encima */
+        border-top: 1px solid #fff; /* Línea separadora */
+    }
+
+    /* Mostrar opciones cuando se activa la clase 'visible' */
+    .opciones.visible {
+        display: flex; /* Mostrar el menú en flexbox */
+    }
+
+    /* Opciones del menú */
+    .opciones p, .opciones a {
+        color: white; /* Color del texto */
+        font-size: 1.2rem; /* Tamaño del texto */
+        text-align: left; /* Alinear a la izquierda */
+        padding: 10px 15px; /* Espaciado interno */
+        text-decoration: none; /* Quitar subrayado */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea separadora entre elementos */
+    }
+
+    .opciones p:hover, .opciones a:hover {
+        background-color: #a93226; /* Fondo al pasar el cursor */
+    }
+
+    /* Ocultar HOME */
+    .hide-home {
+        display: none; /* Oculta solo este elemento específico */
+    }
+
+    /* Ajusta el tamaño del menú hamburguesa */
+    .menu-toggle {
+        display: block; /* Mostrar en móviles */
+        height: auto; /* Igual que la altura del logo */
+        width: auto; /* Ancho proporcional */
+        font-size: 3rem; /* Tamaño del ícono */
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        background: none; /* Sin fondo */
+        border: none; /* Sin bordes */
+        color: white; /* Color del ícono */
+        cursor: pointer; /* Cursor de clic */
+        order: 3; /* Asegura que el botón esté a la derecha */
+    }
+
+    .search-container input {
+        width: calc(100% - 60px); /* Ajusta el tamaño del campo de entrada */
+        max-width: 300px; /* Ancho máximo */
+    }
+    /* Configurar los dropdowns y los submenús */
+    .dropdown .submenu {
+        display: none; /* Ocultar los submenús por defecto */
+        flex-direction: column; /* Alinear elementos del submenú en vertical */
+        position: static; /* Evita que el submenú flote y se superponga */
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        background-color: #c0392b; /* Fondo consistente con el menú */
+        padding: 0; /* Sin relleno adicional */
+        margin: 0; /* Sin margen adicional */
+    }
+
+    /* Mostrar el submenu cuando se activa el dropdown */
+    .dropdown:hover .submenu {
+        display: flex; /* Mostrar el submenú */
+    }
+
+    /* Opciones dentro del submenu */
+    .dropdown .submenu li a {
+        color: white; /* Color del texto */
+        font-size: 1rem; /* Tamaño del texto */
+        padding: 10px 15px; /* Espaciado interno */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separador entre elementos */
+        text-align: left; /* Alinear el texto a la izquierda */
+    }
+
+    .dropdown .submenu li a:hover {
+        background-color: #a93226; /* Color de fondo al pasar el ratón */
+    }
+
+    /* Ajustar los contenedores de dropdown para evitar problemas de alineación */
+    .dropdown {
+        width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    }
+    footer {
+        width: 100%;
+        background-color: #c0392b;
+        color: white;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .bottom {
+        display: flex;
+        flex-direction: column; /* Alinear los elementos en columnas */
+        align-items: center;
+        gap: 20px; /* Espaciado entre secciones */
+    }
+
+    .sponsors, .contacto, .cookies, #map {
+        width: 100%; /* Ocupan todo el ancho */
+    }
+
+    .sponsors h2, .contacto h2, .cookies h2 {
+        font-size: 1.5rem; /* Tamaño de los encabezados */
+        margin-bottom: 10px;
+    }
+
+    .sponsors section, .contacto section {
+        display: flex;
+        flex-direction: column; /* Alinear elementos en vertical */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .sponsors img, .contacto img {
+        max-width: 80px; /* Tamaño máximo para los logos */
+        height: auto;
+    }
+
+    .contacto div {
+        display: flex;
+        flex-wrap: wrap; /* Permitir que los íconos se ajusten en varias filas */
+        justify-content: center;
+        gap: 10px; /* Espaciado entre los íconos */
+    }
+
+    .cookies ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .cookies ul li {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+
+    #map {
+        width: 100%;
+        height: 200px; /* Ajusta el tamaño del mapa para móviles */
+        margin-top: 20px;
+    }
+
+    .cookies p, .cookies a {
+        font-size: 0.9rem;
+        color: #fff;
+    }
+
+    .cookies a {
+        text-decoration: underline;
+    }
+    .center {
+        padding: 20px 10px; /* Ajustar el espaciado interno */
+    }
+
+    #contador {
+        text-align: center; /* Centrar el texto */
+        margin: 10px 0; /* Ajustar el margen */
+        padding: 10px;
+        font-size: 1rem; /* Tamaño de fuente para móviles */
+        border: 1px solid #ddd;
+        background-color: #f9f9f9; /* Fondo para destacar el contador */
+    }
+
+    .carousel img {
+        height: 200px; /* Reducir la altura de las imágenes en móviles */
+        object-fit: cover;
+    }
+
+    .carousel .prev, .carousel .next {
+        width: 30px; /* Ajustar el tamaño de los botones */
+        height: 30px;
+        font-size: 1rem; /* Tamaño del ícono */
+    }
+
+    .carousel .indicators {
+        margin-top: 10px;
+    }
+
+    .carousel .dot {
+        width: 8px; /* Tamaño reducido para indicadores */
+        height: 8px;
+        margin: 0 4px;
+    }
+
+    .clasificacion table {
+        font-size: 0.9rem; /* Reducir el tamaño de fuente */
+        width: 100%; /* Asegurar que la tabla ocupe el ancho completo */
+        overflow-x: auto; /* Habilitar desplazamiento horizontal */
+        display: block; /* Hacer la tabla desplazable */
+    }
+
+    .clasificacion th, .clasificacion td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    .noticias_destacadas {
+        margin-top: 20px;
+    }
+
+    .noticia {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+    .noticia img {
+        width: 100%;
+        height: auto; /* Ajustar la altura automáticamente */
+    }
+
+    .noticia h3 {
+        padding: 10px;
+        background-color: #c0392b;
+        color: #fff;
+        font-size: 1rem; /* Ajustar el tamaño del texto */
+        text-align: center;
+    }
+
+    .noticia p {
+        padding: 10px;
+        font-size: 0.9rem; /* Tamaño de fuente para párrafos */
+        text-align: justify;
+    }
+
+    .noticia a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        color: #c0392b;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .noticia a:hover {
+        text-decoration: underline;
+    }
+}

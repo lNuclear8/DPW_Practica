@@ -116,3 +116,22 @@ document.addEventListener("DOMContentLoaded", () => {
     loadContent(initMap); // Llama a initMap solo después de cargar el footer
 });
 
+//Manejador menú hamburguesa
+document.addEventListener('DOMContentLoaded', () => {
+    // Asegúrate de que los elementos están presentes
+    const waitForElements = () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const opciones = document.querySelector('.opciones');
+
+        if (menuToggle && opciones) {
+            console.log(menuToggle, opciones); // Comprobar si existen
+            menuToggle.addEventListener('click', () => {
+                opciones.classList.toggle('visible');
+            });
+        } else {
+            console.warn('Elementos no encontrados, esperando...');
+            setTimeout(waitForElements, 100); // Reintentar después de 100ms
+        }
+    };
+    waitForElements();
+});
