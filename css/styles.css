@@ -36,7 +36,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1;
     background-color: #c0392b;
     color: white;
     display: flex; /* Asegura que los elementos estén alineados */
@@ -90,6 +90,7 @@ nav .submenu {
     left: 0;
     background-color: #e74c3c;
     border-radius: 5px;
+    padding: 10px;
 }
 
 nav .submenu ul {
@@ -211,6 +212,7 @@ nav img.logo {
     background-color: #f4f4f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .calendario h2 {
@@ -249,41 +251,6 @@ nav img.logo {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#informacionGranPremio h3,
-#informacionGranPremio2 h3,
-#informacionGranPremio3 h3,
-#informacionGranPremio4 h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-    text-align: center;
-}
-
-#informacionGranPremio figure,
-#informacionGranPremio2 figure,
-#informacionGranPremio3 figure,
-#informacionGranPremio4 figure {
-    text-align: center;
-}
-
-#informacionGranPremio img,
-#informacionGranPremio2 img,
-#informacionGranPremio3 img,
-#informacionGranPremio4 img {
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-#informacionGranPremio p,
-#informacionGranPremio2 p,
-#informacionGranPremio3 p,
-#informacionGranPremio4 p {
-    margin: 5px 0;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: left;
 }
 
 .carousel {
@@ -362,6 +329,9 @@ nav img.logo {
     background-color: #f2f2f2;
 }
 
+.clasificacion h2{
+    text-align: center;
+}
 /* Noticias */
 .noticias_destacadas {
     margin-top: 40px;
@@ -375,9 +345,6 @@ nav img.logo {
     background-color: #fff;
 }
 
-.noticias_destacadas .noticia img {
-    width: 100%;
-}
 
 .noticias_destacadas .noticia h3 {
     padding: 10px;
@@ -471,7 +438,7 @@ nav img.logo {
 .formulario form input,
 .formulario form select,
 .formulario form textarea {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -528,100 +495,6 @@ nav img.logo {
 
 .formulario form a:hover {
     text-decoration: underline;
-}
-
-/* Formularios */
-.form h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #c0392b;
-    margin-bottom: 20px;
-}
-
-.form form {
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-form label {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espaciado entre el checkbox y el texto */
-    font-size: 1rem; /* Tamaño del texto */
-}
-
-form label input[type="checkbox"] {
-    margin: 0; /* Elimina los márgenes alrededor del checkbox */
-    width: auto; /* Ajusta el ancho al tamaño natural del checkbox */
-    height: auto; /* Ajusta la altura al tamaño natural del checkbox */
-}
-
-.form form fieldset {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #ffffff;
-}
-
-.form form legend {
-    font-size: 1.2rem;
-    color: #c0392b;
-    padding: 0 10px;
-    font-weight: bold;
-}
-
-.form form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.form form input,
-.form form select,
-.form form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #fff;
-    transition: border-color 0.3s;
-}
-
-.form form input:focus,
-.form form select:focus,
-.form form textarea:focus {
-    border-color: #c0392b;
-    outline: none;
-}
-
-.form form textarea {
-    resize: vertical;
-}
-
-.form form button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #c0392b;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.form form button[type="submit"]:hover {
-    background-color: #a93226;
 }
 
 /* Estilo para la galería */
@@ -818,7 +691,7 @@ form label input[type="checkbox"] {
 }
 
 .noticia p {
-    padding: 10px 15px;
+    padding: 5px 5px;
     font-size: 1rem;
     color: #333;
     line-height: 1.6;
@@ -828,17 +701,16 @@ form label input[type="checkbox"] {
 .noticia a {
     display: block;
     overflow: hidden;
+    bottom: 0;
 }
 
 .noticia img {
     width: 100%;
-    height: auto;
+    height: 200px;
     display: block;
-    transition: transform 0.3s ease;
-}
-
-.noticia a:hover img {
-    transform: scale(1.05);
+    object-fit: cover; /* Recortar las imágenes para que se ajusten sin deformarse */
+    /*position: absolute;*/
+    bottom: 0;
 }
 
 /* Estilo general para el contenedor del carrito */
@@ -932,6 +804,7 @@ form label input[type="checkbox"] {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
+    text-align: center;
 }
 
 .articulos h2 {
@@ -998,44 +871,6 @@ form label input[type="checkbox"] {
     background-color: #c0392b;
 }
 
-/* General */
-form fieldset {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-form legend {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #c0392b;
-}
-
-/* Alineación de checkboxes y radio buttons */
-form label {
-    display: flex;
-    align-items: center; /* Alinear verticalmente */
-    margin-bottom: 10px; /* Espaciado entre elementos */
-    font-size: 1rem;
-}
-
-form input[type="checkbox"],
-form input[type="radio"] {
-    margin-right: 10px; /* Espacio entre el input y el texto */
-    transform: scale(1.2); /* Ajusta el tamaño del checkbox o radio */
-    cursor: pointer; /* Cambia el cursor a mano */
-}
-
-/* Alinear radios y checkboxes dentro del campo */
-form label > input {
-    flex-shrink: 0; /* Evita que el input se reduzca si el texto es largo */
-}
-
-form label > span {
-    flex-grow: 1; /* El texto ocupa el espacio restante */
-}
-
 /* Opciones para urgencia */
 form input[type="radio"] + label,
 form input[type="checkbox"] + label {
@@ -1050,62 +885,40 @@ form input[type="radio"]:not(:last-of-type) {
     margin-bottom: 10px;
 }
 
-/* Versión para pantallas grandes */
-@media screen and (min-width: 769px) {
-    .menu-toggle {
-        display: none; /* Ocultar el menú hamburguesa en pantallas grandes */
-    }
+.menu-toggle {
+    display: none; /* Ocultar el menú hamburguesa en pantallas grandes */
+}
 
-    .opciones {
-        display: flex; /* Cambia a flex para alinear horizontalmente */
-        flex-direction: row; /* Organiza los elementos en una fila */
-        gap: 20px; /* Espaciado entre los elementos */
-        justify-content: center; /* Alinea el menú horizontalmente */
-        align-items: center; /* Centra verticalmente */
-    }
+.opciones {
+    display: flex; /* Cambia a flex para alinear horizontalmente */
+    flex-direction: row; /* Organiza los elementos en una fila */
+    gap: 20px; /* Espaciado entre los elementos */
+    justify-content: center; /* Alinea el menú horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
 
-    .dropdown {
-        position: relative; /* Permite submenús desplegables */
-    }
+.otromenu ul {
+    display: flex; /* Mostrar elementos como fila */
+    flex-direction: row; /* Alinear horizontalmente */
+    list-style: none; /* Sin viñetas */
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar relleno */
+    gap: 20px; /* Espaciado entre enlaces */
+}
 
-    .submenu {
-        position: absolute; /* Hace que el submenú se superponga */
-        top: 100%; /* Coloca el submenú justo debajo */
-        left: 0; /* Alinea a la izquierda */
-        background-color: #e74c3c; /* Color del fondo */
-        display: none; /* Oculta el submenú inicialmente */
-        padding: 10px;
-        border-radius: 5px;
-    }
+.otromenu ul li {
+    padding: 5px 10px; /* Espaciado interno */
+}
 
-    .dropdown:hover .submenu {
-        display: block; /* Muestra el submenú al pasar el cursor */
-    }
+.otromenu ul li a {
+    text-decoration: none; /* Quitar subrayado */
+    color: white; /* Color de texto blanco */
+    font-weight: bold; /* Hacer el texto más destacado */
+    transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+}
 
-    .otromenu ul {
-        display: flex; /* Mostrar elementos como fila */
-        flex-direction: row; /* Alinear horizontalmente */
-        list-style: none; /* Sin viñetas */
-        margin: 0; /* Eliminar márgenes */
-        padding: 0; /* Eliminar relleno */
-        gap: 20px; /* Espaciado entre enlaces */
-    }
-
-    .otromenu ul li {
-        padding: 5px 10px; /* Espaciado interno */
-    }
-
-    .otromenu ul li a {
-        text-decoration: none; /* Quitar subrayado */
-        color: white; /* Color de texto blanco */
-        font-weight: bold; /* Hacer el texto más destacado */
-        transition: color 0.3s ease; /* Transición suave al pasar el mouse */
-    }
-
-    .otromenu ul li a:hover {
-        color: #ffdd59; /* Cambiar el color al pasar el mouse */
-    }
-
+.otromenu ul li a:hover {
+    color: #ffdd59; /* Cambiar el color al pasar el mouse */
 }
 
 /* Versión para móviles */
@@ -1120,8 +933,52 @@ form input[type="radio"]:not(:last-of-type) {
         position: absolute; /* Posición absoluta para aparecer debajo */
         top: 100%; /* Posicionar justo debajo del header */
         left: 0; /* Alinear con el lado izquierdo */
-        z-index: 999; /* Asegura que el menú quede encima */
-        border-top: 1px solid #fff; /* Línea separadora */
+        z-index: 0; /* Asegura que el menú quede encima */
+    }
+
+    /* Configurar los dropdowns y los submenús */
+    .dropdown .submenu{
+        display: none; /* Ocultar los submenús por defecto */
+        flex-direction: column; /* Alinear elementos del submenú en vertical */
+        position: static; /* Evita que el submenú flote y se superponga */
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        background-color: #c0392b; /* Fondo consistente con el menú */
+        padding: 0; /* Sin relleno adicional */
+        margin: 0; /* Sin margen adicional */
+    }
+
+    /* Opciones dentro del submenu */
+    .dropdown .submenu li a {
+        font-size: 1rem; /* Tamaño del texto */
+        padding: 10px 15px; /* Espaciado interno */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separador entre elementos */
+        text-align: left; /* Alinear el texto a la izquierda */
+    }
+
+    .otromenu ul {
+        flex-direction: column; /* Cambiar a disposición vertical */
+        gap: 10px; /* Reducir el espaciado entre elementos */
+        width: 100%; /* Asegurar que ocupe todo el ancho */
+        padding: 10px 0; /* Espaciado superior e inferior */
+        background-color: #c0392b; /* Color de fondo */
+        border-radius: 5px; /* Bordes redondeados */
+    }
+
+    .otromenu ul li {
+        padding: 10px 15px; /* Mayor espaciado interno */
+    }
+
+    .otromenu ul li a {
+        color: #fff; /* Asegurar el color blanco en móvil */
+        font-size: 1rem; /* Aumentar el tamaño del texto */
+        text-align: left; /* Alinear el texto a la izquierda */
+        width: 100%;
+    }
+
+    /* Eliminar hover en móviles */
+    .otromenu ul li a:hover {
+        color: #fff; /* Mantener el color sin cambios */
+        background-color: transparent; /* Sin fondo en hover */
     }
 
     /* Mostrar opciones cuando se activa la clase 'visible' */
@@ -1131,16 +988,11 @@ form input[type="radio"]:not(:last-of-type) {
 
     /* Opciones del menú */
     .opciones p, .opciones a {
-        color: white; /* Color del texto */
         font-size: 1.2rem; /* Tamaño del texto */
         text-align: left; /* Alinear a la izquierda */
         padding: 10px 15px; /* Espaciado interno */
         text-decoration: none; /* Quitar subrayado */
         border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea separadora entre elementos */
-    }
-
-    .opciones p:hover, .opciones a:hover {
-        background-color: #a93226; /* Fondo al pasar el cursor */
     }
 
     /* Ocultar HOME */
@@ -1167,39 +1019,7 @@ form input[type="radio"]:not(:last-of-type) {
         width: calc(100% - 60px); /* Ajusta el tamaño del campo de entrada */
         max-width: 300px; /* Ancho máximo */
     }
-    /* Configurar los dropdowns y los submenús */
-    .dropdown .submenu {
-        display: none; /* Ocultar los submenús por defecto */
-        flex-direction: column; /* Alinear elementos del submenú en vertical */
-        position: static; /* Evita que el submenú flote y se superponga */
-        width: 100%; /* Asegura que ocupe todo el ancho disponible */
-        background-color: #c0392b; /* Fondo consistente con el menú */
-        padding: 0; /* Sin relleno adicional */
-        margin: 0; /* Sin margen adicional */
-    }
 
-    /* Mostrar el submenu cuando se activa el dropdown */
-    .dropdown:hover .submenu {
-        display: flex; /* Mostrar el submenú */
-    }
-
-    /* Opciones dentro del submenu */
-    .dropdown .submenu li a {
-        color: white; /* Color del texto */
-        font-size: 1rem; /* Tamaño del texto */
-        padding: 10px 15px; /* Espaciado interno */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separador entre elementos */
-        text-align: left; /* Alinear el texto a la izquierda */
-    }
-
-    .dropdown .submenu li a:hover {
-        background-color: #a93226; /* Color de fondo al pasar el ratón */
-    }
-
-    /* Ajustar los contenedores de dropdown para evitar problemas de alineación */
-    .dropdown {
-        width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
-    }
     footer {
         width: 100%;
         background-color: #c0392b;
@@ -1326,11 +1146,6 @@ form input[type="radio"]:not(:last-of-type) {
         background-color: #fff;
     }
 
-    .noticia img {
-        width: 100%;
-        height: auto; /* Ajustar la altura automáticamente */
-    }
-
     .noticia h3 {
         padding: 10px;
         background-color: #c0392b;
@@ -1352,10 +1167,6 @@ form input[type="radio"]:not(:last-of-type) {
         color: #c0392b;
         font-weight: bold;
         text-decoration: none;
-    }
-
-    .noticia a:hover {
-        text-decoration: underline;
     }
 
     .formulario {
