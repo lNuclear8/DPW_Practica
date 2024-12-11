@@ -665,6 +665,15 @@ nav img.logo {
     justify-content: center;
 }
 
+/* Noticias destacadas container */
+.noticias_destacadas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
 /* Individual noticia styling */
 .noticia {
     flex: 1 1 calc(33.333% - 20px); /* 3 items per row, with spacing */
@@ -712,7 +721,6 @@ nav img.logo {
     /*position: absolute;*/
     bottom: 0;
 }
-
 /* Estilo general para el contenedor del carrito */
 .carrito {
     max-width: 1200px;
@@ -923,6 +931,11 @@ form input[type="radio"]:not(:last-of-type) {
 
 /* Versión para móviles */
 @media screen and (max-width: 768px) {
+    /* Ajustar el mapa para evitar conflictos */
+    #map {
+        z-index: 0; /* Asegura que esté detrás del menú */
+        position: relative; /* Para evitar que interfiera con el menú */
+    }
     /* Menú en formato vertical */
     .opciones {
         display: none; /* Ocultar por defecto */
@@ -933,12 +946,17 @@ form input[type="radio"]:not(:last-of-type) {
         position: absolute; /* Posición absoluta para aparecer debajo */
         top: 100%; /* Posicionar justo debajo del header */
         left: 0; /* Alinear con el lado izquierdo */
-        z-index: 0; /* Asegura que el menú quede encima */
+        z-index: 1; /* Asegura que el menú quede encima */
+    }
+
+    /* Mostrar todas las opciones cuando está activo */
+    .opciones.visible {
+        display: flex; /* Mostrar el menú en flexbox */
     }
 
     /* Configurar los dropdowns y los submenús */
-    .dropdown .submenu{
-        display: none; /* Ocultar los submenús por defecto */
+    .dropdown .submenu {
+        display: flex; /* Siempre mostrar los submenús */
         flex-direction: column; /* Alinear elementos del submenú en vertical */
         position: static; /* Evita que el submenú flote y se superponga */
         width: 100%; /* Asegura que ocupe todo el ancho disponible */
@@ -955,6 +973,7 @@ form input[type="radio"]:not(:last-of-type) {
         text-align: left; /* Alinear el texto a la izquierda */
     }
 
+    /* Ajustar el diseño del menú principal */
     .otromenu ul {
         flex-direction: column; /* Cambiar a disposición vertical */
         gap: 10px; /* Reducir el espaciado entre elementos */
@@ -981,9 +1000,9 @@ form input[type="radio"]:not(:last-of-type) {
         background-color: transparent; /* Sin fondo en hover */
     }
 
-    /* Mostrar opciones cuando se activa la clase 'visible' */
-    .opciones.visible {
-        display: flex; /* Mostrar el menú en flexbox */
+    /* Asegurar que hover no haga nada */
+    .dropdown:hover .submenu {
+        display: flex; /* Mantener siempre visible */
     }
 
     /* Opciones del menú */
@@ -994,7 +1013,9 @@ form input[type="radio"]:not(:last-of-type) {
         text-decoration: none; /* Quitar subrayado */
         border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea separadora entre elementos */
     }
-
+    nav .submenu li a:hover {
+        background-color: transparent !important; /* Sin efecto hover */
+    }
     /* Ocultar HOME */
     .hide-home {
         display: none; /* Oculta solo este elemento específico */
@@ -1122,11 +1143,15 @@ form input[type="radio"]:not(:last-of-type) {
         margin: 0 4px;
     }
 
+    .clasificacion{
+        text-align: center;
+        width: 100%; /* Asegurar que la tabla ocupe el ancho completo */
+    }
     .clasificacion table {
         font-size: 0.9rem; /* Reducir el tamaño de fuente */
         width: 100%; /* Asegurar que la tabla ocupe el ancho completo */
         overflow-x: auto; /* Habilitar desplazamiento horizontal */
-        display: block; /* Hacer la tabla desplazable */
+        text-align: center;
     }
 
     .clasificacion th, .clasificacion td {

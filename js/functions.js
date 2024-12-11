@@ -138,23 +138,3 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     waitForElements();
 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Selecciona todos los dropdowns
-    const dropdowns = document.querySelectorAll('.dropdown');
-
-    dropdowns.forEach(dropdown => {
-        // Agregar evento de clic para mostrar/ocultar el submenú
-        dropdown.addEventListener('click', () => {
-            // Alternar la clase "active"
-            dropdown.classList.toggle('active');
-
-            // Cerrar otros dropdowns abiertos
-            dropdowns.forEach(otherDropdown => {
-                if (otherDropdown !== dropdown) {
-                    otherDropdown.classList.remove('active');
-                }
-            });
-        });
-    });
-});
