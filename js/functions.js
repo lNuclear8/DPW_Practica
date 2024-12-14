@@ -118,22 +118,30 @@ $(document).ready(() => {
         updateCarousel(currentIndex);
     }, 5000);
 
-    // Filtro dinámico en la tabla de clasificación
-    const searchInput = $('<input>', {
-        type: 'text',
-        placeholder: 'Buscar equipo...',
-        css: { margin: '10px' }
-    });
-
-    $('.clasificacion h2').after(searchInput);
-
-    searchInput.on('input', () => {
-        const filter = searchInput.val().toLowerCase();
-        $('.clasificacion tbody tr').each(function () {
-            const teamName = $(this).children('td').eq(1).text().toLowerCase();
-            $(this).toggle(teamName.includes(filter));
+    // Comprueba si el nombre del archivo HTML es index.html o clasificacion.html o campeones.html
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('clasificacion.html') || window.location.pathname.endsWith('campeones.html')) {
+        // Filtro dinámico en la tabla de clasificación
+        const searchInput = $('<input>', {
+            id: 'search-teams', // Asegúrate de asignar el ID correctamente
+            type: 'text',
+            placeholder: 'Buscar equipo...',
+            css: { margin: '10px' }
         });
-    });
+
+        // Coloca el buscador después del título
+        $('.clasificacion h2').after(searchInput);
+
+        // Añade la funcionalidad de filtro dinámico
+        searchInput.on('input', function () {
+            const filter = $(this).val().toLowerCase();
+            $('.clasificacion tbody tr').each(function () {
+                const teamName = $(this).children('td').eq(1).text().toLowerCase();
+                $(this).toggle(teamName.includes(filter));
+            });
+        });
+    }
+
+
 
     // Botón "scroll to top"
     const scrollTopButton = $('<button>', {
@@ -171,4 +179,57 @@ $(document).ready(() => {
     // Inicializar todo
     actualizarContadores();
     loadContent(window.initMap);
+});
+
+//Para buscador de escuderias.html
+$(document).ready(() => {
+    // Intercepta el evento de envío del formulario
+    $('.buscador form').on('submit', function (event) {
+        event.preventDefault(); // Prevenir el envío del formulario a Google
+
+        // Obtener el valor del campo de búsqueda
+        const filter = $(this).find('input[name="q"]').val().toLowerCase();
+
+        // Filtrar las filas de la tabla
+        $('.clasificacion tbody tr').each(function () {
+            const teamName = $(this).children('td').eq(0).text().toLowerCase(); // Filtra por el nombre de la escudería (primera columna)
+            $(this).toggle(teamName.includes(filter));
+        });
+    });
+
+    // Permitir también que el filtro funcione en tiempo real al escribir
+    $('.buscador input[name="q"]').on('input', function () {
+        const filter = $(this).val().toLowerCase();
+        $('.clasificacion tbody tr').each(function () {
+            const teamName = $(this).children('td').eq(0).text().toLowerCase();
+            $(this).toggle(teamName.includes(filter));
+        });
+    });
+});
+
+$(document).ready(function () {
+    // Esconde todos los detalles al inicio
+    $('#informacionGranPremio, #informacionGranPremio2, #informacionGranPremio3, #informacionGranPremio4').hide();
+
+    // Evento de cambio en el select
+    $('#granPremio').on('change', function () {
+        const selectedValue = $(this).val();
+
+        // Esconde todos los detalles de los Grandes Premios
+        $('#informacionGranPremio, #informacionGranPremio2, #informacionGranPremio3, #informacionGranPremio4').hide();
+
+        // Muestra solo el div correspondiente al Gran Premio seleccionado
+        if (selectedValue === 'GP1') {
+            $('#informacionGranPremio').fadeIn();
+        } else if (selectedValue === 'GP2') {
+            $('#informacionGranPremio2').fadeIn();
+        } else if (selectedValue === 'GP3') {
+            $('#informacionGranPremio3').fadeIn();
+        } else if (selectedValue === 'GP4') {
+            $('#informacionGranPremio4').fadeIn();
+        }
+    });
+
+    // Muestra los detalles del primer Gran Premio por defecto
+    $('#granPremio').trigger('change');
 });

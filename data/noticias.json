@@ -1,0 +1,46 @@
+{
+  "noticias": [
+    {
+      "titulo": "IBAI Y ANDER NARRAN CARRERAS DE CANICAS (MORBULA ONE)",
+      "descripcion": "Los youtubers de moda ven nuestra competición.",
+      "enlace": "https://www.youtube.com/watch?v=bJgfisVKe6w&ab_channel=Ibai",
+      "imagen": "../images/noticia5.avif",
+      "alt": "Noticia 5"
+    },
+    {
+      "titulo": "🏁 Marbula One S4 GP7 🏁 Misty Mountain RACE 🌫️ Jelle's Marble Runs",
+      "descripcion": "Disfruta del 7th GP de la Marbula One S4!",
+      "enlace": "https://www.youtube.com/watch?v=6wjQ1_icRUg&ab_channel=Jelle%27sMarbleRuns",
+      "imagen": "../images/noticia6.png",
+      "alt": "Noticia 6"
+    },
+    {
+      "titulo": "¡Enhorabuena a los entrenadores de la Temporada 5 de Marbula One!",
+      "descripcion": "¡Enhorabuena a los entrenadores White Eye, Red Eye y Yellow Eye de los Crazy Cat's Eyes por ser vuestros bicampeones mundiales de Marbula One!",
+      "enlace": "https://www.reddit.com/r/JellesMarbleRuns/comments/1gi08yw/congratulations_to_the_champions_of_marbula_one/?tl=es-es",
+      "imagen": "../images/noticia1.webp",
+      "alt": "Noticia 1"
+    },
+    {
+      "titulo": "¡Enhorabuena al campeoón de la Temporada 5 de Marbula One!",
+      "descripcion": "¡Y enhorabuena al mismísimo GOAT, Red Eye de los Crazy Cat's Eyes, por ser vuestro tricampeón mundial individual de Marbula One!",
+      "enlace": "https://www.reddit.com/r/JellesMarbleRuns/comments/1gi08yw/congratulations_to_the_champions_of_marbula_one/?tl=es-es",
+      "imagen": "../images/noticia2.webp",
+      "alt": "Noticia 2"
+    },
+    {
+      "titulo": "Las Jelle's Marble Runs, la competición de Marble de carreras de canicas",
+      "descripcion": "La 'Marbula One', el deporte que sustituye a la Fórmula 1 durante la cuarentena",
+      "enlace": "https://www.marca.com/buzz/2020/03/23/5e788563268e3e91018b4605.html",
+      "imagen": "../images/noticia3.jpg",
+      "alt": "Noticia 3"
+    },
+    {
+      "titulo": "Kosmokrats patrocina las carreras de canicas de Jelle - Marbula One 7 de noviembre.",
+      "descripcion": "Las carreras de canicas de Jelle han sido el antídoto perfecto para el confinamiento, emocionando a millones de personas en todo el mundo con la acción de las carreras de canicas, tan buena como cualquier deporte televisado.",
+      "enlace": "https://store.steampowered.com/news/app/1204410/view/2936871119024035559?l=spanish",
+      "imagen": "../images/noticia4.jpg",
+      "alt": "Noticia 4"
+    }
+  ]
+}
