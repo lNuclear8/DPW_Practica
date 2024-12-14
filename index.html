@@ -5,6 +5,9 @@
     <title>Marbula One</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/functions.js" defer></script>
+    <script src="./js/ajax.js" defer></script>
+    <script src="./js/cookies.js" defer></script>
+    <script src="./js/jquery-3.6.0.js"></script>
 </head>
 <body>
 <header>
@@ -270,22 +273,18 @@
             <h2><a href="#" id="show-cookies">Cookies</a></h2>
             <div id="cookie-info" style="display: none;">
                 <p>En Marbula One, utilizamos las siguientes cookies para mejorar tu experiencia:</p>
-                <ul>
-                    <li>
-                        <strong>Cookie de Sesión:</strong> Mantiene la sesión activa mientras navegas.
-                    </li>
-                    <li>
-                        <strong>Cookie de Preferencias:</strong> Recuerda tus configuraciones y preferencias.
-                    </li>
-                    <li>
-                        <strong>Cookie de Análisis:</strong> Nos ayuda a entender cómo interactúan los usuarios con el sitio.
-                    </li>
-                    <li>
-                        <strong>Cookie de Publicidad:</strong> Muestra anuncios relevantes según tus intereses.
-                    </li>
-                </ul>
                 <p>Para más detalles, consulta nuestra <a href="html/politica_cookies.html">Política de Cookies</a>.</p>
             </div>
+        </div>
+    </div>
+    <div class="cookies-banner" id="cookies-banner" style="display: none;">
+        <p>
+            En Marbula One, utilizamos cookies para mejorar tu experiencia y analizar el tráfico del sitio.
+            Consulta nuestra <a href="html/politica_cookies.html" target="_blank">Política de Cookies</a> para más detalles.
+        </p>
+        <div>
+            <button id="accept-cookies">Aceptar Cookies</button>
+            <button id="reject-cookies">Rechazar Cookies</button>
         </div>
     </div>
 </footer>
@@ -356,3 +355,14 @@
 
 <!-- Carga la API de Google Maps con tu clave y llama a la función initMap -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const showCookiesLink = document.getElementById('show-cookies');
+
+        showCookiesLink.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+            window.location.href = '/html/politica_cookies.html'; // Redirigir a la página
+        });
+    });
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/cookies.js" defer></script>
+  <title>Política de Cookies - Marbula One</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #d90429;
+    }
+    a {
+      color: #2b7a78;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .back-button {
+      margin-top: 20px;
+    }
+    .cookie-manager {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Política de Cookies de Marbula One</h1>
+</header>
+
+<section>
+  <h2>¿Qué son las cookies?</h2>
+  <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web. Estas cookies nos ayudan a mejorar tu experiencia al navegar por nuestro sitio, así como a recopilar información estadística sobre el uso del mismo.</p>
+</section>
+
+<section>
+  <h2>¿Qué tipos de cookies utilizamos?</h2>
+  <ul>
+    <li><strong>Cookies esenciales:</strong> Estas cookies son necesarias para el funcionamiento básico del sitio web y no pueden ser desactivadas. Sin ellas, algunas partes de nuestro sitio no funcionarían correctamente.</li>
+    <li><strong>Cookies de rendimiento:</strong> Nos ayudan a analizar el uso de nuestro sitio para mejorar su funcionamiento. Por ejemplo, utilizamos estas cookies para entender qué páginas son más populares.</li>
+    <li><strong>Cookies de funcionalidad:</strong> Estas cookies permiten recordar tus preferencias, como el idioma seleccionado o la región en la que te encuentras.</li>
+    <li><strong>Cookies de publicidad:</strong> Se utilizan para mostrar anuncios relevantes y personalizados en función de tus intereses.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>¿Cómo puedes gestionar tus cookies?</h2>
+  <p>Puedes gestionar tus preferencias de cookies directamente en nuestro sitio utilizando el banner que aparece al ingresar por primera vez. También puedes desactivar las cookies desde la configuración de tu navegador. Ten en cuenta que desactivar algunas cookies puede afectar negativamente tu experiencia en nuestro sitio web.</p>
+  <p>Para más información sobre cómo gestionar las cookies en los navegadores más populares, puedes consultar los siguientes enlaces:
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web" target="_blank">Mozilla Firefox</a></li>
+    <li><a href="https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Internet Explorer</a></li>
+    <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
+  </ul>
+  </p>
+</section>
+
+<section class="cookie-manager">
+  <h2>Gestionar cookies manualmente</h2>
+  <div>
+    <!-- Crear una Cookie -->
+    <input id="key" type="text" placeholder="Clave">
+    <input id="value" type="text" placeholder="Valor">
+    <button id="set" onclick="crearCookie(document.getElementById('key').value, document.getElementById('value').value)">Crear Cookie</button>
+  </div>
+  <br>
+  <div>
+    <!-- Leer una Cookie -->
+    <input id="key-read" type="text" placeholder="Clave">
+    <button id="read" onclick="leerCookie(document.getElementById('key-read').value)">Leer Cookie</button>
+  </div>
+  <br>
+  <div>
+    <!-- Borrar una Cookie -->
+    <input id="key-delete" type="text" placeholder="Clave">
+    <button id="delete" onclick="eliminarCookie(document.getElementById('key-delete').value)">Eliminar Cookie</button>
+  </div>
+  <br>
+  <textarea id="logs" rows="5" cols="70" placeholder="Logs de cookies..."></textarea>
+</section>
+
+<div class="back-button">
+  <a href="/index.html">Volver a la página principal</a>
+</div>
+
+</body>
+</html>
