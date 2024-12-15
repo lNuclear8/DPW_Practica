@@ -935,6 +935,79 @@ form input[type="radio"]:not(:last-of-type) {
     background-color: #a93226;
 }
 
+.carrito-flotante {
+    position: fixed;
+    bottom: 20px; /* Lo posiciona abajo */
+    right: 20px;
+    width: 300px;
+    max-height: 400px; /* Reducir la altura */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow-y: auto;
+    z-index: 1001;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.carrito-flotante h2 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.carrito-flotante table {
+    width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+.carrito-flotante th, .carrito-flotante td {
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.carrito-flotante button {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.carrito-flotante button:hover {
+    background-color: #e04848;
+}
+
+.carrito-flotante p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.carrito-flotante .acciones {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carrito-flotante .acciones button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 7px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.carrito-flotante .acciones button:hover {
+    background-color: #45a045;
+}
+
 /* Versión para móviles */
 @media screen and (max-width: 768px) {
     /* Ajustar el mapa para evitar conflictos */
@@ -1288,4 +1361,37 @@ form input[type="radio"]:not(:last-of-type) {
         box-shadow: none;
     }
 
+    .carrito-flotante {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        width: 100%; /* Carrito ocupa todo el ancho */
+        max-height: 300px;
+        border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .carrito-flotante h2 {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .carrito-flotante table {
+        font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+
+    .carrito-flotante button {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .carrito-flotante p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .carrito-flotante .acciones button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
 }

@@ -233,3 +233,117 @@ $(document).ready(function () {
     // Muestra los detalles del primer Gran Premio por defecto
     $('#granPremio').trigger('change');
 });
+
+$(document).ready(function () {
+    // Función que espera a que exista el elemento con la clase "search-container"
+    function waitForElement(selector, callback) {
+        const observer = new MutationObserver(function (mutations, observerInstance) {
+            if ($(selector).length > 0) {
+                observerInstance.disconnect(); // Dejar de observar el DOM
+                callback();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    // Monitorear hasta que "search-container" exista en el DOM
+    waitForElement('.search-container', function () {
+        const searchInput = $('.search-container input[name="query"]');
+        const suggestionBox = $('<div class="suggestion-box"></div>');
+
+        // Añadir el cuadro de sugerencias debajo del buscador
+        $('.search-container').css('position', 'relative').append(suggestionBox);
+
+        // Obtener enlaces del menú del header
+        const links = [];
+        $('nav a').each(function () {
+            const text = $(this).text().trim();
+            const href = $(this).attr('href');
+            if (text && href) {
+                links.push({ text, href });
+            }
+        });
+
+        // Evento para capturar entradas en el buscador
+        searchInput.on('input', function () {
+            const query = $(this).val().toLowerCase();
+            suggestionBox.empty(); // Limpiar sugerencias anteriores
+
+            if (query) {
+                const filteredLinks = links.filter(link => link.text.toLowerCase().includes(query));
+                if (filteredLinks.length) {
+                    filteredLinks.forEach(link => {
+                        const suggestion = $(`<div class="suggestion">${link.text}</div>`);
+                        suggestionBox.append(suggestion);
+
+                        // Redirigir al hacer clic en una sugerencia
+                        suggestion.on('click', function () {
+                            window.location.href = link.href;
+                        });
+                    });
+                } else {
+                    suggestionBox.append('<div class="suggestion no-result">No se encontraron resultados</div>');
+                }
+            }
+        });
+
+        // Evitar el envío del formulario
+        $('.search-container form').on('submit', function (e) {
+            e.preventDefault();
+            const query = searchInput.val().toLowerCase();
+
+            const result = links.find(link => link.text.toLowerCase().includes(query));
+            if (result) {
+                window.location.href = result.href;
+            } else {
+                alert("No se encontraron resultados para la búsqueda.");
+            }
+        });
+
+        // Ocultar sugerencias al perder el foco
+        searchInput.on('blur', function () {
+            setTimeout(() => suggestionBox.empty(), 200);
+        });
+
+        // Estilos básicos para las sugerencias
+        $('<style>')
+            .prop('type', 'text/css')
+            .html(`
+                .suggestion-box {
+                    position: absolute;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    z-index: 1000;
+                    max-height: 200px;
+                    overflow-y: auto;
+                    width: 100%;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    top: 100%;
+                    left: 0;
+                    margin-top: 2px;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    color: #333;
+                }
+                .suggestion {
+                    padding: 8px 10px;
+                    cursor: pointer;
+                    border-bottom: 1px solid #f1f1f1;
+                    background: #fff;
+                }
+                .suggestion:hover {
+                    background: #f0f0f0;
+                }
+                .suggestion.no-result {
+                    color: #999;
+                    text-align: center;
+                    padding: 8px 10px;
+                }
+            `)
+            .appendTo('head');
+    });
+});

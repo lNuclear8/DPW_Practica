@@ -1,0 +1,5 @@
+-Uso de AJAX al cargar dinámicamente las noticias en noticias.html y se cargan las noticias desde noticias.json en /data, también está implementado el buscador de noticias.
+-Implementación de cookies como el ejemplo del campus virtual.
+-Uso de JQUERY.
+-Archivo functions.js tiene algunas funciones de todo tipo que se usan durante el código, tanto para cargar header.html y footer.html como api de google maps...
+-tienda.js tiene la funcionalidad completa de una tienda y se usa Firebase con Realtime Database guardándose los pedidos y artículos en la base de datos, artículos se cargan dinámicamente en la base de datos desde el json.

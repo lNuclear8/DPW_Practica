@@ -1,93 +1,124 @@
-$(document).ready(function () {
-    // Carrito de compras
-    const carrito = [];
+// Configuración de Firebase
+const firebaseConfig = {
+    databaseURL: "https://dpwjs-51152-default-rtdb.europe-west1.firebasedatabase.app/"
+};
 
-    // Función para actualizar la tabla del carrito
-    function actualizarCarrito() {
-        const tbody = $('.carrito tbody');
-        tbody.empty(); // Limpia la tabla antes de actualizar
-        let total = 0;
+// Inicializar Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
-        carrito.forEach((item, index) => {
-            const subtotal = item.cantidad * item.precio;
-            total += subtotal;
+// Variables globales
+let carrito = [];
 
-            // Agregar fila al carrito
-            const fila = `
-                <tr>
-                    <td><img src="${item.imagen}" alt="${item.nombre}" style="width: 50px;"> ${item.nombre}</td>
-                    <td>
-                        <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="cantidad-carrito">
-                    </td>
-                    <td>${item.precio.toFixed(2)}€</td>
-                    <td>${subtotal.toFixed(2)}€</td>
-                    <td>
-                        <button type="button" class="eliminar-producto" data-index="${index}">Eliminar</button>
-                    </td>
-                </tr>
-            `;
-            tbody.append(fila);
+// Cargar Header, Footer y luego inicializar todo
+function cargarHeaderYFooter() {
+    return new Promise((resolve) => {
+        $("#header").load("header.html", () => {
+            $("#footer").load("footer.html", resolve); // Resolver al cargar el footer
         });
+    });
+}
 
-        // Actualizar el total
-        $('.total p').html(`<strong>Total:</strong> ${total.toFixed(2)}€`);
+// Cargar productos desde Firebase
+function cargarProductos() {
+    const articulosDiv = $("#articulos");
+    db.ref("productos").once("value", snapshot => {
+        snapshot.forEach(childSnapshot => {
+            const producto = childSnapshot.val();
+            const id = childSnapshot.key;
+
+            const productoHTML = `
+            <div class="articulo" data-id="${id}">
+              <img src="${producto.imagen}" alt="${producto.nombre}">
+              <h3>${producto.nombre}</h3>
+              <p><strong>Precio:</strong> €${producto.precio}</p>
+              <button onclick="añadirAlCarrito('${id}', '${producto.nombre}', ${producto.precio})">Añadir al carrito</button>
+            </div>
+          `;
+            articulosDiv.append(productoHTML);
+        });
+    });
+}
+
+// Inicializar Google Maps (debe estar en global)
+function initMap() {
+    const mapOptions = {
+        center: { lat: 40.7128, lng: -74.0060 }, // Coordenadas de ejemplo
+        zoom: 12
+    };
+    const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+
+// Funciones del carrito
+function añadirAlCarrito(id, nombre, precio) {
+    const itemExistente = carrito.find(item => item.id === id);
+    if (itemExistente) {
+        itemExistente.cantidad++;
+    } else {
+        carrito.push({ id, nombre, precio, cantidad: 1 });
+    }
+    actualizarCarrito();
+}
+
+function actualizarCarrito() {
+    const carritoBodyFlotante = $("#carrito-body-flotante");
+    const totalCarritoFlotante = $("#total-carrito-flotante");
+
+    carritoBodyFlotante.empty();
+    let total = 0;
+
+    carrito.forEach((item, index) => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+
+        carritoBodyFlotante.append(`
+            <tr>
+              <td>${item.nombre}</td>
+              <td>${item.cantidad}</td>
+              <td>€${subtotal.toFixed(2)}</td>
+              <td><button onclick="eliminarDelCarrito(${index})">X</button></td>
+            </tr>
+        `);
+    });
+
+    totalCarritoFlotante.html(`Total: €${total.toFixed(2)}`);
+}
+
+function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    actualizarCarrito();
+}
+
+// Procesar compra
+$(document).on("click", "#comprar-flotante", () => {
+    if (carrito.length === 0) {
+        alert("El carrito está vacío");
+        return;
     }
 
-    // Evento para añadir artículos al carrito
-    $('.articulo button').click(function () {
-        const articulo = $(this).closest('.articulo');
-        const nombre = articulo.find('h3').text();
-        const precio = parseFloat(articulo.find('strong').text().replace('€', ''));
-        const imagen = articulo.find('img').attr('src');
+    const pedido = {
+        productos: carrito,
+        total: carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0),
+        fecha: new Date().toISOString()
+    };
 
-        // Comprobar si el artículo ya está en el carrito
-        const existente = carrito.find(item => item.nombre === nombre);
-        if (existente) {
-            existente.cantidad += 1;
+    db.ref("pedidos").push(pedido, error => {
+        if (error) {
+            alert("Error al procesar el pedido: " + error.message);
         } else {
-            carrito.push({
-                nombre,
-                precio,
-                imagen,
-                cantidad: 1
-            });
-        }
-
-        actualizarCarrito();
-    });
-
-    // Evento para eliminar un artículo del carrito
-    $('.carrito').on('click', '.eliminar-producto', function () {
-        const index = $(this).data('index');
-        carrito.splice(index, 1); // Elimina el producto del carrito
-        actualizarCarrito();
-    });
-
-    // Evento para cambiar la cantidad de un artículo
-    $('.carrito').on('input', '.cantidad-carrito', function () {
-        const index = $(this).data('index');
-        const nuevaCantidad = parseInt($(this).val(), 10);
-        if (nuevaCantidad > 0) {
-            carrito[index].cantidad = nuevaCantidad;
-        } else {
-            carrito[index].cantidad = 1; // Evitar cantidades menores a 1
-        }
-        actualizarCarrito();
-    });
-
-    // Botón para continuar comprando
-    $('.acciones button:contains("Continuar comprando")').click(function () {
-        alert('Continúa explorando nuestra tienda para añadir más artículos.');
-    });
-
-    // Botón para proceder al pago
-    $('.acciones button:contains("Proceder al pago")').click(function () {
-        if (carrito.length === 0) {
-            alert('El carrito está vacío. Añade artículos antes de proceder al pago.');
-        } else {
-            alert('Gracias por tu compra. ¡Procesando el pedido!');
-            carrito.length = 0; // Vaciar el carrito después de la compra
+            alert("Pedido realizado con éxito");
+            carrito = [];
             actualizarCarrito();
+        }
+    });
+});
+
+// Inicializar todo
+$(document).ready(() => {
+    cargarHeaderYFooter().then(() => {
+        cargarProductos();
+        if (typeof google !== "undefined") {
+            initMap(); // Inicializar Google Maps solo si se cargó
         }
     });
 });

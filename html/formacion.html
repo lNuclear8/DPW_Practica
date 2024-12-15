@@ -10,6 +10,34 @@
   <script src="../js/jquery-3.6.0.js"></script>
   <!-- Carga la API de Google Maps con el callback a initMap -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
+  <style>
+    /* Estilo básico para validaciones y animaciones */
+    .formulario {
+      max-width: 600px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+    }
+    input:invalid, select:invalid, textarea:invalid {
+      border: 2px solid red;
+      animation: shake 0.2s ease-in-out;
+    }
+    input:valid, select:valid, textarea:valid {
+      border: 2px solid green;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25%, 75% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+    }
+    summary-box {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
 <div id="header"></div>
@@ -61,7 +89,7 @@
   <div class="formulario">
     <h2>Inscripción a la formación de canicas</h2>
 
-    <form action="#" method="post">
+    <form action="https://httpbin.org/post" method="post" target="_blank">
       <fieldset>
         <legend>Datos personales</legend>
 
@@ -121,5 +149,68 @@
   </div>
 </div>
 <div id="footer"></div>
+<script>
+  class SummaryBox extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `<p>Rellena el formulario y verás un resumen aquí.</p>`;
+    }
+
+    updateSummary(data) {
+      this.innerHTML = `
+        <h3>Resumen de tu inscripción:</h3>
+        <p><strong>Nombre:</strong> ${data.nombre}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Fecha de nacimiento:</strong> ${data.fecha_nacimiento}</p>
+        <p><strong>Género:</strong> ${data.genero}</p>
+        <p><strong>Formación:</strong> ${data.formacion}</p>
+        <p><strong>Comentarios:</strong> ${data.comentarios || 'Sin comentarios'}</p>
+      `;
+      this.speakSummary(data);
+    }
+
+    speakSummary(data) {
+      const speech = new SpeechSynthesisUtterance(`
+        Resumen de tu inscripción.
+        Nombre: ${data.nombre}.
+        Email: ${data.email}.
+        Fecha de nacimiento: ${data.fecha_nacimiento}.
+        Género: ${data.genero}.
+        Formación seleccionada: ${data.formacion}.
+        Comentarios: ${data.comentarios || 'Sin comentarios'}.
+      `);
+      speech.lang = 'es-ES';
+      window.speechSynthesis.speak(speech);
+    }
+  }
+  customElements.define('summary-box', SummaryBox);
+
+  const form = document.getElementById('formulario');
+  const resumenBox = document.getElementById('resumen');
+
+  // Guardar datos en LocalStorage
+  document.querySelectorAll('#formulario input, #formulario select, #formulario textarea').forEach(input => {
+    input.addEventListener('input', () => {
+      localStorage.setItem(input.id, input.value);
+    });
+
+    // Restaurar datos al cargar
+    if (localStorage.getItem(input.id)) {
+      input.value = localStorage.getItem(input.id);
+    }
+  });
+
+  // Procesar el formulario
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // Mostrar el resumen
+    resumenBox.updateSummary(data);
+
+    // Limpiar LocalStorage
+    localStorage.clear();
+  });
+</script>
 </body>
 </html>
