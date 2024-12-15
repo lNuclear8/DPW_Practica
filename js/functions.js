@@ -23,19 +23,24 @@ $(document).ready(() => {
     function loadContent(callback) {
         const basePath = window.location.pathname.includes('/html/') ? '../' : './';
 
-        // Cargar el header usando jQuery
+        // Cargar el header dinámico y configurar el menú hamburguesa después de cargarlo
         $('#header').load(`${basePath}html/header.html`, function (response, status) {
             if (status === "error") {
                 console.error("Error al cargar el header");
+            } else {
+                // Asignar evento al menú hamburguesa dinámicamente
+                $(document).on('click', '.menu-toggle', () => {
+                    $('.opciones').toggleClass('visible');
+                });
             }
         });
 
-        // Cargar el footer usando jQuery y ejecutar callback
+        // Cargar el footer dinámico
         $('#footer').load(`${basePath}html/footer.html`, function (response, status) {
             if (status === "error") {
                 console.error("Error al cargar el footer");
             } else if (typeof callback === 'function') {
-                callback(); // Ejecutar el callback después de cargar el footer
+                callback();
             }
         });
     }

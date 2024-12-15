@@ -3,3 +3,4 @@
 -Uso de JQUERY.
 -Archivo functions.js tiene algunas funciones de todo tipo que se usan durante el código, tanto para cargar header.html y footer.html como api de google maps...
 -tienda.js tiene la funcionalidad completa de una tienda y se usa Firebase con Realtime Database guardándose los pedidos y artículos en la base de datos, artículos se cargan dinámicamente en la base de datos desde el json.
+-galeria.js te permite desde galeria.html descargar en local los datos en formato json.
