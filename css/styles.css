@@ -7,7 +7,7 @@ body {
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
-    margin-top: 70px; /* Ajusta según la altura del header */
+    margin-top: 70px;
 }
 
 a {
@@ -25,14 +25,14 @@ ul {
     padding: 0;
 }
 
-/* Top Navigation */
+/* Header */
 .top {
     background-color: #c0392b;
     padding: 10px 20px;
 }
 
 header {
-    position: fixed; /* Fija el header en la parte superior */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -41,21 +41,21 @@ header {
     color: white;
     display: flex; /* Asegura que los elementos estén alineados */
     align-items: center; /* Centra verticalmente */
-    justify-content: space-between; /* Espacia entre los elementos */
-    padding: 0; /* Sin espaciado adicional */
-    height: auto; /* Deja que el logo defina la altura */
+    justify-content: space-between;
+    padding: 0;
+    height: auto;
 }
 
 nav {
     display: flex;
     flex-direction: row;
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: space-between; /* Espaciado entre los elementos */
-    padding: 10px 15px; /* Ajusta el espaciado interno del header */
-    background-color: #c0392b; /* Fondo rojo */
-    height: auto; /* Altura dinámica basada en el contenido */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #c0392b;
+    height: auto;
     flex-wrap: nowrap;
-    width: 100%; /* El contenedor ocupa todo el ancho */
+    width: 100%;
 }
 
 nav a {
@@ -67,9 +67,9 @@ nav a {
 }
 
 nav img {
-    max-height: 50px; /* Ajusta la altura del logo */
+    max-height: 50px;
     height: auto;
-    width: auto; /* Mantiene la proporción */
+    width: auto;
 }
 
 nav .dropdown {
@@ -108,7 +108,7 @@ nav .submenu li a:hover {
     background-color: #a93226;
 }
 
-/* Show submenu on hover */
+/* Para submenus */
 nav .dropdown:hover .submenu {
     display: block;
 }
@@ -138,9 +138,9 @@ nav .search-container button:hover {
 }
 
 nav img.logo {
-    width: auto; /* Mantén la proporción */
-    height: 100px; /* Ajusta esto al tamaño deseado */
-    max-height: 100%; /* Se ajusta al contenedor */
+    width: auto;
+    height: 100px;
+    max-height: 100%;
     object-fit: contain; /* Asegura que el logo se ajuste sin deformarse */
 }
 
@@ -159,25 +159,23 @@ nav img.logo {
     padding: 5px;
 }
 
-
-/* Center Content */
-/* Center Content */
+/* center */
 .center {
     padding: 20px;
     max-width: 1200px;
-    margin: 150px auto; /* Centrar con margen superior */
-    background-color: #ffffff; /* Fondo blanco */
+    margin: 150px auto;
+    background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px;
 }
 
 #contador {
-    text-align: center; /* Centrar el texto */
-    margin: 20px 0; /* Espaciado superior e inferior */
+    text-align: center;
+    margin: 20px 0;
     padding: 15px;
-    font-size: 1.1rem; /* Tamaño de fuente ligeramente más grande */
+    font-size: 1.1rem;
     border: 1px solid #ddd;
-    background-color: #f9f9f9; /* Fondo para destacar el contador */
+    background-color: #f9f9f9;
     border-radius: 5px;
 }
 
@@ -306,7 +304,7 @@ nav img.logo {
     background-color: #c0392b;
 }
 
-/* Classification Table */
+/* tabla clase clasificacion */
 .clasificacion table {
     width: 100%;
     border-collapse: collapse;
@@ -331,10 +329,10 @@ nav img.logo {
 
 .clasificacion h2{
     text-align: center;
-    margin-top: 40px; /* Ajusta este valor para bajar el título */
+    margin-top: 40px;
 }
 
-/* Bottom Section */
+/* footer */
 .bottom {
     background-color: #c0392b;
     color: #fff;
@@ -484,8 +482,8 @@ nav img.logo {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta automáticamente según el tamaño */
     gap: 20px; /* Espaciado entre elementos */
     padding: 20px; /* Espaciado interno */
-    background-color: #f9f9f9; /* Fondo claro */
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: #f9f9f9;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
@@ -522,7 +520,6 @@ nav img.logo {
     border: none;
 }
 
-/* Styling for headings */
 .texto h2 {
     color: #c0392b;
     margin-bottom: 15px;
@@ -531,7 +528,6 @@ nav img.logo {
     padding-bottom: 5px;
 }
 
-/* Styling for lists */
 .texto ul {
     list-style: disc inside;
     margin-bottom: 20px;
@@ -544,56 +540,34 @@ nav img.logo {
     color: #555;
 }
 
-/* Highlight specific words in the list */
 .texto ul li strong {
     color: #c0392b;
     font-weight: bold;
 }
 
-/* Styling for the paragraphs */
 .texto p {
     font-size: 1rem;
     color: #333;
     margin-bottom: 15px;
 }
 
-/* Hover effects for lists (optional for interactivity) */
-.texto ul li:hover {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    padding-left: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Add a special style for "Premios y Reconocimientos" */
 .texto ul li:before {
-    content: "🏆 "; /* Adds a trophy icon */
     color: #c0392b;
     font-size: 1.2rem;
     margin-right: 5px;
 }
 
-/* Paragraph styling */
 .texto p {
     margin-bottom: 20px;
-    text-align: justify; /* Align the text for a polished look */
+    text-align: justify;
 }
 
-/* Highlighted words */
 .texto strong {
     color: #c0392b;
     font-weight: bold;
 }
 
-/* Hover effect for the paragraphs (optional) */
-.texto p:hover {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    padding: 5px;
-    transition: background 0.3s ease;
-}
-
-/* Banner styling */
+/* banner */
 .banner img {
     width: 100%;
     height: auto;
@@ -602,7 +576,7 @@ nav img.logo {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Buscador styling */
+/* buscador */
 .buscador {
     margin: 20px 0;
     display: flex;
@@ -644,7 +618,7 @@ nav img.logo {
     align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
 }
 
-/* Individual noticia styling */
+/* cada noticia individual*/
 .noticia {
     flex: 1 1 calc(33.333% - 20px); /* 3 items por fila con espaciado */
     display: flex;
@@ -657,7 +631,6 @@ nav img.logo {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Título */
 .noticia h3 {
     margin: 0;
     padding: 15px;
@@ -1015,12 +988,13 @@ form input[type="radio"]:not(:last-of-type) {
         z-index: 0; /* Asegura que esté detrás del menú */
         position: relative; /* Para evitar que interfiera con el menú */
     }
+
     /* Menú en formato vertical */
     .opciones {
         display: none; /* Ocultar por defecto */
         flex-direction: column; /* Menús en disposición vertical */
-        width: 100%; /* Ocupan todo el ancho */
-        background-color: #c0392b; /* Color de fondo del menú desplegado */
+        width: 100%;
+        background-color: #c0392b;
         padding: 0; /* Elimina el espaciado interno para el borde superior */
         position: absolute; /* Posición absoluta para aparecer debajo */
         top: 100%; /* Posicionar justo debajo del header */
@@ -1035,19 +1009,19 @@ form input[type="radio"]:not(:last-of-type) {
 
     /* Configurar los dropdowns y los submenús */
     .dropdown .submenu {
-        display: flex; /* Siempre mostrar los submenús */
+        display: flex;
         flex-direction: column; /* Alinear elementos del submenú en vertical */
         position: static; /* Evita que el submenú flote y se superponga */
-        width: 100%; /* Asegura que ocupe todo el ancho disponible */
-        background-color: #c0392b; /* Fondo consistente con el menú */
-        padding: 0; /* Sin relleno adicional */
-        margin: 0; /* Sin margen adicional */
+        width: 100%;
+        background-color: #c0392b;
+        padding: 0;
+        margin: 0;
     }
 
     /* Opciones dentro del submenu */
     .dropdown .submenu li a {
-        font-size: 1rem; /* Tamaño del texto */
-        padding: 10px 15px; /* Espaciado interno */
+        font-size: 1rem;
+        padding: 10px 15px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separador entre elementos */
         text-align: left; /* Alinear el texto a la izquierda */
     }
@@ -1056,19 +1030,19 @@ form input[type="radio"]:not(:last-of-type) {
     .otromenu ul {
         flex-direction: column; /* Cambiar a disposición vertical */
         gap: 10px; /* Reducir el espaciado entre elementos */
-        width: 100%; /* Asegurar que ocupe todo el ancho */
-        padding: 10px 0; /* Espaciado superior e inferior */
-        background-color: #c0392b; /* Color de fondo */
+        width: 100%;
+        padding: 10px 0;
+        background-color: #c0392b;
         border-radius: 5px; /* Bordes redondeados */
     }
 
     .otromenu ul li {
-        padding: 10px 15px; /* Mayor espaciado interno */
+        padding: 10px 15px;
     }
 
     .otromenu ul li a {
-        color: #fff; /* Asegurar el color blanco en móvil */
-        font-size: 1rem; /* Aumentar el tamaño del texto */
+        color: #fff;
+        font-size: 1rem;
         text-align: left; /* Alinear el texto a la izquierda */
         width: 100%;
     }
@@ -1081,23 +1055,25 @@ form input[type="radio"]:not(:last-of-type) {
 
     /* Asegurar que hover no haga nada */
     .dropdown:hover .submenu {
-        display: flex; /* Mantener siempre visible */
+        display: flex;
     }
 
     /* Opciones del menú */
     .opciones p, .opciones a {
-        font-size: 1.2rem; /* Tamaño del texto */
-        text-align: left; /* Alinear a la izquierda */
-        padding: 10px 15px; /* Espaciado interno */
+        font-size: 1.2rem;
+        text-align: left;
+        padding: 10px 15px;
         text-decoration: none; /* Quitar subrayado */
         border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea separadora entre elementos */
     }
+
     nav .submenu li a:hover {
         background-color: transparent !important; /* Sin efecto hover */
     }
+
     /* Ocultar HOME */
     .hide-home {
-        display: none; /* Oculta solo este elemento específico */
+        display: none;
     }
 
     /* Ajusta el tamaño del menú hamburguesa */
@@ -1117,7 +1093,7 @@ form input[type="radio"]:not(:last-of-type) {
 
     .search-container input {
         width: calc(100% - 60px); /* Ajusta el tamaño del campo de entrada */
-        max-width: 300px; /* Ancho máximo */
+        max-width: 300px;
     }
 
     footer {
@@ -1136,7 +1112,7 @@ form input[type="radio"]:not(:last-of-type) {
     }
 
     .sponsors, .contacto, .cookies, #map {
-        width: 100%; /* Ocupan todo el ancho */
+        width: 100%;
     }
 
     .sponsors h2, .contacto h2, .cookies h2 {
@@ -1160,7 +1136,7 @@ form input[type="radio"]:not(:last-of-type) {
         display: flex;
         flex-wrap: wrap; /* Permitir que los íconos se ajusten en varias filas */
         justify-content: center;
-        gap: 10px; /* Espaciado entre los íconos */
+        gap: 10px;
     }
 
     .cookies ul {
@@ -1189,16 +1165,16 @@ form input[type="radio"]:not(:last-of-type) {
         text-decoration: underline;
     }
     .center {
-        padding: 20px 10px; /* Ajustar el espaciado interno */
+        padding: 20px 10px;
     }
 
     #contador {
-        text-align: center; /* Centrar el texto */
-        margin: 10px 0; /* Ajustar el margen */
+        text-align: center;
+        margin: 10px 0;
         padding: 10px;
-        font-size: 1rem; /* Tamaño de fuente para móviles */
+        font-size: 1rem;
         border: 1px solid #ddd;
-        background-color: #f9f9f9; /* Fondo para destacar el contador */
+        background-color: #f9f9f9;
     }
 
     .carousel img {
@@ -1228,7 +1204,7 @@ form input[type="radio"]:not(:last-of-type) {
     }
     .clasificacion table {
         font-size: 0.9rem; /* Reducir el tamaño de fuente */
-        width: 100%; /* Asegurar que la tabla ocupe el ancho completo */
+        width: 100%;
         overflow-x: auto; /* Habilitar desplazamiento horizontal */
         text-align: center;
     }
@@ -1254,13 +1230,13 @@ form input[type="radio"]:not(:last-of-type) {
         padding: 10px;
         background-color: #c0392b;
         color: #fff;
-        font-size: 1rem; /* Ajustar el tamaño del texto */
+        font-size: 1rem;
         text-align: center;
     }
 
     .noticia p {
         padding: 10px;
-        font-size: 0.9rem; /* Tamaño de fuente para párrafos */
+        font-size: 0.9rem;
         text-align: justify;
     }
 
@@ -1323,11 +1299,11 @@ form input[type="radio"]:not(:last-of-type) {
         margin-bottom: 15px;
     }
     .noticia {
-        flex: 1 1 100%; /* Stack items in one column for smaller screens */
+        flex: 1 1 100%;
     }
 
     .buscador input[type="text"] {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%;
     }
 
     .buscador input[type="submit"] {
@@ -1367,7 +1343,7 @@ form input[type="radio"]:not(:last-of-type) {
         right: 0;
         width: 100%; /* Carrito ocupa todo el ancho */
         max-height: 300px;
-        border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+        border-radius: 10px 10px 0 0;
         box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
         z-index: 0;
     }

@@ -6,8 +6,46 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/functions.js" defer></script>
     <script src="./js/ajax.js" defer></script>
-    <script src="./js/cookies.js" defer></script>
+    <script type="module" src="./js/cookies.js" defer></script>
     <script src="./js/jquery-3.6.0.js"></script>
+    <!-- CSS de Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+    <!-- JS de Slick Carousel -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/jquery.validate.min.js"></script>
+    <script type="module">
+        // Importar las funciones necesarias desde el SDK de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyC-XvaqGJ-OXNoh0KEljj8BT52q7vFoUyo",
+            authDomain: "dpwjs-51152.firebaseapp.com",
+            databaseURL: "https://dpwjs-51152-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "dpwjs-51152",
+            storageBucket: "dpwjs-51152.firebasestorage.app",
+            messagingSenderId: "130070489619",
+            appId: "1:130070489619:web:ccb77146bc3b8610282de6",
+            measurementId: "G-71G81N8YTV"
+        };
+
+        // Inicializar Firebase y Analytics
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // Registrar un evento cuando se cargue la página
+        document.addEventListener('DOMContentLoaded', () => {
+            logEvent(analytics, 'page_view', {
+                page_title: 'Index',
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+
+            console.log("Firebase Analytics: Evento 'page_view' registrado para index.html");
+        });
+    </script>
 </head>
 <body>
 <header>
@@ -70,28 +108,20 @@
         <!-- Aquí se mostrará el conteo de visitas -->
     </div>
     <div class="carousel">
-        <div class="carousel-item active">
+        <div>
             <img src="images/propaganda1.jpg" alt="Propaganda 1" style="width: 100%; height: 400px; object-fit: cover;">
         </div>
-        <div class="carousel-item">
+        <div>
             <img src="images/propaganda2.jpg" alt="Propaganda 2" style="width: 100%; height: 400px; object-fit: cover;">
         </div>
-        <div class="carousel-item">
+        <div>
             <img src="images/propaganda3.png" alt="Propaganda 3" style="width: 100%; height: 400px; object-fit: cover;">
         </div>
-        <div class="carousel-item">
+        <div>
             <img src="images/propaganda4.jpg" alt="Propaganda 4" style="width: 100%; height: 400px; object-fit: cover;">
         </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-        <!-- Indicadores de posición -->
-        <div class="indicators">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
     </div>
+
     <br>
     <div class="clasificacion">
         <h2>Clasificación de la Marbula One</h2>

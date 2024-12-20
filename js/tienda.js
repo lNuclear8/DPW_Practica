@@ -40,7 +40,7 @@ function cargarProductos() {
     });
 }
 
-// Inicializar Google Maps (debe estar en global)
+// Inicializar Google Maps
 function initMap() {
     const mapOptions = {
         center: { lat: 40.7128, lng: -74.0060 }, // Coordenadas de ejemplo

@@ -40,12 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Función para borrar una Cookie del navegador dada una key
-            function eliminarCookie(key) {
-                document.cookie = `${key}=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/`;
-                log(`eliminarCookie: ${key}`);
-            }
-
             // Mostrar el banner de cookies si no se ha establecido el consentimiento
             const consent = leerCookie('cookies-consent');
             if (!consent) {

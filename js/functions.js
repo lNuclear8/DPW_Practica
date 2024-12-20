@@ -89,39 +89,21 @@ $(document).ready(() => {
         $('.opciones').toggleClass('visible');
     });
 
-    // Para el carrusel
-    const items = $('.carousel-item');
-    const dots = $('.dot');
-    let currentIndex = 0;
-
-    const updateCarousel = (index) => {
-        items.removeClass('active');
-        dots.removeClass('active');
-        items.eq(index).addClass('active');
-        dots.eq(index).addClass('active');
-    };
-
-    $('.next').click(() => {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarousel(currentIndex);
-    });
-
-    $('.prev').click(() => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        updateCarousel(currentIndex);
-    });
-
-    dots.each((index, dot) => {
-        $(dot).click(() => {
-            currentIndex = index;
-            updateCarousel(currentIndex);
+    // Para el carousel con plugin de jquery
+    $(document).ready(function () {
+        $('.carousel').slick({
+            dots: true,         // Muestra puntos de navegación
+            infinite: true,     // Habilita transiciones infinitas
+            speed: 500,         // Velocidad de transición en ms
+            slidesToShow: 1,    // Número de diapositivas visibles
+            slidesToScroll: 1,  // Diapositivas que se mueven en cada transición
+            autoplay: true,     // Habilita reproducción automática
+            autoplaySpeed: 5000, // Tiempo entre transiciones automáticas en ms
+            prevArrow: '<button type="button" class="slick-prev">&#10094;</button>',
+            nextArrow: '<button type="button" class="slick-next">&#10095;</button>'
         });
     });
 
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarousel(currentIndex);
-    }, 5000);
 
     // Comprueba si el nombre del archivo HTML es index.html o clasificacion.html o campeones.html
     if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('clasificacion.html') || window.location.pathname.endsWith('campeones.html')) {
