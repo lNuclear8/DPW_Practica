@@ -34,7 +34,7 @@ $(document).ready(function () {
 
             // Realizar una solicitud AJAX para filtrar las noticias dinámicamente
             $.ajax({
-                url: "../data/noticias.json",
+                url: "../data/noticias.json", // Ruta al archivo JSON
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -53,7 +53,7 @@ $(document).ready(function () {
         // Mostrar todas las noticias al hacer clic en el botón
         $("#verTodasNoticias").on("click", function () {
             $.ajax({
-                url: "../data/noticias.json", // Ruta al archivo JSON
+                url: "../data/noticias.json",
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
