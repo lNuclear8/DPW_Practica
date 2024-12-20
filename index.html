@@ -293,28 +293,6 @@
 
 </body>
 </html>
-<script>
-    function actualizarContadores() {
-        // Contador de visitas totales usando localStorage
-        if (localStorage.totalVisits) {
-            localStorage.totalVisits = Number(localStorage.totalVisits) + 1;
-        } else {
-            localStorage.totalVisits = 1;
-        }
-
-        // Contador de visitas de la sesión actual usando sessionStorage
-        if (sessionStorage.sessionVisits) {
-            sessionStorage.sessionVisits = Number(sessionStorage.sessionVisits) + 1;
-        } else {
-            sessionStorage.sessionVisits = 1;
-        }
-
-        // Mostrar los resultados en la página
-        document.getElementById("contador").innerHTML =
-            "Total de visitas (almacenado): " + localStorage.totalVisits +
-            "<br>Visitas en esta sesión: " + sessionStorage.sessionVisits;
-    }
-</script>
 
 <script>
     function initMap() {

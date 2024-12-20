@@ -39,16 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const jsonData = JSON.stringify(galeriaData, null, 2);
 
         // Crear un blob con los datos JSON
-        const blob = new Blob([jsonData], { type: 'application/json' });
+        const blob = new Blob([jsonData], { type: 'application/json' });//para descargar json
 
         // Crear un enlace de descarga
         const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'galeria.json';
+        a.href = URL.createObjectURL(blob);//
+        a.download = 'galeria.json';//se indica nombre del archivo que se descarga
         a.click();
 
         // Liberar el objeto URL
-        URL.revokeObjectURL(a.href);
+        URL.revokeObjectURL(a.href);//Es una forma de liberar memoria
     });
 
     console.log('Datos de la galería:', galeriaData); // Para verificar en la consola

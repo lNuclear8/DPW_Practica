@@ -104,7 +104,6 @@ $(document).ready(() => {
         });
     });
 
-
     // Comprueba si el nombre del archivo HTML es index.html o clasificacion.html o campeones.html
     if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('clasificacion.html') || window.location.pathname.endsWith('campeones.html')) {
         // Filtro dinámico en la tabla de clasificación
