@@ -3,21 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Marbula One</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/functions.js" defer></script>
-    <script src="../js/ajax.js" defer></script>
-    <script src="../js/cookies.js" defer></script>
-    <script src="../js/jquery-3.6.0.js"></script>
-    <!-- Carga la API de Google Maps con el callback a initMap -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 </head>
 <body>
-<div id="header"></div>
+<header>
+    <nav>
+        <a href="../index.html" class="logo-container">
+            <img class="logo" src="../images/logo.png" alt="Logo Marbula One">
+            <p class="home">HOME</p>
+        </a>
+
+        <button class="menu-hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+            &#9776;
+        </button>
+
+        <div class="opciones">
+            <ul class="menu-list">
+                <li class="dropdown">
+                    <p>ACERCA DE</p>
+                    <ul class="submenu">
+                        <li><a href="nosotros.html">NOSOTROS</a></li>
+                        <li><a href="normativa.html">NORMATIVA</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <p>ACTIVIDADES</p>
+                    <ul class="submenu">
+                        <li><a href="clasificacion.html">CLASIFICACIÓN</a></li>
+                        <li><a href="campeones.html">CAMPEONES</a></li>
+                        <li><a href="escuderias.html">FORMACIÓN</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="galeria.html">GALERÍA</a></li>
+                <li><a href="tienda.html">TIENDA</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <div class="center">
-    <!-- Contadores de visitas usando localStorage y sessionStorage -->
-    <div id="contador" style="margin: 20px; padding: 10px; border: 1px solid #ccc;">
-        <!-- Aquí se mostrará el conteo de visitas -->
-    </div>
     <div class="rectangulo">
         <img src="../images/rectangulo.png" alt="Rectangulo Azul" width="100%" height="100">
         <h1>CALENDARIO</h1>
@@ -84,6 +110,103 @@
         </div>
     </div>
 </div>
-<div id="footer"></div>
+<footer>
+    <div class="sponsors">
+        <h2>Nuestros Sponsors</h2>
+        <section>
+            <a href="https://www.adidas.es/" target="_blank">
+                <figure>
+                    <img src="../images/adidas.png" alt="Logo Adidas">
+                    <figcaption>SPONSOR TÉCNICO</figcaption>
+                </figure>
+            </a>
+        </section>
+        <section>
+            <a href="https://www.iberia.com/" target="_blank">
+                <figure>
+                    <img src="../images/iberia.svg" alt="Logo Iberia">
+                    <figcaption>PATROCINADOR</figcaption>
+                </figure>
+            </a>
+        </section>
+    </div>
+
+    <div class="contacto">
+        <h2>Contacto</h2>
+        <p>Síguenos en nuestras redes sociales:</p>
+        <section>
+            <div>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <figure>
+                        <img src="../images/instagram.png" alt="Logo de Instagram">
+                        <figcaption>Instagram</figcaption>
+                    </figure>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <figure>
+                        <img src="../images/facebook.svg" alt="Logo de Facebook">
+                        <figcaption>Facebook</figcaption>
+                    </figure>
+                </a>
+                <a href="https://twitter.com/" target="_blank">
+                    <figure>
+                        <img src="../images/x.png" alt="Logo de Twitter">
+                        <figcaption>Twitter</figcaption>
+                    </figure>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <figure>
+                        <img src="../images/youtube.png" alt="Logo de YouTube">
+                        <figcaption>YouTube</figcaption>
+                    </figure>
+                </a>
+            </div>
+        </section>
+    </div>
+    <div id="map" style="width:50%;height:300px"></div>
+</footer>
+
 </body>
 </html>
+
+<script>
+    function initMap() {
+        // Comprueba si la geolocalización está disponible
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    // Obtén las coordenadas del usuario
+                    var userLat = position.coords.latitude;
+                    var userLng = position.coords.longitude;
+
+                    // Opciones del mapa
+                    var mapOptions = {
+                        center: new google.maps.LatLng(userLat, userLng),
+                        zoom: 16,
+                        mapTypeId: google.maps.MapTypeId.TERRAIN
+                    };
+
+                    // Crea el mapa
+                    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                    // Agrega un marcador en la posición del usuario
+                    new google.maps.Marker({
+                        position: { lat: userLat, lng: userLng },
+                        map: map,
+                        title: "¡Estás aquí!"
+                    });
+                },
+                function (error) {
+                    // Manejo de errores
+                    console.error("Error al obtener la ubicación: ", error.message);
+                    alert("No se pudo obtener tu ubicación.");
+                }
+            );
+        } else {
+            alert("La geolocalización no es compatible con tu navegador.");
+        }
+    }
+</script>
+
+<!-- Carga la API de Google Maps con tu clave y llama a la función initMap -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>

@@ -3,110 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Marbula One</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/functions.js" defer></script>
-    <script src="./js/ajax.js" defer></script>
-    <script type="module" src="./js/cookies.js" defer></script>
-    <script src="./js/jquery-3.6.0.js"></script>
-    <!-- CSS de Slick Carousel -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
-    <!-- JS de Slick Carousel -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/jquery.validate.min.js"></script>
-    <script type="module">
-        // Importar las funciones necesarias desde el SDK de Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-        import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Verificar si hay un nombre guardado en la sesión
+            let username = sessionStorage.getItem("username");
 
-        // Configuración de Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyC-XvaqGJ-OXNoh0KEljj8BT52q7vFoUyo",
-            authDomain: "dpwjs-51152.firebaseapp.com",
-            databaseURL: "https://dpwjs-51152-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "dpwjs-51152",
-            storageBucket: "dpwjs-51152.firebasestorage.app",
-            messagingSenderId: "130070489619",
-            appId: "1:130070489619:web:ccb77146bc3b8610282de6",
-            measurementId: "G-71G81N8YTV"
-        };
+            if (!username) {
+                // Pedir el nombre de usuario si no está en la sesión
+                username = prompt("¡Bienvenido a Marbula One! Ingresa tu nombre:");
 
-        // Inicializar Firebase y Analytics
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+                if (username) {
+                    sessionStorage.setItem("username", username);
+                }
+            }
 
-        // Registrar un evento cuando se cargue la página
-        document.addEventListener('DOMContentLoaded', () => {
-            logEvent(analytics, 'page_view', {
-                page_title: 'Index',
-                page_location: window.location.href,
-                page_path: window.location.pathname
-            });
-
-            console.log("Firebase Analytics: Evento 'page_view' registrado para index.html");
+            // Mostrar un mensaje de bienvenida en la página
+            if (username) {
+                document.getElementById("mensaje-bienvenida").innerHTML = `¡Hola, ${username}! Bienvenido a Marbula One.`;
+            }
         });
     </script>
 </head>
 <body>
 <header>
-    <div class="top">
-        <nav>
-            <a href="index.html">
-                <img class="logo" src="images/logo.png" alt="Logo Marbula One">
-                <p class="hide-home">HOME</p>
-            </a>
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img class="logo" src="images/logo.png" alt="Logo Marbula One">
+            <p class="home">HOME</p>
+        </a>
 
-            <!-- Botón del menú hamburguesa -->
-            <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+        <button class="menu-hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+            &#9776;
+        </button>
 
-            <div class="opciones">
-                <div class="dropdown">
+        <div class="opciones">
+            <ul class="menu-list">
+                <li class="dropdown">
                     <p>ACERCA DE</p>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="html/noticias.html">NOTICIAS</a></li>
-                            <li><a href="html/nosotros.html">NOSOTROS</a></li>
-                            <li><a href="html/escuderias.html">ESCUDERÍAS</a></li>
-                            <li><a href="html/calendario.html">CALENDARIO</a></li>
-                            <li><a href="html/normativa.html">NORMATIVA</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <p>ACTIVIDADES</p>
-                    <div class="submenu">
-                        <ul>
-                            <li><a href="html/clasificacion.html">CLASIFICACIÓN</a></li>
-                            <li><a href="html/campeones.html">CAMPEONES</a></li>
-                            <li><a href="html/formacion.html">FORMACIÓN</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="otromenu">
-                    <ul>
-                        <li><a href="html/galeria.html">GALERIA</a></li>
-                        <li><a href="html/estadisticas.html">ESTADISTICAS</a></li>
-                        <li><a href="html/contacto.html">CONTACTO</a></li>
-                        <li><a href="html/tienda.html">TIENDA</a></li>
+                    <ul class="submenu">
+                        <li><a href="html/nosotros.html">NOSOTROS</a></li>
+                        <li><a href="html/normativa.html">NORMATIVA</a></li>
                     </ul>
-                </div>
-            </div>
-            <div class="search-container">
-                <form action="/buscar" method="GET">
-                    <input type="text" name="query" placeholder="Buscar..." required>
-                </form>
-            </div>
-        </nav>
-    </div>
+                </li>
+
+                <li class="dropdown">
+                    <p>ACTIVIDADES</p>
+                    <ul class="submenu">
+                        <li><a href="html/clasificacion.html">CLASIFICACIÓN</a></li>
+                        <li><a href="html/campeones.html">CAMPEONES</a></li>
+                        <li><a href="html/escuderias.html">FORMACIÓN</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="html/galeria.html">GALERÍA</a></li>
+                <li><a href="html/tienda.html">TIENDA</a></li>
+                <li><a href="html/contacto.html">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
 <div class="center">
-    <!-- Contadores de visitas usando localStorage y sessionStorage -->
-    <div id="contador" style="margin: 20px; padding: 10px; border: 1px solid #ccc;">
-        <!-- Aquí se mostrará el conteo de visitas -->
-    </div>
+    <h2 id="welcome-message"></h2>
     <div class="carousel">
         <div>
             <img src="images/propaganda1.jpg" alt="Propaganda 1" style="width: 100%; height: 400px; object-fit: cover;">
@@ -122,8 +81,7 @@
         </div>
     </div>
 
-    <br>
-    <div class="clasificacion">
+    <div class="tabla">
         <h2>Clasificación de la Marbula One</h2>
         <table border="1" cellpadding="10">
             <thead>
@@ -205,25 +163,50 @@
         </table>
     </div>
 
-    <br>
-
     <div class="noticias_destacadas">
         <h2>Noticias Destacadas de la Marbula One</h2>
 
-        <div class="noticias_destacadas">
-            <!-- Aquí se cargarán las noticias dinámicamente usando AJAX -->
-        </div>
+            <div class="noticia">
+                <h3>¡Enhorabuena a los entrenadores de la Temporada 5 de Marbula One!</h3>
+                <p>¡Enhorabuena a los entrenadores White Eye, Red Eye y Yellow Eye de los Crazy Cat's Eyes por ser vuestros bicampeones mundiales de Marbula One!</p>
+                <a href="https://www.reddit.com/r/JellesMarbleRuns/comments/1gi08yw/congratulations_to_the_champions_of_marbula_one/?tl=es-es">
+                    <img src="images/noticia1.webp" alt="Noticia 1" style="width: 100%; height: 400px; object-fit: cover;">
+                </a>
+            </div>
+
+            <div class="noticia">
+                <h3>¡Enhorabuena al campeoón  de la Temporada 5 de Marbula One!</h3>
+                <p>¡Y enhorabuena al mismísimo GOAT, Red Eye de los Crazy Cat's Eyes, por ser vuestro tricampeón mundial individual de Marbula One!</p>
+                <a href="https://www.reddit.com/r/JellesMarbleRuns/comments/1gi08yw/congratulations_to_the_champions_of_marbula_one/?tl=es-es">
+                    <img src="images/noticia2.webp" alt="Noticia 2" style="width: 100%; height: 400px; object-fit: cover;">
+                </a>
+            </div>
+
+            <div class="noticia">
+                <h3>Las Jelle's Marble Runs, la competición de Marble de carreras de canicas</h3>
+                <p>La 'Marbula One', el deporte que sustituye a la Fórmula 1 durante la cuarentena</p>
+                <a href="https://www.marca.com/buzz/2020/03/23/5e788563268e3e91018b4605.html">
+                    <img src="images/noticia3.jpg" alt="Noticia 3" style="width: 100%; height: 400px; object-fit: cover;">
+                </a>
+            </div>
+
+            <div class="noticia">
+                <h3>Kosmokrats patrocina las carreras de canicas de Jelle - Marbula One 7 de noviembre.</h3>
+                <p>Las carreras de canicas de Jelle han sido el antídoto perfecto para el confinamiento, emocionando a millones de personas en todo el mundo con la acción de las carreras de canicas, tan buena como cualquier deporte televisado.</p>
+                <a href="https://store.steampowered.com/news/app/1204410/view/2936871119024035559?l=spanish">
+                    <img src="images/noticia4.jpg" alt="Noticia 4" style="width: 100%; height: 400px; object-fit: cover;">
+                </a>
+            </div>
     </div>
 
 </div>
 <footer>
-    <div class="bottom">
         <div class="sponsors">
             <h2>Nuestros Sponsors</h2>
             <section>
                 <a href="https://www.adidas.es/" target="_blank">
                     <figure>
-                        <img src="images/adidas.png" alt="Logo Adidas" width="100" height="100">
+                        <img src="images/adidas.png" alt="Logo Adidas">
                         <figcaption>SPONSOR TÉCNICO</figcaption>
                     </figure>
                 </a>
@@ -231,7 +214,7 @@
             <section>
                 <a href="https://www.iberia.com/" target="_blank">
                     <figure>
-                        <img src="images/iberia.jpg" alt="Logo Iberia" width="100" height="100">
+                        <img src="images/iberia.svg" alt="Logo Iberia">
                         <figcaption>PATROCINADOR</figcaption>
                     </figure>
                 </a>
@@ -245,25 +228,25 @@
                 <div>
                     <a href="https://www.instagram.com/" target="_blank">
                         <figure>
-                            <img src="images/instagram.png" alt="Logo de Instagram" width="40" height="40">
+                            <img src="images/instagram.png" alt="Logo de Instagram">
                             <figcaption>Instagram</figcaption>
                         </figure>
                     </a>
                     <a href="https://www.facebook.com/" target="_blank">
                         <figure>
-                            <img src="images/facebook.png" alt="Logo de Facebook" width="40" height="40">
+                            <img src="images/facebook.svg" alt="Logo de Facebook">
                             <figcaption>Facebook</figcaption>
                         </figure>
                     </a>
                     <a href="https://twitter.com/" target="_blank">
                         <figure>
-                            <img src="images/x.png" alt="Logo de Twitter" width="40" height="40">
+                            <img src="images/x.png" alt="Logo de Twitter">
                             <figcaption>Twitter</figcaption>
                         </figure>
                     </a>
                     <a href="https://www.youtube.com/" target="_blank">
                         <figure>
-                            <img src="images/youtube.png" alt="Logo de YouTube" width="40" height="40">
+                            <img src="images/youtube.png" alt="Logo de YouTube">
                             <figcaption>YouTube</figcaption>
                         </figure>
                     </a>
@@ -271,24 +254,6 @@
             </section>
         </div>
         <div id="map" style="width:50%;height:300px"></div>
-        <div class="cookies">
-            <h2><a href="#" id="show-cookies">Cookies</a></h2>
-            <div id="cookie-info" style="display: none;">
-                <p>En Marbula One, utilizamos las siguientes cookies para mejorar tu experiencia:</p>
-                <p>Para más detalles, consulta nuestra <a href="html/politica_cookies.html">Política de Cookies</a>.</p>
-            </div>
-        </div>
-    </div>
-    <div class="cookies-banner" id="cookies-banner" style="display: none;">
-        <p>
-            En Marbula One, utilizamos cookies para mejorar tu experiencia y analizar el tráfico del sitio.
-            Consulta nuestra <a href="html/politica_cookies.html" target="_blank">Política de Cookies</a> para más detalles.
-        </p>
-        <div>
-            <button id="accept-cookies">Aceptar Cookies</button>
-            <button id="reject-cookies">Rechazar Cookies</button>
-        </div>
-    </div>
 </footer>
 
 </body>
@@ -335,14 +300,3 @@
 
 <!-- Carga la API de Google Maps con tu clave y llama a la función initMap -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const showCookiesLink = document.getElementById('show-cookies');
-
-        showCookiesLink.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-            window.location.href = '/html/politica_cookies.html'; // Redirigir a la página
-        });
-    });
-</script>
