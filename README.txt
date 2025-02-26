@@ -18,20 +18,19 @@ Estructura del proyecto:
 - `node_modules/`     --> Se genera automáticamente tras ejecutar `setup.bat`.
 - `server.js`         --> Archivo principal para iniciar el servidor.
 - `package.json`      --> Lista las dependencias del proyecto y scripts de npm.
-- `setup.bat`         --> Instala las dependencias necesarias para ejecutar el proyecto.
-- `start.bat`         --> Inicia el servidor local para acceder al sitio web.
 - `README.txt`        --> Documento con las instrucciones de ejecución.
 
 Instrucciones para ejecutar:
 1. **Configuración inicial**:
-   - Ejecuta `setup.bat` haciendo doble clic en él.
+   - Ejecuta en consola el comando `npm install`.
    - Esto instalará las dependencias necesarias para el proyecto. Este paso solo es necesario la primera vez o si se eliminan los archivos de `node_modules`.
 
 2. **Ejecutar el proyecto**:
-   - Haz doble clic en `start.bat`.
+   - Ejecuta en consola el comando `npm start`.
    - Esto iniciará el servidor local.
 
 3. **Abrir el sitio web**:
    - Una vez iniciado el servidor, abre tu navegador web y accede a la URL:
      - **http://localhost:3000**
    - Desde aquí podrás navegar por el sitio web y explorar sus funcionalidades.
+

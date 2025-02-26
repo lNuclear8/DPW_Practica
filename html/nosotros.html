@@ -32,7 +32,8 @@
                     <ul class="submenu">
                         <li><a href="clasificacion.html">CLASIFICACIÓN</a></li>
                         <li><a href="campeones.html">CAMPEONES</a></li>
-                        <li><a href="escuderias.html">FORMACIÓN</a></li>
+                        <li><a href="escuderias.html">ESCUDERIAS</a></li>
+                        <li><a href="calendario.html">CALENDARIO</a></li>
                     </ul>
                 </li>
 
@@ -48,9 +49,42 @@
         <img src="../images/rectangulo.png" alt="Rectangulo Azul" width="100%" height="100">
         <h1>NOSOTROS</h1>
     </div>
-    <body>
-    <div class="texto"></div>
-    </body>
+    <!-- Tarjetas del equipo -->
+    <section id="equipo">
+        <h2>Nuestro Equipo</h2>
+        <details>
+            <summary>Enrique - Fundador</summary>
+            <p>Aficionado a la Marbula One y creador de este sitio.</p>
+        </details>
+        <details>
+            <summary>David - Frontend Developer</summary>
+            <p>Encargado del diseño y la interfaz de la web.</p>
+        </details>
+    </section>
+
+    <!-- Cuenta regresiva -->
+    <section id="cuenta-regresiva">
+        <h2>Próxima Carrera</h2>
+        <p>Tiempo restante: <span id="cronometro">00:00:00</span></p>
+    </section>
+
+    <!-- Encuesta -->
+    <section id="encuesta">
+        <h2>¿Cuál es tu equipo favorito?</h2>
+        <form>
+            <label><input type="radio" name="equipo" value="Team Primary"> Team Primary</label><br>
+            <label><input type="radio" name="equipo" value="O'rangers"> O'rangers</label><br>
+            <label><input type="radio" name="equipo" value="Savage Speeders"> Savage Speeders</label><br>
+            <button type="submit">Votar</button>
+        </form>
+    </section>
+
+    <!-- Comentarios -->
+    <section id="comentarios">
+        <h2>Déjanos tu comentario</h2>
+        <textarea id="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
+        <button>Enviar</button>
+    </section>
 </div>
 <footer>
     <div class="sponsors">
@@ -59,7 +93,6 @@
             <a href="https://www.adidas.es/" target="_blank">
                 <figure>
                     <img src="../images/adidas.png" alt="Logo Adidas">
-                    <figcaption>SPONSOR TÉCNICO</figcaption>
                 </figure>
             </a>
         </section>
@@ -67,7 +100,6 @@
             <a href="https://www.iberia.com/" target="_blank">
                 <figure>
                     <img src="../images/iberia.svg" alt="Logo Iberia">
-                    <figcaption>PATROCINADOR</figcaption>
                 </figure>
             </a>
         </section>
@@ -81,25 +113,21 @@
                 <a href="https://www.instagram.com/" target="_blank">
                     <figure>
                         <img src="../images/instagram.png" alt="Logo de Instagram">
-                        <figcaption>Instagram</figcaption>
                     </figure>
                 </a>
                 <a href="https://www.facebook.com/" target="_blank">
                     <figure>
                         <img src="../images/facebook.svg" alt="Logo de Facebook">
-                        <figcaption>Facebook</figcaption>
                     </figure>
                 </a>
                 <a href="https://twitter.com/" target="_blank">
                     <figure>
                         <img src="../images/x.png" alt="Logo de Twitter">
-                        <figcaption>Twitter</figcaption>
                     </figure>
                 </a>
                 <a href="https://www.youtube.com/" target="_blank">
                     <figure>
                         <img src="../images/youtube.png" alt="Logo de YouTube">
-                        <figcaption>YouTube</figcaption>
                     </figure>
                 </a>
             </div>

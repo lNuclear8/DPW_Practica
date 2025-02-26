@@ -6,7 +6,44 @@
   <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 </head>
 <body>
-<div id="header"></div>
+<header>
+  <nav>
+    <a href="../index.html" class="logo-container">
+      <img class="logo" src="../images/logo.png" alt="Logo Marbula One">
+      <p class="home">HOME</p>
+    </a>
+
+    <button class="menu-hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <div class="opciones">
+      <ul class="menu-list">
+        <li class="dropdown">
+          <p>ACERCA DE</p>
+          <ul class="submenu">
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="normativa.html">NORMATIVA</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <p>ACTIVIDADES</p>
+          <ul class="submenu">
+            <li><a href="clasificacion.html">CLASIFICACIÓN</a></li>
+            <li><a href="campeones.html">CAMPEONES</a></li>
+            <li><a href="escuderias.html">ESCUDERIAS</a></li>
+            <li><a href="calendario.html">CALENDARIO</a></li>
+          </ul>
+        </li>
+
+        <li><a href="galeria.html">GALERÍA</a></li>
+        <li><a href="tienda.html">TIENDA</a></li>
+        <li><a href="contacto.html">CONTACTO</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 <div class="center">
   <div class="rectangulo">
     <img src="../images/rectangulo.png" alt="Rectangulo Azul" width="100%" height="100">
@@ -85,6 +122,52 @@
     </table>
   </div>
 
+  <div class="test-campeones">
+    <h2>Test: ¿Cuánto sabes sobre los campeones de la Marbula One?</h2>
+
+    <form id="quiz-form">
+      <!-- Pregunta 1 -->
+      <fieldset>
+        <legend>1. ¿Qué equipo ha ganado más campeonatos de la Marbula One?</legend>
+        <label><input type="radio" name="q1" value="savage"> Savage Speeders</label><br>
+        <label><input type="radio" name="q1" value="green"> Green Ducks</label><br>
+        <label><input type="radio" name="q1" value="hazers"> Hazers</label><br>
+        <label><input type="radio" name="q1" value="momo"> Team Momo</label>
+      </fieldset>
+
+      <!-- Pregunta 2 -->
+      <fieldset>
+        <legend>2. ¿En qué año ganó Green Ducks su primer campeonato?</legend>
+        <label><input type="radio" name="q2" value="2018"> 2018</label><br>
+        <label><input type="radio" name="q2" value="2019"> 2019</label><br>
+        <label><input type="radio" name="q2" value="2020"> 2020</label><br>
+        <label><input type="radio" name="q2" value="2021"> 2021</label>
+      </fieldset>
+
+      <!-- Pregunta 3 -->
+      <fieldset>
+        <legend>3. ¿Cuántos títulos ha ganado Team Momo?</legend>
+        <label><input type="radio" name="q3" value="0"> 0</label><br>
+        <label><input type="radio" name="q3" value="1"> 1</label><br>
+        <label><input type="radio" name="q3" value="2"> 2</label><br>
+        <label><input type="radio" name="q3" value="3"> 3</label>
+      </fieldset>
+
+      <!-- Pregunta 4 -->
+      <fieldset>
+        <legend>4. ¿Cuál fue el mejor puesto alcanzado por Team Galactic en la historia de la Marbula One?</legend>
+        <label><input type="radio" name="q4" value="2"> 2º</label><br>
+        <label><input type="radio" name="q4" value="4"> 4º</label><br>
+        <label><input type="radio" name="q4" value="6"> 6º</label><br>
+        <label><input type="radio" name="q4" value="8"> 8º</label>
+      </fieldset>
+
+      <button type="submit">Enviar respuestas</button>
+    </form>
+
+    <div id="resultado"></div>
+  </div>
+
 </div>
 <footer>
   <div class="sponsors">
@@ -93,7 +176,6 @@
       <a href="https://www.adidas.es/" target="_blank">
         <figure>
           <img src="../images/adidas.png" alt="Logo Adidas">
-          <figcaption>SPONSOR TÉCNICO</figcaption>
         </figure>
       </a>
     </section>
@@ -101,7 +183,6 @@
       <a href="https://www.iberia.com/" target="_blank">
         <figure>
           <img src="../images/iberia.svg" alt="Logo Iberia">
-          <figcaption>PATROCINADOR</figcaption>
         </figure>
       </a>
     </section>
@@ -115,25 +196,21 @@
         <a href="https://www.instagram.com/" target="_blank">
           <figure>
             <img src="../images/instagram.png" alt="Logo de Instagram">
-            <figcaption>Instagram</figcaption>
           </figure>
         </a>
         <a href="https://www.facebook.com/" target="_blank">
           <figure>
             <img src="../images/facebook.svg" alt="Logo de Facebook">
-            <figcaption>Facebook</figcaption>
           </figure>
         </a>
         <a href="https://twitter.com/" target="_blank">
           <figure>
             <img src="../images/x.png" alt="Logo de Twitter">
-            <figcaption>Twitter</figcaption>
           </figure>
         </a>
         <a href="https://www.youtube.com/" target="_blank">
           <figure>
             <img src="../images/youtube.png" alt="Logo de YouTube">
-            <figcaption>YouTube</figcaption>
           </figure>
         </a>
       </div>
