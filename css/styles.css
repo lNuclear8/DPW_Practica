@@ -1,0 +1,86 @@
+/*
+Generales, body
+ */
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: white;
+    /* Importantes estos margin 0 y padding 0 para evitar márgenes blancos en el borde superior y lateral izquierdo */
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none; /* Para quitar el subrayado de los enlaces */
+    color: inherit;
+}
+
+/*
+Header
+ */
+.menu-hamburguesa, .home, .submenu{
+    display: none;
+}
+
+header{
+    background: grey;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    z-index: 1; /* Para que quede por encima de otros elementos al ser fixed */
+}
+
+header a,p,summary{
+    font-weight: bold;/* Poner en negrita el menu*/
+    font-size: 20px;
+}
+
+header ul, li {
+    list-style: none; /* Para quitar los puntos de las listas */
+}
+
+/* Logo */
+.logo {
+    width: auto;
+    max-height: 80px; /* Ajusta el tamaño sin deformarlo */
+}
+
+/*
+Menú
+ */
+.menu-list{
+    align-items: center;
+    justify-content: center;
+    display: flex; /* Hay que ponerlo en flex junto a header para que estén en horizontal los elementos*/
+    gap: 20px; /* Espacio entre los elementos de la lista */
+    /* Importante el margin 0 y padding 0 para que termine el menú ahí y no se extienda verticalmente más*/
+    margin: 0 auto; /* NO TOCAR EL AUTO, sirve para centrar menu-list que está dentro del div opciones*/
+    padding: 0;
+}
+
+.submenu {
+    position: absolute; /* Absolute para que se adapte bien la posición, sino mueve todo*/
+    background: grey; /* No se puede quitar aunque ya esté en el header definido, parece que no lo hereda*/
+    padding: 10px;
+    margin: 0;
+}
+
+/*
+Toda la parte de funcionalidad del menú
+ */
+/* Mostrar submenú al hacer hover en el padre */
+.dropdown:hover > .submenu {
+    display: block;
+}
+
+.menu-list li:hover > a {
+    color: white;
+}
+/*
+Center
+ */
+
+/*
+Footer
+ */
