@@ -1,4 +1,8 @@
 /*
+EN ESTE ARCHIVO CSS SE DEFINE LA ESTRUCTURA DE LA PÁGINA
+ */
+
+/*
 Generales, body
  */
 body{
@@ -15,9 +19,9 @@ a{
 }
 
 /*
-Header
+HEADER
  */
-.menu-hamburguesa, .home, .submenu{
+.menu-hamburguesa, .submenu{
     display: none;
 }
 
@@ -26,7 +30,8 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
+    display: grid; /* Para que menu-list pueda quedar centrado perfectamente*/
+    grid-template-columns: auto 1fr; /* Logo en una columna y menú en otra */
     width: 100%;
     z-index: 1; /* Para que quede por encima de otros elementos al ser fixed */
 }
@@ -40,23 +45,23 @@ header ul, li {
     list-style: none; /* Para quitar los puntos de las listas */
 }
 
-/* Logo */
-.logo {
-    width: auto;
-    max-height: 80px; /* Ajusta el tamaño sin deformarlo */
-}
-
 /*
 Menú
  */
 .menu-list{
+    display: flex; /* Hay que ponerlo en flex junto a header para que estén en horizontal los elementos*/
     align-items: center;
     justify-content: center;
-    display: flex; /* Hay que ponerlo en flex junto a header para que estén en horizontal los elementos*/
     gap: 20px; /* Espacio entre los elementos de la lista */
     /* Importante el margin 0 y padding 0 para que termine el menú ahí y no se extienda verticalmente más*/
     margin: 0 auto; /* NO TOCAR EL AUTO, sirve para centrar menu-list que está dentro del div opciones*/
     padding: 0;
+}
+
+/* Logo */
+.logo {
+    width: auto;
+    max-height: 50px; /* Ajusta el tamaño sin deformarlo */
 }
 
 .submenu {
@@ -78,9 +83,74 @@ Toda la parte de funcionalidad del menú
     color: white;
 }
 /*
-Center
+CENTER
  */
 
 /*
-Footer
+FOOTER
  */
+footer{
+    color: white;
+}
+
+/*
+Parte de los sponsors
+ */
+.sponsors{
+    background-color: darkslategrey;
+    text-align: center;
+    padding: 10px;
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaciado entre las imágenes */
+    margin-top: 10px;
+}
+
+.sponsors img {
+    width: auto;
+    max-height: 100px;
+}
+
+/*
+Parte del bottom
+ */
+.bottom {
+    background: darkgray;
+    display: flex; /* Para que estén en fila*/
+    justify-content: space-between; /* Distribuye los elementos a los lados */
+    align-items: center;
+    padding: 20px;
+}
+
+.contacto {
+    text-align: center;
+    width: 50%; /* Ocupa el 50% de la izquierda, el mapa el otro 50% que se hace directamente desde el html*/
+}
+
+.redes-sociales {
+    display: flex; /* Para que estén en fila*/
+    justify-content: center; /* Centra las redes */
+    gap: 20px; /* Espaciado uniforme entre las imágenes */
+    margin-top: 10px;
+}
+
+.redes-sociales a {
+    display: flex; /* Para que estén en fila*/
+    /*
+    Las propiedades siguientes align-items y justify-content se usan cuando se utiliza display: flex, sirven para centrar
+    los elementos, justify-content alinea en el eje horizontal y align-items en el eje vertical
+     */
+    align-items: center; /* Alinea imágenes en el centro*/
+    justify-content: center; /* Centra el a con respecto a su div*/
+    width: 50px; /* Todas mismo tamaño, se define el a que es el "contenedor" donde dentro está la imagen*/
+    height: 50px;
+    background-color: white; /* Fondo del círculo blanco donde dentro está la red social */
+    border-radius: 50%; /* Redondeado */
+}
+
+.redes-sociales a img {
+    width: 60%;
+}
