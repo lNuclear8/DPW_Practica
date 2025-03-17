@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <title>Marbula One</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- jQuery -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/plugins.js"></script>
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- css, IMPORTANTE el link de css tiene que ir después del de Bootstrap, sino carga los estilos de Bootstrap para navbar -->
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/index.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Verificar si hay un nombre guardado en la sesión
@@ -58,107 +69,51 @@
 </header>
 
 <div class="center">
-    <h2 id="welcome-message"></h2>
     <div class="carousel">
         <div>
-            <img src="images/propaganda1.jpg" alt="Propaganda 1" style="width: 100%; height: 400px; object-fit: cover;">
+            <img src="images/propaganda1.jpg" alt="Propaganda 1">
         </div>
         <div>
-            <img src="images/propaganda2.jpg" alt="Propaganda 2" style="width: 100%; height: 400px; object-fit: cover;">
+            <img src="images/propaganda2.jpg" alt="Propaganda 2">
         </div>
         <div>
-            <img src="images/propaganda3.png" alt="Propaganda 3" style="width: 100%; height: 400px; object-fit: cover;">
+            <img src="images/propaganda3.png" alt="Propaganda 3">
         </div>
         <div>
-            <img src="images/propaganda4.jpg" alt="Propaganda 4" style="width: 100%; height: 400px; object-fit: cover;">
+            <img src="images/propaganda4.jpg" alt="Propaganda 4">
         </div>
     </div>
 
-    <div class="tabla">
-        <h2>Clasificación de la Marbula One</h2>
-        <table border="1" cellpadding="10">
-            <thead>
-            <tr>
-                <th>Puesto</th>
-                <th>Escudería</th>
-                <th>Puntos</th>
-                <th>Victorias</th>
-                <th>Podios</th>
-                <th>Mejor Tiempo</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>Team Momo</td>
-                <td>150</td>
-                <td>5</td>
-                <td>8</td>
-                <td>12.34</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Team Primary</td>
-                <td>120</td>
-                <td>3</td>
-                <td>7</td>
-                <td>12.56</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Team Thunder</td>
-                <td>110</td>
-                <td>2</td>
-                <td>6</td>
-                <td>12.72</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Team Bubbles</td>
-                <td>90</td>
-                <td>1</td>
-                <td>4</td>
-                <td>12.89</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Team Agito</td>
-                <td>85</td>
-                <td>1</td>
-                <td>3</td>
-                <td>13.01</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Team Thunderbolts</td>
-                <td>70</td>
-                <td>0</td>
-                <td>2</td>
-                <td>13.15</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Team Green</td>
-                <td>50</td>
-                <td>0</td>
-                <td>1</td>
-                <td>13.32</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Team Yellow</td>
-                <td>30</td>
-                <td>0</td>
-                <td>0</td>
-                <td>13.47</td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="container mt-4">
+        <h2 class="text-center text-uppercase fw-bold">Clasificación de la Marbula One</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered align-middle">
+                <thead class="table-dark">
+                <tr>
+                    <th>Puesto</th>
+                    <th>Escudería</th>
+                    <th>Puntos</th>
+                    <th>Victorias</th>
+                    <th>Podios</th>
+                    <th>Mejor Tiempo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>1</td><td>Team Momo</td><td>150</td><td>5</td><td>8</td><td>12.34</td></tr>
+                <tr><td>2</td><td>Team Primary</td><td>120</td><td>3</td><td>7</td><td>12.56</td></tr>
+                <tr><td>3</td><td>Team Thunder</td><td>110</td><td>2</td><td>6</td><td>12.72</td></tr>
+                <tr><td>4</td><td>Team Bubbles</td><td>90</td><td>1</td><td>4</td><td>12.89</td></tr>
+                <tr><td>5</td><td>Team Agito</td><td>85</td><td>1</td><td>3</td><td>13.01</td></tr>
+                <tr><td>6</td><td>Team Thunderbolts</td><td>70</td><td>0</td><td>2</td><td>13.15</td></tr>
+                <tr><td>7</td><td>Team Green</td><td>50</td><td>0</td><td>1</td><td>13.32</td></tr>
+                <tr><td>8</td><td>Team Yellow</td><td>30</td><td>0</td><td>0</td><td>13.47</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="noticias_destacadas">
-        <h2>Noticias Destacadas de la Marbula One</h2>
-
+        <h2 class="text-center text-uppercase fw-bold">Noticias Destacadas de la Marbula One</h2>
             <div class="noticia">
                 <h3>¡Enhorabuena a los entrenadores de la Temporada 5 de Marbula One!</h3>
                 <p>¡Enhorabuena a los entrenadores White Eye, Red Eye y Yellow Eye de los Crazy Cat's Eyes por ser vuestros bicampeones mundiales de Marbula One!</p>
@@ -168,7 +123,7 @@
             </div>
 
             <div class="noticia">
-                <h3>¡Enhorabuena al campeoón  de la Temporada 5 de Marbula One!</h3>
+                <h3>¡Enhorabuena al campeón  de la Temporada 5 de Marbula One!</h3>
                 <p>¡Y enhorabuena al mismísimo GOAT, Red Eye de los Crazy Cat's Eyes, por ser vuestro tricampeón mundial individual de Marbula One!</p>
                 <a href="https://www.reddit.com/r/JellesMarbleRuns/comments/1gi08yw/congratulations_to_the_champions_of_marbula_one/?tl=es-es">
                     <img src="images/noticia2.webp" alt="Noticia 2" style="width: 100%; height: 400px; object-fit: cover;">

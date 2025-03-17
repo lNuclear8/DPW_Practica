@@ -1,0 +1,41 @@
+/* index.css tendrá solo el carousel y las noticias */
+/* Este margin-top es para la clase h2 de bootstrap*/
+h2.text-center.text-uppercase.fw-bold {
+    margin-top: 5%;
+}
+
+.carousel img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Noticias */
+.noticias_destacadas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 80%;
+    margin: 0 auto 5%; /* 0 arriba, auto a los lados, 5% abajo */
+    gap: 20px; /* Espacio entre los div*/
+}
+
+.noticias_destacadas h2 {
+    grid-column: span 2; /* Hace que el título abarque dos columnas en el grid */
+}
+
+.noticias_destacadas .noticia{
+    display: flex;
+    flex-direction: column; /* Elementos verticalmente*/
+    gap: 10px;
+    border: 1px solid #ddd; /* Es como redondear por fuera la noticia*/
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.noticias_destacadas .noticia a{
+    margin-top: auto; /* Sirve para empujar el a hacia la parte de abajo del div noticia */
+}
+.noticias_destacadas .noticia a img {
+    border-radius: 8px;
+}

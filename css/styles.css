@@ -1,5 +1,5 @@
 /*
-EN ESTE ARCHIVO CSS SE DEFINE LA ESTRUCTURA DE LA PÁGINA
+EN ESTE ARCHIVO CSS SE DEFINE LA ESTRUCTURA DE LA PÁGINA, HEADER Y FOOTER, (CENTER PUEDE QUE TAMBIÉN)
  */
 
 /*
@@ -13,9 +13,19 @@ body{
     padding: 0;
 }
 
+h2{
+    font-size: 1.8rem;
+}
+
 a{
     text-decoration: none; /* Para quitar el subrayado de los enlaces */
     color: inherit;
+}
+
+p{
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
 }
 
 /*
@@ -82,9 +92,6 @@ Toda la parte de funcionalidad del menú
 .menu-list li:hover > a {
     color: white;
 }
-/*
-CENTER
- */
 
 /*
 FOOTER
@@ -128,6 +135,10 @@ Parte del bottom
 .contacto {
     text-align: center;
     width: 50%; /* Ocupa el 50% de la izquierda, el mapa el otro 50% que se hace directamente desde el html*/
+}
+
+.contacto p{
+    color: inherit; /* Que no herede de la regla general que definí al principio de este css que es: p{font-size: 1rem;color: #444;margin: 0;}*/
 }
 
 .redes-sociales {
