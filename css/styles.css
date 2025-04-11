@@ -93,6 +93,26 @@ Toda la parte de funcionalidad del menú
     color: white;
 }
 
+/**
+Banner con rectángulo azul que tienen muchas páginas (index.html no lo tiene por ejemplo)
+ */
+.rectangulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7em;
+    width: 100%;
+    padding-top: 3rem;
+    background-color: #00364d;
+}
+
+.titulo-rectangulo {
+    margin: 0; /* Anula el margin de Bootstrap */
+    font-size: 2rem;      /* Tamaño controlado manualmente */
+    font-weight: bold;
+    color: white;
+}
+
 /*
 FOOTER
  */
