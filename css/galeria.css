@@ -1,0 +1,38 @@
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 90%;
+    margin: auto;
+}
+
+.item {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.item a {
+    transition: transform 0.2s ease;
+}
+
+.item a:hover {
+    transform: scale(1.02);
+}
+
+.media-wrapper {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.media-wrapper img,
+.media-wrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+}
