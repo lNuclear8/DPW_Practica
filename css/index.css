@@ -15,7 +15,7 @@ h2.text-center.text-uppercase.fw-bold {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 80%;
-    margin: 0 auto 5%; /* 0 arriba, auto a los lados, 5% abajo */
+    margin: 0 auto; /* 0 arriba, auto a los lados */
     gap: 20px; /* Espacio entre los div*/
 }
 

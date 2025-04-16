@@ -8,8 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- css general -->
     <link rel="stylesheet" href="../css/styles.css">
-    <!-- css calendario -->
-    <link rel="stylesheet" href="../css/calendario.css">
 </head>
 <body>
 
@@ -33,7 +31,7 @@
             <ul class="submenu">
                 <li><a href="clasificacion.html">CLASIFICACIÓN</a></li>
                 <li><a href="campeones.html">CAMPEONES</a></li>
-                <li><a href="escuderias.html">FORMACIÓN</a></li>
+                <li><a href="escuderias.html">ESCUDERÍAS</a></li>
                 <li><a href="calendario.html">CALENDARIO</a></li>
             </ul>
         </li>
@@ -47,7 +45,7 @@
     <div class="rectangulo">
         <h1 class="titulo-rectangulo">CALENDARIO</h1>
     </div>
-    <div class="calendario">
+    <div class="tituloParteSuperior">
         <h2>Selecciona un Gran Premio de la Marbula One</h2>
 
         <form>
@@ -169,7 +167,7 @@
 
                     // Agrega un marcador en la posición del usuario
                     new google.maps.Marker({
-                        position: { lat: userLat, lng: userLng },
+                        position: {lat: userLat, lng: userLng},
                         map: map,
                         title: "¡Estás aquí!"
                     });
@@ -187,4 +185,5 @@
 </script>
 
 <!-- Carga la API de Google Maps con tu clave y llama a la función initMap -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async
+        defer></script>

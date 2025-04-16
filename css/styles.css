@@ -66,6 +66,12 @@ section {
     padding: 2rem;
     max-width: 100%;
     margin: 0 auto;
+    text-align: center;
+}
+
+/* Centra la tabla que está dentro de section (se usa para la tabla de Normativa)*/
+section table {
+    margin: 0 auto;
 }
 
 label {
@@ -80,7 +86,7 @@ select {
 
 form {
     max-width: 80%;
-    margin: 2rem auto;
+    margin: 0 auto;
     padding: 1rem;
 }
 
@@ -97,6 +103,48 @@ legend {
 
 input[type="radio"] {
     margin-right: 0.5rem;
+}
+
+/**
+Estilos para los buscadores
+ */
+.buscador{
+    text-align: center;
+}
+/* Estilo para inputs de texto */
+input[type="text"] {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al enfocar */
+input[type="text"]:focus {
+    border: 1px solid darkgrey;
+    box-shadow: 0 0 5px rgba(100, 100, 100, 0.3);
+}
+/* Aplica a <button> y <input type="submit"> */
+button,
+input[type="submit"] {
+    background-color: darkgrey;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Hover */
+button:hover,
+input[type="submit"]:hover {
+    background-color: grey;
 }
 
 /*
@@ -187,6 +235,15 @@ Banner con rectángulo azul que tienen muchas páginas (index.html no lo tiene p
 .center{
     background-color: #f5f5f5
 }
+
+/**
+Esto es la parte justo debajo del rectángulo que tienen muchas ventanas, se repite bastante
+ */
+.tituloParteSuperior{
+    text-align: center;
+    padding: 2rem;
+    margin: 0 auto;
+}
 /*
 FOOTER
  */
@@ -258,4 +315,12 @@ Parte del bottom
 
 .redes-sociales a img {
     width: 60%;
+}
+
+/**
+Corrección de Bootstrap para el acordeón
+ */
+.accordion-button:not(.collapsed) { /* collapsed apunta solo al elemento que esté expandido, para que no sea azul por defecto*/
+    background-color: #e9ecef;
+    color: #212529; /* Color del texto*/
 }
