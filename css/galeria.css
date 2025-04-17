@@ -33,6 +33,11 @@
 
 @media (max-width: 768px) {
     .galeria {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Solo 1 columna en la vista para móviles */
+    }
+
+    /* Hay que desactivar el hover en móviles*/
+    .item a:hover {
+        transform: none;
     }
 }

@@ -20,12 +20,14 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     right: 0px; /*Para que esté a la derecha*/
     width: 280px;
     padding: 20px; /* Espacio interno de los elementos*/
-    background: grey;
+    background: rgba(128, 128, 128, 0.95); /* Este color es grey, pero con 0.95 de opacidad*/
     text-align: center;
     overflow-y: auto; /* Para añadir la barra lateral dentro del carro*/
     max-height: 80vh; /* Si no se define tamaño máximo, se desborda y nunca se aplica el overflow-y*/
     transition: background-color 0.3s ease;
-    z-index: 1; /*Para que esté por encima del mapa si diese el caso*/
+    z-index: 2; /*Para que esté por encima del mapa si diese el caso*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /* Propiedades de los elementos internos del carrito*/
@@ -36,4 +38,24 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
 
 .carrito-flotante td {
     padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .tienda-layout {
+        flex-direction: column;
+    }
+
+    .elementos_listables {
+        /* margin-right ya no es necesario porque el carrito estará en bottom, por lo que si se mantuviese habría un hueco vacío a la derecha.
+        La existencia de este margin-right era importante para que no se superponga el carrito encima de los productos en la vista para PC
+        */
+        margin-right: 0;
+    }
+
+    .carrito-flotante {
+        top: auto;              /* Quitamos el top que en PC es de 50px */
+        bottom: 0;              /* Para pegarlo a abajo */
+        width: 100%;
+        max-height: 40vh;       /* 40vh en vez de 80vh, porque en móvil la pantalla es más pequeña */
+    }
 }

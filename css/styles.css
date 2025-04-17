@@ -5,7 +5,7 @@ EN ESTE ARCHIVO CSS SE DEFINE LA ESTRUCTURA DE LA PÁGINA, HEADER Y FOOTER, (CEN
 /*
 Generales, body
  */
-body{
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: white;
     /* Importantes estos margin 0 y padding 0 para evitar márgenes blancos en el borde superior y lateral izquierdo */
@@ -13,25 +13,26 @@ body{
     padding: 0;
 }
 
-h2{
+h2 {
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: bold;
 }
 
-h3{
+h3 {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
-a{
+
+a {
     text-decoration: none; /* Para quitar el subrayado de los enlaces */
     color: inherit;
 }
 
-p{
+p {
     font-size: 1rem;
     color: #444;
     margin: 0;
@@ -69,7 +70,7 @@ section {
     text-align: center;
 }
 
-/* Centra la tabla que está dentro de section (se usa para la tabla de Normativa)*/
+/* Centra la tabla que está dentro de section (se usa para la tabla de normativa.html)*/
 section table {
     margin: 0 auto;
 }
@@ -108,9 +109,10 @@ input[type="radio"] {
 /**
 Estilos para los buscadores
  */
-.buscador{
+.buscador {
     text-align: center;
 }
+
 /* Estilo para inputs de texto */
 input[type="text"] {
     padding: 0.6rem 1rem;
@@ -128,6 +130,7 @@ input[type="text"]:focus {
     border: 1px solid darkgrey;
     box-shadow: 0 0 5px rgba(100, 100, 100, 0.3);
 }
+
 /* Aplica a <button> y <input type="submit"> */
 button,
 input[type="submit"] {
@@ -147,14 +150,12 @@ input[type="submit"]:hover {
     background-color: grey;
 }
 
-/*
-HEADER
- */
-.menu-hamburguesa, .submenu{
+/* --------------HEADER-----------*/
+.menu-hamburguesa, .submenu {
     display: none;
 }
 
-header{
+header {
     background: grey;
     position: fixed;
     top: 0;
@@ -165,8 +166,8 @@ header{
     z-index: 1; /* Para que quede por encima de otros elementos al ser fixed */
 }
 
-header a,p,summary{
-    font-weight: bold;/* Poner en negrita el menu*/
+header a, p, summary {
+    font-weight: bold; /* Poner en negrita el menu*/
     font-size: 20px;
 }
 
@@ -177,7 +178,7 @@ header ul, li {
 /*
 Menú
  */
-.menu-list{
+.menu-list {
     display: flex; /* Hay que ponerlo en flex junto a header para que estén en horizontal los elementos*/
     align-items: center;
     justify-content: center;
@@ -227,19 +228,19 @@ Banner con rectángulo azul que tienen muchas páginas (index.html no lo tiene p
 
 .titulo-rectangulo {
     margin: 0; /* Anula el margin de Bootstrap */
-    font-size: 2rem;      /* Tamaño controlado manualmente */
+    font-size: 2rem; /* Tamaño controlado manualmente */
     font-weight: bold;
     color: white;
 }
 
-.center{
+.center {
     background-color: #f5f5f5
 }
 
 /**
 Esto es la parte justo debajo del rectángulo que tienen muchas ventanas, se repite bastante
  */
-.tituloParteSuperior{
+.tituloParteSuperior {
     text-align: center;
     padding: 2rem;
     margin: 0 auto;
@@ -260,12 +261,12 @@ PARA TODOS LOS ELEMENTOS LISTABLES, COMO EN INDEX.HTML SUS NOTICIAS O LOS ARTÍC
     grid-column: span 2; /* Hace que el título abarque dos columnas en el grid */
 }
 
-.elementos_listables img{
+.elementos_listables img {
     display: block;
     margin: 0 auto;
 }
 
-.elementos_listables .elemento{
+.elementos_listables .elemento {
     display: flex;
     flex-direction: column; /* Elementos verticalmente*/
     gap: 10px;
@@ -275,24 +276,23 @@ PARA TODOS LOS ELEMENTOS LISTABLES, COMO EN INDEX.HTML SUS NOTICIAS O LOS ARTÍC
     border-radius: 8px;
 }
 
-.elementos_listables .elemento a{
+.elementos_listables .elemento a {
     margin-top: auto; /* Sirve para empujar el a hacia la parte de abajo del div elemento */
 }
+
 .elementos_listables .elemento a img {
     border-radius: 8px;
 }
 
-/*
-FOOTER
- */
-footer{
+/* --------------FOOTER----------*/
+footer {
     color: white;
 }
 
 /*
 Parte de los sponsors
  */
-.sponsors{
+.sponsors {
     background-color: darkslategrey;
     text-align: center;
     padding: 10px;
@@ -311,7 +311,7 @@ Parte de los sponsors
 }
 
 /*
-Parte del bottom
+Parte del bottom (en grey, justo debajo de Sponsors)
  */
 .bottom {
     background: darkgray;
@@ -326,7 +326,7 @@ Parte del bottom
     width: 50%; /* Ocupa el 50% de la izquierda, el mapa el otro 50% que se hace directamente desde el html*/
 }
 
-.contacto p{
+.contacto p {
     color: inherit; /* Que no herede de la regla general que definí al principio de este css que es: p{font-size: 1rem;color: #444;margin: 0;}*/
 }
 
@@ -356,9 +356,85 @@ Parte del bottom
 }
 
 /**
-Corrección de Bootstrap para el acordeón
+------------Corrección de Bootstrap para el acordeón (escuderias.html)------------
  */
 .accordion-button:not(.collapsed) { /* collapsed apunta solo al elemento que esté expandido, para que no sea azul por defecto*/
     background-color: #e9ecef;
     color: #212529; /* Color del texto*/
+}
+
+/**
+------------------------------------MEDIA QUERIES------------------------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    /* --------------HEADER-----------*/
+    .menu-list {
+        display: none;
+        flex-direction: column;
+        background-color: grey;
+        position: absolute;
+        top: 60px; /* Para ponerlo justo debajo del header */
+        width: 100%;
+        padding: 1rem;
+    }
+
+    /* Se pone en 2 porque había un pequeño bug que al pulsar "ACERCA DE" te mostraba el menú "NOSOTROS" y "NORMATIVA", pero
+    se superponía por encima y no quedaba bien*/
+    .submenu{
+        z-index: 2;
+    }
+
+    .menu-list.activo {
+        display: flex;
+    }
+
+    .menu-hamburguesa {
+        display: block; /* Para que aparezca, antes estaba en none*/
+        background: none; /* Por defecto tiene un background, hay que quitarlo*/
+        font-size: 2rem;
+        justify-self: end; /* Para ponerlo a la derecha del todo*/
+    }
+
+    .dropdown:hover > .submenu {
+        display: none;
+    }
+
+    .menu-list li:hover > a {
+        color: inherit;
+    }
+    /* -------------CENTER-------------*/
+    .rectangulo {
+        padding-top: 4.5rem; /* Necesita más espacio con respecto al header */
+    }
+
+    /* Estilo general para que ocupen el 95% del width, en vista PC ocupaban menos*/
+    form, .elementos_listables {
+        max-width: 95%;
+    }
+
+    button:hover,
+    input[type="submit"]:hover {
+        background-color: inherit;
+    }
+
+    /**
+PARA TODOS LOS ELEMENTOS LISTABLES, COMO EN INDEX.HTML SUS NOTICIAS O LOS ARTÍCULOS EN TIENDA
+ */
+    .elementos_listables {
+        grid-template-columns: 1fr; /* Solo una columna en móvil */
+    }
+
+    .elementos_listables h2 {
+        grid-column: span 1; /* Ahora solo ocupa 1 columna el h2 en móvil */
+    }
+
+    /* --------------FOOTER----------*/
+    .sponsor-logos, .bottom {
+        flex-direction: column;
+    }
+
+    .contacto, .tituloParteSuperior .tab-btn {
+        width: 100%; /* En móvil es 50% porque se divide la vista a la mitad entre redes sociales y mapa*/
+        margin-bottom: 20px;
+    }
 }
