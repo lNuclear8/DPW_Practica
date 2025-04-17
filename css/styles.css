@@ -382,6 +382,7 @@ Parte del bottom (en grey, justo debajo de Sponsors)
     se superponía por encima y no quedaba bien*/
     .submenu{
         z-index: 2;
+        border-left: 4px solid red;
     }
 
     .menu-list.activo {

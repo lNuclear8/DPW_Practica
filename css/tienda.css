@@ -20,7 +20,8 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     right: 0px; /*Para que esté a la derecha*/
     width: 280px;
     padding: 20px; /* Espacio interno de los elementos*/
-    background: rgba(128, 128, 128, 0.95); /* Este color es grey, pero con 0.95 de opacidad*/
+    background-color: grey;
+    opacity: 0.95;
     text-align: center;
     overflow-y: auto; /* Para añadir la barra lateral dentro del carro*/
     max-height: 80vh; /* Si no se define tamaño máximo, se desborda y nunca se aplica el overflow-y*/
