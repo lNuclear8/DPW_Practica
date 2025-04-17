@@ -1,0 +1,39 @@
+/* Tienda-layout lo que hace es dividir la vista en 2 zonas, por un lado primera columnas, TODOS LOS PRODUCTOS,
+por otro lado, segunda columna, EL CARRITO, porque sino no se podría hacer lo del carrito en fixed
+y si el carrito no es fixed no se podrían arrastrar los elementos de más abajo.
+Básicamente sirve para que pueda existir el espaciado interno entre los productos y el carrito y no se superponga todo.
+ */
+.tienda-layout {
+    display: flex;
+    padding: 20px;
+}
+
+/* Si no le metemos el margin-right los productos se comerían el carrito*/
+.elementos_listables {
+    margin-right: 280px;
+}
+
+/* Carrito a la derecha en fixed y con posibilidad de que haya un scroll interno */
+.carrito-flotante {
+    position: fixed;
+    top: 50px; /*Para que no toque con el header*/
+    right: 0px; /*Para que esté a la derecha*/
+    width: 280px;
+    padding: 20px; /* Espacio interno de los elementos*/
+    background: grey;
+    text-align: center;
+    overflow-y: auto; /* Para añadir la barra lateral dentro del carro*/
+    max-height: 80vh; /* Si no se define tamaño máximo, se desborda y nunca se aplica el overflow-y*/
+    transition: background-color 0.3s ease;
+    z-index: 1; /*Para que esté por encima del mapa si diese el caso*/
+}
+
+/* Propiedades de los elementos internos del carrito*/
+.carrito-flotante table {
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.carrito-flotante td {
+    padding: 5px;
+}

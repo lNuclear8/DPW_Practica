@@ -244,6 +244,44 @@ Esto es la parte justo debajo del rectángulo que tienen muchas ventanas, se rep
     padding: 2rem;
     margin: 0 auto;
 }
+
+/**
+PARA TODOS LOS ELEMENTOS LISTABLES, COMO EN INDEX.HTML SUS NOTICIAS O LOS ARTÍCULOS EN TIENDA
+ */
+.elementos_listables {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 80%;
+    margin: 0 auto; /* 0 arriba, auto a los lados */
+    gap: 20px; /* Espacio entre los div*/
+}
+
+.elementos_listables h2 {
+    grid-column: span 2; /* Hace que el título abarque dos columnas en el grid */
+}
+
+.elementos_listables img{
+    display: block;
+    margin: 0 auto;
+}
+
+.elementos_listables .elemento{
+    display: flex;
+    flex-direction: column; /* Elementos verticalmente*/
+    gap: 10px;
+    border: 1px solid #ddd; /* Es como redondear por fuera la noticia*/
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.elementos_listables .elemento a{
+    margin-top: auto; /* Sirve para empujar el a hacia la parte de abajo del div elemento */
+}
+.elementos_listables .elemento a img {
+    border-radius: 8px;
+}
+
 /*
 FOOTER
  */
