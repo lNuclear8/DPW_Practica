@@ -34,16 +34,15 @@
 
 .cuenta-regresiva .cronometro {
     font-size: 1.5rem;
-    color: red; /* Naranja intenso */
+    color: red;
 }
 
 @media (max-width: 768px) {
     .miembro-grid {
-        grid-template-columns: 1fr; /* Solo 1 columna en la vista para móviles */
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
-    /* Para desactivar el hover en móvil */
     .miembro-grid details:hover {
         transform: none;
     }
