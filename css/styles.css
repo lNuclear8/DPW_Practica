@@ -157,7 +157,7 @@ input[type="submit"]:hover {
 }
 
 header {
-    background: grey;
+    background: #00364d;
     position: fixed;
     top: 0;
     left: 0;
@@ -165,6 +165,7 @@ header {
     grid-template-columns: auto 1fr; /* Logo en una columna y menú en otra */
     width: 100%;
     z-index: 1; /* Para que quede por encima de otros elementos al ser fixed */
+    color: white;
 }
 
 header a, p, summary {
@@ -197,9 +198,10 @@ Menú
 
 .submenu {
     position: absolute; /* Absolute para que se adapte bien la posición, sino mueve todo*/
-    background: grey; /* No se puede quitar aunque ya esté en el header definido, parece que no lo hereda*/
+    background: #00364d; /* No se puede quitar aunque ya esté en el header definido, parece que no lo hereda*/
     padding: 10px;
     margin: 0;
+    color: white;
 }
 
 /*
@@ -211,7 +213,7 @@ Toda la parte de funcionalidad del menú
 }
 
 .menu-list li:hover > a {
-    color: white;
+    color: black;
 }
 
 /**
@@ -296,7 +298,7 @@ footer {
 Parte de los sponsors
  */
 .sponsors {
-    background-color: darkslategrey;
+    background-color: #003344;
     text-align: center;
     padding: 10px;
 }
@@ -317,7 +319,7 @@ Parte de los sponsors
 Parte del bottom (en grey, justo debajo de Sponsors)
  */
 .bottom {
-    background: darkgray;
+    background: #003344;
     display: flex; /* Para que estén en fila*/
     justify-content: space-between; /* Distribuye los elementos a los lados */
     align-items: center;
@@ -397,7 +399,7 @@ Plugin de FullCalendar en calendario.html
     .menu-list {
         display: none;
         flex-direction: column;
-        background-color: grey;
+        background-color: #003344;
         position: absolute;
         top: 60px; /* Para ponerlo justo debajo del header */
         width: 100%;
@@ -420,6 +422,10 @@ Plugin de FullCalendar en calendario.html
         background: none; /* Por defecto tiene un background, hay que quitarlo*/
         font-size: 2rem;
         justify-self: end; /* Para ponerlo a la derecha del todo*/
+    }
+
+    .logo{
+        margin-top: 5px;
     }
 
     .dropdown:hover > .submenu {

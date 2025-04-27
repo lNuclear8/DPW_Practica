@@ -20,7 +20,7 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     right: 0px; /*Para que esté a la derecha*/
     width: 280px;
     padding: 20px; /* Espacio interno de los elementos*/
-    background-color: steelblue;
+    background-color: #00364d;
     opacity: 0.95;
     text-align: center;
     overflow-y: auto; /* Para añadir la barra lateral dentro del carro*/
@@ -29,6 +29,7 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     z-index: 2; /*Para que esté por encima del mapa si diese el caso*/
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    color: white;
 }
 
 /* Propiedades de los elementos internos del carrito*/
@@ -41,6 +42,31 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
 .carrito-flotante td {
     padding: 5px;
 }
+
+.carrito-flotante p {
+    color: white;
+}
+
+.carrito-flotante button {
+    background-color: transparent;
+}
+
+#comprar-flotante {
+    background-color: white;
+    color: #003344;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Opcional: efecto hover para que se vea aún mejor */
+#comprar-flotante:hover {
+    background-color: #003344;
+    color: white;
+}
+
 
 @media (max-width: 768px) {
     .tienda-layout {
