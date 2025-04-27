@@ -237,7 +237,7 @@ Banner con rectángulo azul que tienen muchas páginas (index.html no lo tiene p
 }
 
 .center {
-    background-color: #f5f5f5;
+    background-color: white;
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -298,7 +298,7 @@ footer {
 Parte de los sponsors
  */
 .sponsors {
-    background-color: #003344;
+    background-color: #00364d;
     text-align: center;
     padding: 10px;
 }
@@ -319,7 +319,7 @@ Parte de los sponsors
 Parte del bottom (en grey, justo debajo de Sponsors)
  */
 .bottom {
-    background: #003344;
+    background: #00364d;
     display: flex; /* Para que estén en fila*/
     justify-content: space-between; /* Distribuye los elementos a los lados */
     align-items: center;
@@ -399,7 +399,7 @@ Plugin de FullCalendar en calendario.html
     .menu-list {
         display: none;
         flex-direction: column;
-        background-color: #003344;
+        background-color: #00364d;
         position: absolute;
         top: 60px; /* Para ponerlo justo debajo del header */
         width: 100%;

@@ -53,7 +53,7 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
 
 #comprar-flotante {
     background-color: white;
-    color: #003344;
+    color: #00364d;
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 10px;
@@ -61,9 +61,8 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Opcional: efecto hover para que se vea aún mejor */
 #comprar-flotante:hover {
-    background-color: #003344;
+    background-color: #00364d;
     color: white;
 }
 
