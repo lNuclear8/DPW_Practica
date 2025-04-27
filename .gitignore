@@ -1,2 +1,5 @@
 /.idea/
 /DPW_Practica2.iml/
+/.firebase/
+.DS_Store
+Thumbs.db
