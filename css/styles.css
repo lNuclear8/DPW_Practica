@@ -235,7 +235,9 @@ Banner con rectángulo azul que tienen muchas páginas (index.html no lo tiene p
 }
 
 .center {
-    background-color: #f5f5f5
+    background-color: #f5f5f5;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /**
