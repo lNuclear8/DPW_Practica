@@ -422,6 +422,15 @@ Plugin de FullCalendar en calendario.html
         background: none; /* Por defecto tiene un background, hay que quitarlo*/
         font-size: 2rem;
         justify-self: end; /* Para ponerlo a la derecha del todo*/
+        border: none;
+        outline: none;
+    }
+
+    .menu-hamburguesa:hover,
+    .menu-hamburguesa:active,
+    .menu-hamburguesa:focus {
+        background: none;
+        box-shadow: none;
     }
 
     .logo{
