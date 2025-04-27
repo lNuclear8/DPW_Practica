@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const botonEnviar = document.querySelector('.comentarios button');
     const listaComentarios = document.getElementById('lista-comentarios');
 
-    // Función para renderizar todos los comentarios
     function mostrarComentarios() {
         listaComentarios.innerHTML = '';
 
@@ -28,17 +27,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Evento para enviar un comentario
     botonEnviar.addEventListener('click', function() {
         const texto = textareaComentario.value.trim();
 
         if (texto !== "") {
             const comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
             comentariosGuardados.push(texto);
-            localStorage.setItem('comentarios', JSON.stringify(comentariosGuardados));
 
-            // Guardar el último comentario en sessionStorage
-            sessionStorage.setItem('ultimoComentario', texto);
+            localStorage.setItem('comentarios', JSON.stringify(comentariosGuardados));//Comentarios en local
+            sessionStorage.setItem('ultimoComentario', texto);//El último comentario se guarda a nivel de session
 
             textareaComentario.value = "";
             mostrarComentarios();
@@ -47,18 +44,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Evento delegador para borrar comentarios
     listaComentarios.addEventListener('click', function(e) {
         if (e.target.classList.contains('borrar-comentario')) {
             const index = e.target.getAttribute('data-index');
             const comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
             comentariosGuardados.splice(index, 1);
             localStorage.setItem('comentarios', JSON.stringify(comentariosGuardados));
-
             mostrarComentarios();
         }
     });
 
-    // Mostrar comentarios guardados al cargar
     mostrarComentarios();
 });

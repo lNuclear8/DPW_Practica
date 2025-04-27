@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
             function (error) {
-                console.error("Error cargando escuderías:", error);
                 mostrarSinResultados();
             }
         );

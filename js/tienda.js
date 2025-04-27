@@ -1,7 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import { getDatabase, ref, push, get, child } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import {getDatabase, ref, push, get, child} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
 
-// Inicializar Firebase
+// Se inicializa Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyBohv8NAl_Esw4CRiw97AMpZhQ-at719KA",
     authDomain: "dpwjulio-3fb56.firebaseapp.com",
@@ -16,51 +16,43 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Cargar los productos desde Firebase
+// Se cargan los productos desde Firebase
 async function cargarProductos() {
     const dbRef = ref(db);
-    try {
-        const snapshot = await get(child(dbRef, "productos"));
-        if (snapshot.exists()) {
-            const productos = snapshot.val();
-            const contenedor = document.querySelector(".elementos_listables");
+    const snapshot = await get(child(dbRef, "productos"));
+    if (snapshot.exists()) {
+        const productos = snapshot.val();
+        const contenedor = document.querySelector(".elementos_listables");
 
-            contenedor.innerHTML = "";
+        contenedor.innerHTML = "";
 
-            Object.keys(productos).forEach(id => {
-                const producto = productos[id];
+        Object.keys(productos).forEach(id => {
+            const producto = productos[id];
 
-                const elemento = document.createElement("div");
-                elemento.classList.add("elemento");
-                elemento.id = id;
-                elemento.draggable = true;
-                elemento.ondragstart = drag;
-                elemento.setAttribute("data-precio", producto.precio);
+            const elemento = document.createElement("div");
+            elemento.classList.add("elemento");
+            elemento.id = id;
+            elemento.draggable = true;
+            elemento.ondragstart = drag;
+            elemento.setAttribute("data-precio", producto.precio);
 
-                elemento.innerHTML = `
+            elemento.innerHTML = `
                     <img src="${producto.imagen}" alt="${producto.nombre}" width="150">
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
                     <p><strong>Precio: €${producto.precio}</strong></p>
                 `;
 
-                contenedor.appendChild(elemento);
-            });
+            contenedor.appendChild(elemento);
+        });
 
-            //Cargamos carrito
-            cargarCarritoDesdeCookie();
-
-        } else {
-            console.log("No se encontraron productos.");
-        }
-    } catch (error) {
-        console.error("Error al cargar productos: ", error);
+        cargarCarritoDesdeCookie();
     }
 }
 
-// Cargamos los productos al cargar la página
+// Se cargan los productos en el carrito al cargar la página
 document.addEventListener("DOMContentLoaded", function () {
-    cargarProductos(); // Esto ya llama a cargarCarritoDesdeCookie internamente.
+    cargarProductos();
 
     document.getElementById("carrito").addEventListener("dragleave", function () {
         this.classList.remove("dragover");
@@ -68,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Evento para comprar
-document.getElementById("comprar-flotante").addEventListener("click", async function() {
+document.getElementById("comprar-flotante").addEventListener("click", async function () {
     const productos = [];
     const filas = document.querySelectorAll("#carrito-body-flotante tr");
 
@@ -96,13 +88,12 @@ document.getElementById("comprar-flotante").addEventListener("click", async func
         alert("¡Pedido realizado con éxito!");
         document.getElementById("carrito-body-flotante").innerHTML = "";
         document.getElementById("total-carrito-flotante").textContent = "Total: €0.00";
+        document.cookie = "carrito=; path=/; max-age=0";//Borrar cookie
     } catch (error) {
-        console.error("Error al enviar pedido: ", error);
         alert("Error al realizar el pedido. Intenta de nuevo.");
     }
 });
 
-// Funciones para manejar cookies
 function guardarCarritoEnCookie() {
     const carrito = [];
     const filas = document.querySelectorAll("#carrito-body-flotante tr");
@@ -120,7 +111,7 @@ function guardarCarritoEnCookie() {
 
 function cargarCarritoDesdeCookie() {
     const cookies = document.cookie.split("; ");
-    const carritoCookie = cookies.find(row => row.startsWith("carrito="));
+    const carritoCookie = cookies.find(row => row.startsWith("carrito="));//Leer cookie
     if (carritoCookie) {
         const carrito = JSON.parse(decodeURIComponent(carritoCookie.split("=")[1]));
 
@@ -140,7 +131,6 @@ function cargarCarritoDesdeCookie() {
 }
 
 // Funciones de carrito (antes de DOMContentLoaded)
-
 function allowDrop(ev) {
     ev.preventDefault();
     document.getElementById("carrito").classList.add("dragover");
@@ -175,18 +165,16 @@ function borrarProducto(boton) {
     const fila = boton.closest('tr');
     const nombreProducto = fila.cells[0].textContent;
 
-    fila.remove(); // Borramos del DOM
+    fila.remove();
+    actualizarTotal();
 
-    actualizarTotal(); // Volvemos a actualizar total
-
-    // Actualizamos la cookie SIN ese producto
+    // Actualizamos la cookie sin ese producto
     const cookies = document.cookie.split("; ");
     const carritoCookie = cookies.find(row => row.startsWith("carrito="));
     if (carritoCookie) {
         let carrito = JSON.parse(decodeURIComponent(carritoCookie.split("=")[1]));
 
-        // Filtrar el producto que queremos eliminar
-        carrito = carrito.filter(item => item.nombre !== nombreProducto);
+        carrito = carrito.filter(item => item.nombre !== nombreProducto);// Se filtra el producto que queremos eliminar
 
         // Volvemos a guardar la cookie actualizada
         document.cookie = "carrito=" + encodeURIComponent(JSON.stringify(carrito)) + "; path=/";
@@ -226,7 +214,7 @@ function drop(ev) {
     guardarCarritoEnCookie();
 }
 
-// Hacer globales las funciones para que funcionen en el HTML
+// Se hacen globales las funciones para que funcionen en el HTML
 window.allowDrop = allowDrop;
 window.drag = drag;
 window.drop = drop;

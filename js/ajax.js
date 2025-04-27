@@ -1,4 +1,4 @@
-// Cargar contenido HTML y meterlo en un destino
+// HTML
 export function cargarContenido(url, destinoId) {
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -11,11 +11,11 @@ export function cargarContenido(url, destinoId) {
             }
         }
     };
-    xhr.open("GET", url, true);//Se le pasa la url que corresponda en función del archivo donde haya sido ejecutado
+    xhr.open("GET", url, true);
     xhr.send();
 }
 
-//Cargar datos JSON desde una URL (Firebase o cualquier API)
+//JSON
 export function cargarJSON(url, callbackSuccess, callbackError) {
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -25,11 +25,9 @@ export function cargarJSON(url, callbackSuccess, callbackError) {
                     const data = JSON.parse(xhr.responseText);
                     callbackSuccess(data);
                 } catch (e) {
-                    console.error("Error al parsear JSON:", e);
                     if (callbackError) callbackError(e);
                 }
             } else {
-                console.error("Error al cargar datos: ", xhr.status);
                 if (callbackError) callbackError(new Error(`Error ${xhr.status}`));
             }
         }

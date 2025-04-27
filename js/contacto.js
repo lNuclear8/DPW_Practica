@@ -2,15 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.querySelector(".formulario form");
 
     if (formulario) {
-        // Cargar datos guardados al iniciar
         cargarDatosFormulario();
 
-        // Escuchar cambios en todos los campos para guardar en sessionStorage
         formulario.addEventListener("input", function () {
             guardarDatosFormulario();
         });
 
-        // Al enviar, enviar a Firebase, limpiar sessionStorage y mostrar alert
         formulario.addEventListener("submit", function (event) {
             event.preventDefault(); // Evitamos que se envíe normalmente
 
@@ -26,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(response => {
                     if (response.ok) {
                         sessionStorage.removeItem("datosFormulario");
-                        formulario.reset(); // Limpiar formulario
+                        formulario.reset();
                         alert("¡Formulario enviado correctamente!");
                     } else {
                         alert("Error al enviar el formulario. Inténtalo de nuevo.");
