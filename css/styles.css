@@ -364,6 +364,29 @@ Parte del bottom (en grey, justo debajo de Sponsors)
 }
 
 /**
+Plugin de FullCalendar en calendario.html
+ */
+#calendar {
+    z-index: 0;
+    position: relative;
+    margin: 30px auto;
+    max-width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.quiz-button {
+    margin: 5px;
+}
+
+#quiz-buttons {
+    margin: 5px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/**
 ------------------------------------MEDIA QUERIES------------------------------------------------------------------------------
  */
 @media (max-width: 768px) {
@@ -413,11 +436,6 @@ Parte del bottom (en grey, justo debajo de Sponsors)
         max-width: 95%;
     }
 
-    button:hover,
-    input[type="submit"]:hover {
-        background-color: inherit;
-    }
-
     /**
 PARA TODOS LOS ELEMENTOS LISTABLES, COMO EN INDEX.HTML SUS NOTICIAS O LOS ARTÍCULOS EN TIENDA
  */
@@ -437,5 +455,11 @@ PARA TODOS LOS ELEMENTOS LISTABLES, COMO EN INDEX.HTML SUS NOTICIAS O LOS ARTÍC
     .contacto, .tituloParteSuperior .tab-btn {
         width: 100%; /* En móvil es 50% porque se divide la vista a la mitad entre redes sociales y mapa*/
         margin-bottom: 20px;
+    }
+
+    #calendar {
+        margin: 20px auto;
+        width: 95%;
+        padding: 10px;
     }
 }

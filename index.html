@@ -5,7 +5,7 @@
     <title>Marbula One</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <!-- jQuery -->
-    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="lib/jquery-3.6.0.js"></script>
     <script src="./js/plugins.js"></script>
     <!-- Slick Carousel -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
@@ -16,26 +16,6 @@
     <!-- css, IMPORTANTE el link de css tiene que ir después del de Bootstrap, sino carga los estilos de Bootstrap para navbar -->
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/index.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Verificar si hay un nombre guardado en la sesión
-            let username = sessionStorage.getItem("username");
-
-            if (!username) {
-                // Pedir el nombre de usuario si no está en la sesión
-                username = prompt("¡Bienvenido a Marbula One! Ingresa tu nombre:");
-
-                if (username) {
-                    sessionStorage.setItem("username", username);
-                }
-            }
-
-            // Mostrar un mensaje de bienvenida en la página
-            if (username) {
-                document.getElementById("mensaje-bienvenida").innerHTML = `¡Hola, ${username}! Bienvenido a Marbula One.`;
-            }
-        });
-    </script>
 </head>
 <body>
 <header>
@@ -288,3 +268,27 @@
 <!-- Carga la API de Google Maps con tu clave y llama a la función initMap -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7iCzhZT-L4FlkA_0VZ5qqkJVtQ743vB4&callback=initMap" async
         defer></script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyBohv8NAl_Esw4CRiw97AMpZhQ-at719KA",
+        authDomain: "dpwjulio-3fb56.firebaseapp.com",
+        projectId: "dpwjulio-3fb56",
+        storageBucket: "dpwjulio-3fb56.firebasestorage.app",
+        messagingSenderId: "921986849343",
+        appId: "1:921986849343:web:a15f3cf514d94b5703768a",
+        measurementId: "G-320LRJQ51F"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>

@@ -20,7 +20,7 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     right: 0px; /*Para que esté a la derecha*/
     width: 280px;
     padding: 20px; /* Espacio interno de los elementos*/
-    background-color: grey;
+    background-color: steelblue;
     opacity: 0.95;
     text-align: center;
     overflow-y: auto; /* Para añadir la barra lateral dentro del carro*/
@@ -35,6 +35,7 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
 .carrito-flotante table {
     width: 100%;
     font-size: 0.9rem;
+    color: white;
 }
 
 .carrito-flotante td {

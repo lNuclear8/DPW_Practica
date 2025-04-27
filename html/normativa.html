@@ -5,8 +5,11 @@
     <title>Marbula One</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <!-- jQuery -->
-    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../lib/jquery-3.6.0.js"></script>
     <script src="../js/plugins.js"></script>
+    <!-- Ajax -->
+    <script src="../js/ajax.js"></script>
+    <script type="module" src="../js/normativa.js"></script>
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- css general -->
@@ -48,75 +51,13 @@
     </div>
     <!-- Barra de navegación de normativa -->
     <nav class="tituloParteSuperior">
-        <button class="tab-btn active" onclick="mostrarSeccion('cambios')">Cambios de Temporada</button>
-        <button class="tab-btn" onclick="mostrarSeccion('normas')">Normas de Carrera</button>
-        <button class="tab-btn" onclick="mostrarSeccion('premios')">Premios y Reconocimientos</button>
+        <button class="tab-btn" data-seccion="cambios">Cambios de Temporada</button>
+        <button class="tab-btn" data-seccion="reglas">Normas de Carrera</button>
+        <button class="tab-btn" data-seccion="premios">Premios y Reconocimientos</button>
     </nav>
 
-    <!-- Contenido de Normativa -->
-    <section id="cambios" class="contenido visible">
-        <h2>📢 Cambios en la Temporada 4</h2>
-        <p>Las nuevas reglas y mejoras para esta temporada:</p>
-
-        <!-- Acordeón -->
-        <details>
-            <summary>🔹 Nuevo sistema de puntuación</summary>
-            <p>Ahora los 10 primeros corredores recibirán puntos como en la Fórmula 1.</p>
-        </details>
-
-        <details>
-            <summary>🔹 Paradas obligatorias</summary>
-            <p>Los corredores deberán hacer un pit stop durante la carrera para "recargar energía".</p>
-        </details>
-
-        <details>
-            <summary>🔹 Sectores de velocidad</summary>
-            <p>Algunas partes de la pista tendrán aumento de velocidad, pero con riesgo de perder el control.</p>
-        </details>
-    </section>
-
-    <section id="normas" class="contenido py-4">
-        <div class="container">
-            <h2 class="text-center text-uppercase fw-bold mb-4">⚖️ Reglas de la Carrera</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover table-bordered align-middle">
-                    <thead class="table-dark">
-                    <tr>
-                        <th>Regla</th>
-                        <th>Temporada 3</th>
-                        <th>Temporada 4</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Sistema de puntuación</td>
-                        <td>Puntos solo para el top 5</td>
-                        <td>Puntos para el top 10</td>
-                    </tr>
-                    <tr>
-                        <td>Obstáculos en la pista</td>
-                        <td>Presentes</td>
-                        <td>Eliminados</td>
-                    </tr>
-                    <tr>
-                        <td>Paradas obligatorias</td>
-                        <td>No aplicaba</td>
-                        <td>Ahora requeridas</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section id="premios" class="contenido">
-        <h2>🏆 Premios y Reconocimientos</h2>
-        <p>Estos son los premios otorgados a los mejores pilotos:</p>
-        <ul>
-            <li><strong>🥇 Trofeo Marble:</strong> Para el campeón de la temporada.</li>
-            <li><strong>⚡ Piloto más rápido:</strong> Para el corredor con la vuelta más rápida.</li>
-            <li><strong>🎭 Mejor espectáculo:</strong> Para el piloto con la mejor maniobra votada por el público.</li>
-        </ul>
+    <section id="contenido-dinamico" class="contenido">
+        <!-- Aquí se muestra usando el archivo ./js/ajax.js -->
     </section>
 
 </div>

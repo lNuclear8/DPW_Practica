@@ -1,5 +1,4 @@
 .equipo h2,
-.cuenta-regresiva h2,
 .comentarios h2 {
     margin-bottom: 1.5rem;
     font-weight: bold;
@@ -28,13 +27,21 @@
     transform: scale(1.02);
 }
 
-.cuenta-regresiva {
-    text-align: center;
+.comentario-guardado {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background: white;
 }
 
-.cuenta-regresiva .cronometro {
-    font-size: 1.5rem;
-    color: red;
+.borrar-comentario {
+    background-color: red;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.borrar-comentario:hover {
+    background-color: darkred;
 }
 
 @media (max-width: 768px) {

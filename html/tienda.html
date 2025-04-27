@@ -5,7 +5,7 @@
     <title>Tienda Dinámica - Marbula One</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <!-- jQuery -->
-    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../lib/jquery-3.6.0.js"></script>
     <script src="../js/plugins.js"></script>
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,76 +13,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <!-- tienda -->
     <link rel="stylesheet" href="../css/tienda.css">
-    <script>
-        function allowDrop(ev) {
-            ev.preventDefault();
-            document.getElementById("carrito").classList.add("dragover");
-        }
-
-        function drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
-        }
-
-        function actualizarTotal() {
-            let total = 0;
-            const filas = document.querySelectorAll("#carrito-body-flotante tr");
-
-            filas.forEach(fila => {
-                const nombre = fila.cells[0].textContent;
-                const cantidad = parseInt(fila.cells[1].textContent);
-
-                // Buscar el producto original por nombre
-                const productoOriginal = [...document.querySelectorAll(".elemento")]
-                    .find(p => p.querySelector("h3").textContent === nombre);
-
-                if (productoOriginal) {
-                    const precio = parseFloat(productoOriginal.getAttribute("data-precio"));
-                    total += precio * cantidad;
-                    fila.cells[2].textContent = `€${(precio * cantidad).toFixed(2)}`;
-                }
-            });
-
-            document.getElementById("total-carrito-flotante").textContent = `Total: €${total.toFixed(2)}`;
-        }
-
-        function drop(ev) {
-            ev.preventDefault();
-            document.getElementById("carrito").classList.remove("dragover");
-
-            const data = ev.dataTransfer.getData("text");
-            const original = document.getElementById(data);
-            const nombre = original.querySelector("h3").textContent;
-
-            const carritoBody = document.getElementById("carrito-body-flotante");
-            const filas = carritoBody.getElementsByTagName("tr");
-
-            for (let fila of filas) {
-                if (fila.cells[0].textContent === nombre) {
-                    let cantidad = parseInt(fila.cells[1].textContent);
-                    fila.cells[1].textContent = cantidad + 1;
-                    actualizarTotal();
-                    return;
-                }
-            }
-
-            const fila = document.createElement("tr");
-            fila.innerHTML = `
-        <td>${nombre}</td>
-        <td>1</td>
-        <td>-</td>
-        <td><button onclick="this.closest('tr').remove(); actualizarTotal();">❌</button></td>
-    `;
-            carritoBody.appendChild(fila);
-            actualizarTotal();
-        }
-
-        // Remueve el estilo cuando el usuario sale del área de drop
-        window.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("carrito").addEventListener("dragleave", function () {
-                this.classList.remove("dragover");
-            });
-        });
-    </script>
+    <script type="module" src="../js/tienda.js"></script>
 </head>
 <body>
 <header>
@@ -121,65 +52,11 @@
     </div>
     <div class="tienda-layout">
         <div class="elementos_listables">
-            <div class="elemento" id="producto1" draggable="true" ondragstart="drag(event)" data-precio="19.99">
-                <img src="../images/camiseta.jpg" alt="Camiseta Oficial Marbula One" width="150">
-                <h3>Camiseta Oficial Marbula One</h3>
-                <p>La camiseta oficial de Marbula One. Comodidad y estilo con el logo de Marbula One.</p>
-                <p><strong>Precio: $19.99</strong></p>
-            </div>
-
-            <div class="elemento" id="producto2" draggable="true" ondragstart="drag(event)" data-precio="15.99">
-                <img src="../images/gorra.jpg" alt="Gorra Marbula One" width="150">
-                <h3>Gorra Marbula One</h3>
-                <p>Gorra con el logo de Marbula One, perfecta para los fans más apasionados.</p>
-                <p><strong>Precio: $15.99</strong></p>
-            </div>
-
-            <div class="elemento" id="producto3" draggable="true" ondragstart="drag(event)" data-precio="29.99">
-                <img src="../images/juguete_canicas.jpg" alt="Juguete de Canicas Marbula One" width="150">
-                <h3>Juguete de Canicas Marbula One</h3>
-                <p>Recrea las carreras de Marbula One con este divertido juguete de canicas.</p>
-                <p><strong>Precio: $29.99</strong></p>
-            </div>
-
-            <div class="elemento" id="producto4" draggable="true" ondragstart="drag(event)" data-precio="9.99">
-                <img src="../images/poster_marbula.jpg" alt="Póster Marbula One" width="150">
-                <h3>Póster Marbula One</h3>
-                <p>Póster de alta calidad con los mejores momentos de Marbula One.</p>
-                <p><strong>Precio: $9.99</strong></p>
-            </div>
-
-            <div class="elemento" id="producto5" draggable="true" ondragstart="drag(event)" data-precio="34.99">
-                <img src="../images/mochila.jpg" alt="Mochila Marbula One" width="150">
-                <h3>Mochila Marbula One</h3>
-                <p>Mochila resistente con el logo de Marbula One, ideal para llevar tus pertenencias a las carreras.</p>
-                <p><strong>Precio: $34.99</strong></p>
-            </div>
-
-            <div class="elemento" id="producto6" draggable="true" ondragstart="drag(event)" data-precio="7.99">
-                <img src="../images/taza.jpg" alt="Taza Oficial Marbula One" width="150">
-                <h3>Taza Oficial Marbula One</h3>
-                <p>Comienza tu día con una taza de café en la taza oficial de Marbula One.</p>
-                <p><strong>Precio: $7.99</strong></p>
-            </div>
-
-            <div class="elemento" id="producto7" draggable="true" ondragstart="drag(event)" data-precio="12.99">
-                <img src="../images/bandera.jpg" alt="Bandera Oficial Marbula One" width="150">
-                <h3>Bandera Oficial Marbula One</h3>
-                <p>Bandera oficial de Marbula One para mostrar tu apoyo a tu equipo favorito.</p>
-                <p><strong>Precio: $12.99</strong></p>
-            </div>
-
-            <div class="elemento" id="producto8" draggable="true" ondragstart="drag(event)" data-precio="4.99">
-                <img src="../images/pegatinas.jpg" alt="Set de Pegatinas Marbula One" width="150">
-                <h3>Set de Pegatinas Marbula One</h3>
-                <p>Personaliza tu material con este set de pegatinas exclusivas de Marbula One.</p>
-                <p><strong>Precio: $4.99</strong></p>
-            </div>
+            <!-- Aquí los productos se cargarán dinámicamente desde Firebase -->
         </div>
 
         <div class="carrito-flotante" id="carrito" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <h2>Carrito</h2>
+        <h2>Carrito</h2>
             <p>Arrastra los productos aquí</p>
             <table>
                 <thead>

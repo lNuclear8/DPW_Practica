@@ -1,0 +1,176 @@
+{
+  "productos": {
+    "producto1": {
+      "nombre": "Camiseta Oficial Marbula One",
+      "precio": 19.99,
+      "imagen": "../images/camiseta.jpg",
+      "descripcion": "La camiseta oficial de Marbula One. Comodidad y estilo con el logo de Marbula One."
+    },
+    "producto2": {
+      "nombre": "Gorra Marbula One",
+      "precio": 15.99,
+      "imagen": "../images/gorra.jpg",
+      "descripcion": "Gorra con el logo de Marbula One, perfecta para los fans más apasionados."
+    },
+    "producto3": {
+      "nombre": "Juguete de Canicas Marbula One",
+      "precio": 29.99,
+      "imagen": "../images/juguete_canicas.jpg",
+      "descripcion": "Recrea las carreras de Marbula One con este divertido juguete de canicas."
+    },
+    "producto4": {
+      "nombre": "Póster Marbula One",
+      "precio": 9.99,
+      "imagen": "../images/poster_marbula.jpg",
+      "descripcion": "Póster de alta calidad con los mejores momentos de Marbula One."
+    },
+    "producto5": {
+      "nombre": "Mochila Marbula One",
+      "precio": 34.99,
+      "imagen": "../images/mochila.jpg",
+      "descripcion": "Mochila resistente con el logo de Marbula One, ideal para llevar tus pertenencias a las carreras."
+    },
+    "producto6": {
+      "nombre": "Taza Oficial Marbula One",
+      "precio": 7.99,
+      "imagen": "../images/taza.jpg",
+      "descripcion": "Comienza tu día con una taza de café en la taza oficial de Marbula One."
+    },
+    "producto7": {
+      "nombre": "Bandera Oficial Marbula One",
+      "precio": 12.99,
+      "imagen": "../images/bandera.jpg",
+      "descripcion": "Bandera oficial de Marbula One para mostrar tu apoyo a tu equipo favorito."
+    },
+    "producto8": {
+      "nombre": "Set de Pegatinas Marbula One",
+      "precio": 4.99,
+      "imagen": "../images/pegatinas.jpg",
+      "descripcion": "Personaliza tu material con este set de pegatinas exclusivas de Marbula One."
+    }
+  },
+  "equipos": [
+    {
+      "nombre": "Savage Speeders",
+      "puntos": 150,
+      "victorias": 3,
+      "podios": 5,
+      "mejorPuesto": "1º",
+      "ultimaCarrera": "Vencedores en Gran Premio de los ThunderBolts"
+    },
+    {
+      "nombre": "Green Ducks",
+      "puntos": 130,
+      "victorias": 2,
+      "podios": 4,
+      "mejorPuesto": "2º",
+      "ultimaCarrera": "Segundos en Gran Premio de los Savage Speeders"
+    },
+    {
+      "nombre": "Hazers",
+      "puntos": 110,
+      "victorias": 1,
+      "podios": 3,
+      "mejorPuesto": "3º",
+      "ultimaCarrera": "Cuartos en Gran Premio de los Team Momo"
+    },
+    {
+      "nombre": "Team Momo",
+      "puntos": 95,
+      "victorias": 1,
+      "podios": 2,
+      "mejorPuesto": "1º",
+      "ultimaCarrera": "Vencedores en Gran Premio de los Team Galactic"
+    },
+    {
+      "nombre": "ThunderBolts",
+      "puntos": 85,
+      "victorias": 1,
+      "podios": 1,
+      "mejorPuesto": "2º",
+      "ultimaCarrera": "Segundos en Gran Premio de los Green Ducks"
+    },
+    {
+      "nombre": "Team Galactic",
+      "puntos": 75,
+      "victorias": 0,
+      "podios": 2,
+      "mejorPuesto": "4º",
+      "ultimaCarrera": "Cuartos en Gran Premio de los Mellow Yellow"
+    },
+    {
+      "nombre": "Mellow Yellow",
+      "puntos": 60,
+      "victorias": 0,
+      "podios": 1,
+      "mejorPuesto": "3º",
+      "ultimaCarrera": "Quintos en Gran Premio de los Hazers"
+    },
+    {
+      "nombre": "Hobalts",
+      "puntos": 50,
+      "victorias": 0,
+      "podios": 0,
+      "mejorPuesto": "5º",
+      "ultimaCarrera": "Últimos en Gran Premio de los ThunderBolts"
+    }
+  ],
+  "escuderias": [
+    {
+      "nombre": "Savage Speeders",
+      "logo": "../images/savage-speeders-logo.png",
+      "pais": "Estados Unidos",
+      "campeonatos": 2,
+      "color": "Amarillo"
+    },
+    {
+      "nombre": "Green Ducks",
+      "logo": "../images/green-ducks-logo.png",
+      "pais": "Canadá",
+      "campeonatos": 1,
+      "color": "Verde"
+    },
+    {
+      "nombre": "Hazers",
+      "logo": "../images/hazers-logo.png",
+      "pais": "Reino Unido",
+      "campeonatos": 0,
+      "color": "Morado"
+    },
+    {
+      "nombre": "Team Momo",
+      "logo": "../images/team-momo-logo.png",
+      "pais": "Japón",
+      "campeonatos": 1,
+      "color": "Rosa"
+    },
+    {
+      "nombre": "ThunderBolts",
+      "logo": "../images/thunderbolts-logo.png",
+      "pais": "Alemania",
+      "campeonatos": 2,
+      "color": "Azul"
+    },
+    {
+      "nombre": "Team Galactic",
+      "logo": "../images/team-galactic-logo.png",
+      "pais": "Francia",
+      "campeonatos": 0,
+      "color": "Negro y Azul"
+    },
+    {
+      "nombre": "Mellow Yellow",
+      "logo": "../images/mellow-yellow-logo.png",
+      "pais": "Brasil",
+      "campeonatos": 0,
+      "color": "Amarillo"
+    },
+    {
+      "nombre": "Hobalts",
+      "logo": "../images/hobalts-logo.png",
+      "pais": "España",
+      "campeonatos": 1,
+      "color": "Rojo"
+    }
+  ]
+}
