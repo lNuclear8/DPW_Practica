@@ -11,6 +11,7 @@ body {
     /* Importantes estos margin 0 y padding 0 para evitar márgenes blancos en el borde superior y lateral izquierdo */
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 h2 {
