@@ -115,7 +115,10 @@ Estilos para los buscadores
 }
 
 /* Estilo para inputs de texto */
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"] {
     padding: 0.6rem 1rem;
     font-size: 1rem;
     border-radius: 10px;
