@@ -57,8 +57,7 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    margin-top: 1em;
 }
 
 #comprar-flotante:hover {

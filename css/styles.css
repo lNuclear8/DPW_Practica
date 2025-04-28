@@ -138,20 +138,18 @@ input[type="text"]:focus {
 /* Aplica a <button> y <input type="submit"> */
 button,
 input[type="submit"] {
-    background-color: darkgrey;
+    background-color: #00364d;
     color: white;
     border: none;
     padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 500;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 /* Hover */
 button:hover,
 input[type="submit"]:hover {
-    background-color: grey;
+    background-color: #f0f0f0;
+    color: #00364d;
 }
 
 /* --------------HEADER-----------*/
@@ -204,6 +202,7 @@ Menú
     padding: 10px;
     margin: 0;
     color: white;
+    border-left: 4px solid red;
 }
 
 /*
@@ -215,7 +214,7 @@ Toda la parte de funcionalidad del menú
 }
 
 .menu-list li:hover > a {
-    color: black;
+    color: red;
 }
 
 /**
@@ -394,6 +393,15 @@ Plugin de FullCalendar en calendario.html
 }
 
 /**
+Tablas Bootstrap
+ */
+.encabezado-tabla th{
+    background-color: #00364d !important;
+    color: white !important;
+
+}
+
+/**
 ------------------------------------MEDIA QUERIES------------------------------------------------------------------------------
  */
 @media (max-width: 768px) {
@@ -421,7 +429,7 @@ Plugin de FullCalendar en calendario.html
 
     .menu-hamburguesa {
         display: block; /* Para que aparezca, antes estaba en none*/
-        background: none; /* Por defecto tiene un background, hay que quitarlo*/
+        background: none !important; /* Por defecto tiene un background, hay que quitarlo*/
         font-size: 2rem;
         justify-self: end; /* Para ponerlo a la derecha del todo*/
         border: none;
@@ -431,8 +439,10 @@ Plugin de FullCalendar en calendario.html
     .menu-hamburguesa:hover,
     .menu-hamburguesa:active,
     .menu-hamburguesa:focus {
-        background: none;
-        box-shadow: none;
+        background: none !important;
+        color: inherit !important;
+        box-shadow: none !important;
+        border: none !important;
     }
 
     .logo{
