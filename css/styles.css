@@ -369,6 +369,11 @@ Parte del bottom (en grey, justo debajo de Sponsors)
     color: #212529; /* Color del texto*/
 }
 
+.accordion-item{
+    position: relative;
+    z-index: 0;
+}
+
 /**
 Plugin de FullCalendar en calendario.html
  */
