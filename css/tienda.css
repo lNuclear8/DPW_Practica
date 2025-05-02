@@ -60,11 +60,15 @@ Básicamente sirve para que pueda existir el espaciado interno entre los product
     margin-top: 1em;
 }
 
+.elementos_listables .elemento button,p,h3 {
+    margin-top: auto;
+}
+
+
 #comprar-flotante:hover {
     background-color: #00364d;
     color: white;
 }
-
 
 @media (max-width: 768px) {
     .tienda-layout {

@@ -410,6 +410,12 @@ Tablas Bootstrap
 ------------------------------------MEDIA QUERIES------------------------------------------------------------------------------
  */
 @media (max-width: 768px) {
+    button:hover,
+    input[type="submit"]:hover {
+        background-color: #00364d;
+        color: white;
+    }
+
     /* --------------HEADER-----------*/
     .menu-list {
         display: none;

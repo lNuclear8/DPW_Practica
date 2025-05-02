@@ -41,9 +41,15 @@ async function cargarProductos() {
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
                     <p><strong>Precio: €${producto.precio}</strong></p>
+                    <button class="boton-add" data-nombre="${producto.nombre}">Añadir al carrito</button>
                 `;
 
             contenedor.appendChild(elemento);
+
+            elemento.querySelector(".boton-add").addEventListener("click", function () {
+                addProductoAlCarrito(producto.nombre);
+            });
+
         });
 
         cargarCarritoDesdeCookie();
@@ -88,34 +94,39 @@ document.getElementById("comprar-flotante").addEventListener("click", async func
         alert("¡Pedido realizado con éxito!");
         document.getElementById("carrito-body-flotante").innerHTML = "";
         document.getElementById("total-carrito-flotante").textContent = "Total: €0.00";
-        document.cookie = "carrito=; path=/; max-age=0";//Borrar cookie
+        borrarTodasLasCookiesProductos();
     } catch (error) {
         alert("Error al realizar el pedido. Intenta de nuevo.");
     }
 });
 
-function guardarCarritoEnCookie() {
-    const carrito = [];
+function guardarProductoEnCookie() {
     const filas = document.querySelectorAll("#carrito-body-flotante tr");
 
     filas.forEach(fila => {
-        carrito.push({
-            nombre: fila.cells[0].textContent,
-            cantidad: parseInt(fila.cells[1].textContent),
-            precio: parseFloat(fila.cells[2].textContent.replace('€', '').trim()) || 0
-        });
-    });
+        const nombre = fila.cells[0].textContent;
+        const cantidad = parseInt(fila.cells[1].textContent);
+        const precioTexto = fila.cells[2].textContent.replace('€', '').trim();
+        const precio = parseFloat(precioTexto) || 0;
 
-    document.cookie = "carrito=" + encodeURIComponent(JSON.stringify(carrito)) + "; path=/";
+        const producto = {
+            nombre: nombre,
+            cantidad: cantidad,
+            precio: precio / cantidad
+        };
+
+        document.cookie = `producto_${encodeURIComponent(nombre)}=${encodeURIComponent(JSON.stringify(producto))}; path=/`;
+    });
 }
 
 function cargarCarritoDesdeCookie() {
     const cookies = document.cookie.split("; ");
-    const carritoCookie = cookies.find(row => row.startsWith("carrito="));//Leer cookie
-    if (carritoCookie) {
-        const carrito = JSON.parse(decodeURIComponent(carritoCookie.split("=")[1]));
+    cookies.forEach(cookie => {
+        if (cookie.startsWith("producto_")) {
+            const igualPos = cookie.indexOf("=");
+            const value = decodeURIComponent(cookie.substring(igualPos + 1));
+            const producto = JSON.parse(value);
 
-        carrito.forEach(producto => {
             const fila = document.createElement("tr");
             fila.innerHTML = `
                 <td>${producto.nombre}</td>
@@ -124,10 +135,36 @@ function cargarCarritoDesdeCookie() {
                 <td><button onclick="borrarProducto(this)">❌</button></td>
             `;
             document.getElementById("carrito-body-flotante").appendChild(fila);
-        });
+        }
+    });
 
-        actualizarTotal();
+    actualizarTotal();
+}
+
+function addProductoAlCarrito(nombre) {//Para boton añadir
+    const carritoBody = document.getElementById("carrito-body-flotante");
+    const filas = carritoBody.getElementsByTagName("tr");
+
+    for (let fila of filas) {
+        if (fila.cells[0].textContent === nombre) {
+            let cantidad = parseInt(fila.cells[1].textContent);
+            fila.cells[1].textContent = cantidad + 1;
+            actualizarTotal();
+            guardarProductoEnCookie();
+            return;
+        }
     }
+
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+        <td>${nombre}</td>
+        <td>1</td>
+        <td>-</td>
+        <td><button onclick="borrarProducto(this)">❌</button></td>
+    `;
+    carritoBody.appendChild(fila);
+    actualizarTotal();
+    guardarProductoEnCookie();
 }
 
 // Funciones de carrito (antes de DOMContentLoaded)
@@ -167,18 +204,21 @@ function borrarProducto(boton) {
 
     fila.remove();
     actualizarTotal();
+    eliminarCookie(nombreProducto);
+}
 
-    // Actualizamos la cookie sin ese producto
-    const cookies = document.cookie.split("; ");
-    const carritoCookie = cookies.find(row => row.startsWith("carrito="));
-    if (carritoCookie) {
-        let carrito = JSON.parse(decodeURIComponent(carritoCookie.split("=")[1]));
+function eliminarCookie(nombreProducto) {
+    document.cookie = `producto_${encodeURIComponent(nombreProducto)}=; path=/; max-age=0`;
+}
 
-        carrito = carrito.filter(item => item.nombre !== nombreProducto);// Se filtra el producto que queremos eliminar
-
-        // Volvemos a guardar la cookie actualizada
-        document.cookie = "carrito=" + encodeURIComponent(JSON.stringify(carrito)) + "; path=/";
-    }
+function borrarTodasLasCookiesProductos() {
+    document.cookie.split(";").forEach(cookie => {
+        const nombreCookie = cookie.split("=")[0].trim();
+        if (nombreCookie.startsWith("producto_")) {
+            const nombreProducto = decodeURIComponent(nombreCookie.replace("producto_", ""));
+            eliminarCookie(nombreProducto);
+        }
+    });
 }
 
 function drop(ev) {
@@ -197,7 +237,7 @@ function drop(ev) {
             let cantidad = parseInt(fila.cells[1].textContent);
             fila.cells[1].textContent = cantidad + 1;
             actualizarTotal();
-            guardarCarritoEnCookie();
+            guardarProductoEnCookie();
             return;
         }
     }
@@ -211,7 +251,7 @@ function drop(ev) {
     `;
     carritoBody.appendChild(fila);
     actualizarTotal();
-    guardarCarritoEnCookie();
+    guardarProductoEnCookie();
 }
 
 // Se hacen globales las funciones para que funcionen en el HTML
